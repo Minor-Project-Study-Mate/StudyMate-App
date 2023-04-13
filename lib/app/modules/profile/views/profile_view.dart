@@ -1,24 +1,103 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
-import '../controllers/profile_controller.dart';
-
-class ProfileView extends GetView<ProfileController> {
-  const ProfileView({Key? key}) : super(key: key);
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ProfileView'),
+        title: Text('Profile'),
         centerTitle: true,
+
       ),
-      body: const Center(
-        child: Text(
-          'ProfileView is working',
-          style: TextStyle(fontSize: 20),
+      body:
+      Center(
+        child: Column(
+          children: <Widget>[
+            Padding(
+          padding: EdgeInsets.only(bottom: 20.0,top: 20),
+          child: CircleAvatar(
+            radius: 50.0,
+            backgroundImage: AssetImage('assets/images/profile.jpg'),
+          ),
+        ),
+            
+                Text(
+                  'NITIN',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'nitinkumargd@gmail.com',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+            SizedBox(height: 200.0),
+            Text(
+              '',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Text(
+                      'Followers',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      '200',
+                      style: TextStyle(
+                        fontSize: 16.0, 
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Text(
+                      'Following',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      '150',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              child: Text('Edit Profile'),
+              onPressed: () {},
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
+
