@@ -1,43 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/utils.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
         centerTitle: true,
-
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.changeTheme(
+                Get.theme.brightness == Brightness.dark
+                    ? ThemeData.light()
+                    : ThemeData.dark(),
+              );
+            },
+            icon: const Icon(Icons.sunny),
+          )
+        ],
       ),
-      body:
-      Center(
+      body: Center(
         child: Column(
           children: <Widget>[
-            Padding(
-          padding: EdgeInsets.only(bottom: 20.0,top: 20),
-          child: CircleAvatar(
-            radius: 50.0,
-            backgroundImage: AssetImage('assets/images/profile.jpg'),
-          ),
-        ),
-            
-                Text(
-                  'NITIN',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
+            Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: CircleAvatar(
+                    radius: 40.0,
+                    backgroundImage: AssetImage('assets/images/profile.jpg'),
                   ),
                 ),
-                Text(
-                  'nitinkumargd@gmail.com',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w400,
+                Positioned(
+                  right: -12,
+                  bottom: 0,
+                  child: SizedBox(
+                    height: 36,
+                    width: 36,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                          side: BorderSide(color: Colors.white),
+                        ),
+                        primary: Colors.white,
+                      ),
+                      child: Image.asset("assets/icons/Camera Icon.png"),
+                    ),
                   ),
                 ),
+              ],
+            ),
+            Text(
+              'NITIN',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'nitinkumargd@gmail.com',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
             SizedBox(height: 200.0),
             Text(
               '',
@@ -63,7 +97,7 @@ class ProfilePage extends StatelessWidget {
                     Text(
                       '200',
                       style: TextStyle(
-                        fontSize: 16.0, 
+                        fontSize: 16.0,
                       ),
                     ),
                   ],
@@ -99,5 +133,3 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
-
-
