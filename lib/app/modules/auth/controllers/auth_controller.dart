@@ -1,23 +1,16 @@
 import 'package:get/get.dart';
+import 'package:study_mate/app/routes/app_pages.dart';
 
 class AuthController extends GetxController {
-  //TODO: Implement AuthController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void emailPassword() {
+    Get.offAllNamed(Routes.HOME);
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  void googleSignIn(){}
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
+  void facebookSignIn(){}
 
-  void increment() => count.value++;
+  void reset(){}
+
+
 }

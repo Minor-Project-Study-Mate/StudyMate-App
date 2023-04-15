@@ -15,7 +15,7 @@ class AppPages {
   AppPages._();
 
   // ignore: constant_identifier_names
-  static const INITIAL = Routes.PROFILE;
+  static const INITIAL = Routes.INTRO;
 
   static final routes = [
     GetPage(
@@ -30,9 +30,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () {
-        return ProfilePage();
-      },
+      page: () => const ProfilePage(),
       binding: ProfileBinding(),
     ),
     GetPage(

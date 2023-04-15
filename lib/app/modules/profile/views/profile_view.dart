@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:study_mate/app/modules/profile/controllers/profile_controller.dart';
 
 class ProfilePage extends GetView<ProfileController> {
@@ -10,7 +9,7 @@ class ProfilePage extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         centerTitle: true,
         actions: [
           IconButton(
@@ -28,43 +27,43 @@ class ProfilePage extends GetView<ProfileController> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Text(
+            const Text(
               'NITIN',
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
+            const Text(
               'nitinkumargd@gmail.com',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            SizedBox(height: 200.0),
-            Text(
+            const SizedBox(height: 200.0),
+            const Text(
               '',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Followers',
                       style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10.0),
-                    Text(
+                    const SizedBox(height: 10.0),
+                    const Text(
                       '200',
                       style: TextStyle(
                         fontSize: 16.0,
@@ -74,15 +73,15 @@ class ProfilePage extends GetView<ProfileController> {
                 ),
                 Column(
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Following',
                       style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10.0),
-                    Text(
+                    const SizedBox(height: 10.0),
+                    const Text(
                       '150',
                       style: TextStyle(
                         fontSize: 16.0,
@@ -92,9 +91,9 @@ class ProfilePage extends GetView<ProfileController> {
                 ),
               ],
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
-              child: Text('Edit Profile'),
+              child: const Text('Edit Profile'),
               onPressed: () {},
             ),
           ],
