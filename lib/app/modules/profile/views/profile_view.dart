@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
+import 'package:study_mate/app/modules/profile/controllers/profile_controller.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
@@ -27,37 +28,6 @@ class ProfilePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
-            Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: CircleAvatar(
-                    radius: 40.0,
-                    backgroundImage: AssetImage('assets/images/profile.jpg'),
-                  ),
-                ),
-                Positioned(
-                  right: -12,
-                  bottom: 0,
-                  child: SizedBox(
-                    height: 36,
-                    width: 36,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40),
-                          side: BorderSide(color: Colors.white),
-                        ),
-                        primary: Colors.white,
-                      ),
-                      child: Image.asset("assets/icons/Camera Icon.png"),
-                    ),
-                  ),
-                ),
-              ],
-            ),
             Text(
               'NITIN',
               style: TextStyle(
