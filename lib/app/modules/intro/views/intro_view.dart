@@ -47,6 +47,7 @@ class IntroView extends GetView<IntroController> {
                           style: TextStyle(
                             fontSize: 50,
                             fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
                         ),
                         const Spacer(),
@@ -83,7 +84,7 @@ class IntroView extends GetView<IntroController> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
-                                    color: Colors.white),
+                                ),
                               ),
                             )
                           ],

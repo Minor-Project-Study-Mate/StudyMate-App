@@ -21,11 +21,16 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+      body:  Center(
+        child: ElevatedButton(
+          onPressed: () => Get.toNamed(Routes.INTRO),
+          child: const Text('Intro button'),
         ),
+
+        // child: Text(
+        //   'HomeView is working',
+        //   style: TextStyle(fontSize: 20),
+        // ),
       ),
     );
   }
