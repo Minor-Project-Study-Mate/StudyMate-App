@@ -29,7 +29,7 @@ class IntroView extends GetView<IntroController> {
           Expanded(
               flex: 2,
               child: Container(
-                color:Colors.blue,
+                color: Colors.blue,
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(
@@ -57,7 +57,7 @@ class IntroView extends GetView<IntroController> {
                           style: TextStyle(
                             color: Colors.black,
                             wordSpacing: 2.5,
-                             fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.bold,
                             height: 1.5,
                             fontSize: 16,
                           ),
@@ -82,8 +82,8 @@ class IntroView extends GetView<IntroController> {
                               child: const Text(
                                 "Get Started",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
                                 ),
                               ),
                             )
