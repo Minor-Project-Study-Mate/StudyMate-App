@@ -119,7 +119,7 @@ class AuthView extends GetView<AuthController> {
                               Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.center,
-                                children: [
+                                children: const [
                                   Text(
                                     'Have an account?',
                                     style: TextStyle(
@@ -140,7 +140,7 @@ class AuthView extends GetView<AuthController> {
                                   )
                                 ],
                               ),
-                              SizedBox(height: 10.0),
+                              const SizedBox(height: 10.0),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -152,7 +152,7 @@ class AuthView extends GetView<AuthController> {
                                     child: Container(
                                       height: 40.0,
                                       width: 40.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: Colors.white,
                                         boxShadow: [
@@ -176,7 +176,7 @@ class AuthView extends GetView<AuthController> {
                                     child: Container(
                                       height: 40.0,
                                       width: 40.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: Colors.white,
                                         boxShadow: [
@@ -195,7 +195,7 @@ class AuthView extends GetView<AuthController> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 30.0),
+                              const SizedBox(height: 30.0),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
