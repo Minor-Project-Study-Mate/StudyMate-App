@@ -32,354 +32,298 @@ class ProfilePage extends GetView<ProfileController> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              height: 220,
+              height: 270,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xff3B3B98),
+                    Color(0xff0072B5),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
                 borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(180),
-                    bottomLeft: Radius.circular(180)),
+                  bottomLeft: Radius.circular(0),
+                  bottomRight: Radius.circular(500),
+                ),
               ),
-              padding: EdgeInsets.only(bottom: 20.0, top: 20),
+              padding: EdgeInsets.only(bottom: 10.0, top: 20),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 50.0,
-                    backgroundImage: AssetImage('assets/images/profile.jpg'),
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white70,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                      border: Border.all(
+                        color: Colors.grey.shade300,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Stack(
+                      children: [
+                        CircleAvatar(
+                          radius: 60.0,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.indigo,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.camera_alt_rounded,
+                              color: Colors.white,
+                              size: 30.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Name',
+                    'Jane Doe',
                     style: TextStyle(
                       fontSize: 23.0,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                  //const SizedBox(height: 10),
                   const Text(
-                    'xyz@gmail.com',
+                    'jane.doe@example.com',
                     style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      //
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    ),
+                    child: const Text(
+                      'Edit Profile',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
             Container(
-              //height: Get.height * 0.1,
+              padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 18.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 10.0),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey.shade300,
-                      ),
-                      //borderRadius: BorderRadius.circular(8.0),
+                  Text(
+                    'Settings',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 20.0),
+                  Card(
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // Navigate to the next page
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11.0, horizontal: 20.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                        ListTile(
+                          leading: FaIcon(FontAwesomeIcons.users),
+                          title: Text(
+                            'My Batch',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const FaIcon(FontAwesomeIcons.users),
-                                color: Colors.black,
-                              ),
-                              Text(
-                                'My Batch',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 19.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.blue,
-                                size: 24.0,
-                              ),
-                            ],
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 20.0,
                           ),
-                        ),
-                        Divider(
-                          color: Colors.black,
-                          height: 8.0,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
+                          onTap: () {
                             // Navigate to the next page
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11.0, horizontal: 20.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                        ),
+                        Divider(),
+                        ListTile(
+                          leading: FaIcon(FontAwesomeIcons.palette),
+                          title: Text(
+                            'Theme',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const FaIcon(FontAwesomeIcons.palette),
-                                color: Colors.black,
-                              ),
-                              Text(
-                                'Theme',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 19.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.blue,
-                                size: 24.0,
-                              ),
-                            ],
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 20.0,
                           ),
-                        ),
-                        Divider(
-                          color: Colors.grey.shade300,
-                          height: 1.0,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
+                          onTap: () {
                             // Navigate to the next page
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11.0, horizontal: 20.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                        ),
+                        Divider(),
+                        ListTile(
+                          leading: FaIcon(FontAwesomeIcons.handHoldingHeart),
+                          title: Text(
+                            'Feedback',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const FaIcon(
-                                    FontAwesomeIcons.handHoldingHeart),
-                                color: Colors.black,
-                              ),
-                              Text(
-                                'Feedback',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 19.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.blue,
-                                size: 24.0,
-                              ),
-                            ],
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 20.0,
                           ),
-                        ),
-                        Divider(
-                          color: Colors.grey.shade300,
-                          height: 1.0,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
+                          onTap: () {
                             // Navigate to the next page
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11.0, horizontal: 20.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                        ),
+                        Divider(),
+                        ListTile(
+                          leading: FaIcon(FontAwesomeIcons.thumbsUp),
+                          title: Text(
+                            'Rate Us',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const FaIcon(FontAwesomeIcons.thumbsUp),
-                                color: Colors.black,
-                              ),
-                              Text(
-                                'Rate Us',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 19.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.blue,
-                                size: 24.0,
-                              ),
-                            ],
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 20.0,
                           ),
-                        ),
-                        Divider(
-                          color: Colors.grey.shade300,
-                          height: 1.0,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
+                          onTap: () {
                             // Navigate to the next page
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11.0, horizontal: 20.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                        ),
+                        Divider(),
+                        ListTile(
+                          leading: FaIcon(FontAwesomeIcons.share),
+                          title: Text(
+                            'Share this App',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const FaIcon(FontAwesomeIcons.shareNodes),
-                                color: Colors.black,
-                              ),
-                              Text(
-                                'Share this APP',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 19.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.blue,
-                                size: 24.0,
-                              ),
-                            ],
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 20.0,
                           ),
-                        ),
-                        Divider(
-                          color: Colors.grey.shade300,
-                          height: 1.0,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
+                          onTap: () {
                             // Navigate to the next page
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11.0, horizontal: 20.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                        ),
+                        Divider(),
+                        ListTile(
+                          leading: FaIcon(FontAwesomeIcons.infoCircle),
+                          title: Text(
+                            'About Us',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const FaIcon(FontAwesomeIcons.circleInfo),
-                                color: Colors.black,
-                              ),
-                              Text(
-                                'About Us',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 19.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.blue,
-                                size: 24.0,
-                              ),
-                            ],
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 20.0,
                           ),
-                        ),
-                        Divider(
-                          color: Colors.black,
-                          height: 20.0,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
+                          onTap: () {
                             // Navigate to the next page
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11.0, horizontal: 20.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const FaIcon(FontAwesomeIcons.powerOff),
-                                color: Colors.black,
-                              ),
-                              Text(
-                                'Log Out',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 19.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.blue,
-                                size: 24.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          color: Colors.black,
-                          height: 1.0,
                         ),
                       ],
                     ),
                   ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          // TODO: Implement your functionality when the "Report a Problem" text is tapped
-                        },
-                        child: Text(
-                          'Report a Problem',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xff3B3B98), Color(0xff0072B5)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Implement logout functionality
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.logout,
+                      color: Colors.white,
+                      size: 31.0,
+                    ),
+                    SizedBox(width: 10.0),
+                    Text(
+                      'Logout',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 8)
           ],
         ),
       ),
