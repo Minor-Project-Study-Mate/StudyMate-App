@@ -8,6 +8,8 @@ import '../modules/intro/bindings/intro_binding.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/test_page/bindings/test_page_binding.dart';
+import '../modules/test_page/views/test_page_view.dart';
 
 part 'app_routes.dart';
 
@@ -15,7 +17,7 @@ class AppPages {
   AppPages._();
 
   // ignore: constant_identifier_names
-  static const INITIAL = Routes.INTRO;
+  static const INITIAL = Routes.TEST_PAGE;
 
   static final routes = [
     GetPage(
@@ -37,6 +39,11 @@ class AppPages {
       name: _Paths.AUTH,
       page: () => const AuthView(),
       binding: AuthBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEST_PAGE,
+      page: () => const TestPageView(),
+      binding: TestPageBinding(),
     ),
   ];
 }

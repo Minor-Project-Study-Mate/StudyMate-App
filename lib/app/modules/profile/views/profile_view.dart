@@ -40,8 +40,8 @@ class ProfilePage extends GetView<ProfileController> {
                     bottomLeft: Radius.circular(200)),
               ),
               padding: const EdgeInsets.only(bottom: 20.0, top: 20),
-              child: Column(
-                children: const [
+              child: const Column(
+                children: [
                   CircleAvatar(
                     radius: 50.0,
                     backgroundImage: AssetImage('assets/images/profile.jpg'),
