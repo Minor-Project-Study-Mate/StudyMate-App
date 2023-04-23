@@ -1,161 +1,173 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+import 'package:get/get.dart';
+import '../controllers/home_controller.dart';
 
+class HomeView extends GetView<HomeController> {
+  const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
+        body: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+          ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 2.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    'Hi, NITIN',
-                    style: TextStyle(
-                      fontSize: 28.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 80.0,
-                    child: CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: AssetImage('assets/profile.jpg'),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16.0),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search notes',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  suffixIcon: const Icon(Icons.search),
-                ),
-              ),
-              const SizedBox(height: 32.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.note),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(height: 8.0),
-                      const Text('Notes'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.calendar_today),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(height: 8.0),
-                      const Text('Calendar'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.check_circle),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(height: 8.0),
-                      const Text('Tasks'),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 32.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.camera_alt),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(height: 8.0),
-                      const Text('Scan'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.settings),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(height: 8.0),
-                      const Text('Settings'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.info_outline),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(height: 8.0),
-                      const Text('About'),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 32.0),
-              const Text(
-                'Notice/Events',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 16.0),
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
+                padding: const EdgeInsets.only(
+                  top: 15,
+                  left: 15,
+                  right: 15,
+                  bottom: 30,
                 ),
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
-                      'Recent Notice/event',
+                      "Hi Programmer!",
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 28.0,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 8.0),
-                    Text(
-                      'KIIT PLACEMENT SESSION STARTS FROM JUNE  2023 and kiit provide 100 percent placement to all the students in the kiit.Computer Science is a field of study that deals with the theory, design, development, and application of computer software and hardware. It encompasses a range of topics including programming languages, algorithms, data structures, computer organization, computer graphics, artificial intelligence, and more. Computer Science is a rapidly growing and evolving field, and its applications can be found in virtually every aspect of modern society, from healthcare and education to finance and entertainment.',
-                      style: TextStyle(
-                        fontSize: 16.0,
+                    SizedBox(
+                      width: 60.0,
+                      child: CircleAvatar(
+                        radius: 30.0,
+                        backgroundImage: AssetImage('assets/profile.jpg'),
                       ),
                     ),
                   ],
                 ),
               ),
+              Container(
+                width: 380.0,
+                height: 50.0,
+                margin: const EdgeInsets.symmetric(horizontal: 15.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: const TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    prefixIcon: Icon(Icons.search),
+                    hintText: "Search",
+                    contentPadding: EdgeInsets.all(10.0),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              )
             ],
           ),
         ),
-      ),
+        const SizedBox(height: 40.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildCircularButton(
+                FontAwesomeIcons.bookOpen, "Resources", Colors.pink.shade300),
+            _buildCircularButton(Icons.assignment, "Courses", Colors.green),
+            _buildCircularButton(Icons.favorite, "MeetUp", Colors.red),
+          ],
+        ),
+        const SizedBox(height: 20.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildCircularButton(Icons.event, "Timetable", Colors.blue),
+            _buildCircularButton(Icons.star_border_outlined, "Favourites",
+                Colors.purple.shade300),
+            _buildCircularButton(
+                Icons.message_outlined, "Chat", Colors.amber.shade400),
+          ],
+        ),
+        const SizedBox(height: 20.0),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            "Notice/Events",
+            style: TextStyle(
+              fontSize: 30.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        const SizedBox(height: 10.0),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Notice ${index + 1}",
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10.0),
+                    Text(
+                      "This is the content of Notice ${index + 1}",
+                      style: const TextStyle(fontSize: 16.0),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    ));
+  }
+
+  Widget _buildCircularButton(IconData iconData, String label, Color color) {
+    return Column(
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            // TODO: Implement button functionality
+          },
+          style: ElevatedButton.styleFrom(
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(15),
+            backgroundColor: color,
+            elevation: 5,
+          ),
+          child: Icon(
+            iconData,
+            color: Colors.white,
+            size: 35.0,
+          ),
+        ),
+        const SizedBox(height: 10.0),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 16.0),
+        ),
+      ],
     );
   }
 }
