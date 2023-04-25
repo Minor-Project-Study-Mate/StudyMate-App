@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:get/get.dart';
+
+import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -31,20 +33,30 @@ class HomeView extends GetView<HomeController> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
-                      "Hi Programmer!",
-                      style: TextStyle(
+                      "Hi ${controller.getFirstName}",
+                      style: const TextStyle(
                         fontSize: 28.0,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
-                      width: 60.0,
-                      child: CircleAvatar(
-                        radius: 30.0,
-                        backgroundImage: AssetImage('assets/profile.jpg'),
+                    GestureDetector(
+                      onTap: () => Get.toNamed(Routes.PROFILE),
+                      child: SizedBox(
+                        width: 60.0,
+                        child: Hero(
+                          tag: "profile",
+                          child: CircleAvatar(
+                            radius: 30.0,
+                            backgroundImage: CachedNetworkImageProvider(
+                              controller
+                                      .boxService.appUserBox.appUser?.photoURL ??
+                                  "",
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],
