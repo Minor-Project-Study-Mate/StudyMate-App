@@ -1,23 +1,12 @@
 import 'package:get/get.dart';
 
+import '../../../services/box/box_service.dart';
+
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final boxService = Get.find<BoxService>();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  String get getFirstName {
+    final name = boxService.appUserBox.appUser?.displayName ?? "";
+    return name.split(" ")[0];
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

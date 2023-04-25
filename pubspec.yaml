@@ -11,6 +11,11 @@ dependencies:
   flutter: 
     sdk: flutter
   font_awesome_flutter: ^10.4.0
+  firebase_core: ^2.10.0
+  google_sign_in: ^6.1.0
+  dwds: ^19.0.0
+  get_storage: ^2.1.1
+  cached_network_image: ^3.2.3
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
