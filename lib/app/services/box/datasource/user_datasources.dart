@@ -24,7 +24,8 @@ class AppUserDataSource implements AppUserUsecase {
   }
 
   @override
-  Future<void> deleteAppUser() async => await box.remove(_appUserKey);
+  Future<void> deleteAppUser() async =>
+      await box.remove(_appUserKey).then((value) => appUserRx.value = null);
 
   void diospose() {
     appUserRx.close();

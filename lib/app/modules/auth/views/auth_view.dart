@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:study_mate/app/global/widgets/card_box.dart';
 
 import '../controllers/auth_controller.dart';
 
@@ -30,15 +31,15 @@ class AuthView extends GetView<AuthController> {
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50),
                 )),
-            child: Stack(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Container(),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.only(top: 30),
-                      child: const Text(
+                    Padding(
+                      padding: EdgeInsets.only(top: 30),
+                      child: Text(
                         'Welcome Back',
                         style: TextStyle(
                           color: Colors.black,
@@ -50,14 +51,15 @@ class AuthView extends GetView<AuthController> {
                     ),
                   ],
                 ),
-                Container(
-                  padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.13),
+                const SizedBox(height: 20),
+                CardBox(
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(height: 20),
                       Container(
-                        margin: const EdgeInsets.only(left: 35, right: 35),
+                        margin: const EdgeInsets.symmetric(horizontal: 35),
                         child: Column(
                           children: [
                             TextField(
@@ -72,9 +74,7 @@ class AuthView extends GetView<AuthController> {
                                     borderRadius: BorderRadius.circular(30),
                                   )),
                             ),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            const SizedBox(height: 20),
                             TextField(
                               style: const TextStyle(),
                               obscureText: true,
@@ -88,9 +88,7 @@ class AuthView extends GetView<AuthController> {
                                     borderRadius: BorderRadius.circular(30),
                                   )),
                             ),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            const SizedBox(height: 20),
                             SizedBox(
                               width: double.infinity,
                               child: RawMaterialButton(
@@ -100,7 +98,7 @@ class AuthView extends GetView<AuthController> {
                                       const EdgeInsets.symmetric(vertical: 0.0),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10)),
-                                  onPressed: () => controller.emailPassword(),
+                                  onPressed: () => controller.fakeSignIn(),
                                   child: const Text(
                                     "Login",
                                     style: TextStyle(
@@ -135,9 +133,7 @@ class AuthView extends GetView<AuthController> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 GestureDetector(
-                                  onTap: () {
-                                    // controller.auth.signInSilentlyWeb();
-                                  },
+                                  onTap: () => controller.googleSignIn(),
                                   child: Container(
                                     height: 40.0,
                                     width: 40.0,
@@ -222,6 +218,7 @@ class AuthView extends GetView<AuthController> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 20),
               ],
             ),
           ),

@@ -5,12 +5,12 @@ import 'datasource/theme_datasource.dart';
 import 'datasource/user_datasources.dart';
 
 class BoxService extends GetxService {
-  late final ThemeDatasource theme;
-  late final AppUserDataSource appUser;
+  late final ThemeDatasource themeBox;
+  late final AppUserDataSource appUserBox;
   final box = GetStorage();
 
   Future<void> init() async {
-    theme = ThemeDatasource(box);
-    appUser = AppUserDataSource(box);
+    themeBox = ThemeDatasource(box);
+    appUserBox = AppUserDataSource(box);
   }
 }

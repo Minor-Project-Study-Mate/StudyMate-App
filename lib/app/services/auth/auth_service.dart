@@ -18,25 +18,34 @@ class AuthServices extends GetxService {
     super.onInit();
   }
 
+  Future<void> fakeLogin() async {
+    await box.appUserBox.saveAppUser(AppUser(
+      displayName: "User Name",
+      photoURL: 'https://avatars.githubusercontent.com/u/87150492?v=4',
+      email: "example@email.com",
+    ));
+  }
+
   Future<GoogleSignInAccount?> googleSignIn() async {
     try {
-      if (kIsWeb) {
-        googleSignInAccount.value = await _googleSignIn.signInSilently();
-        if (googleSignInAccount.value != null) {
-          await box.appUser
-              .saveAppUser(googleSignInAccount.value!.fromGoogleSignInAccount);
-        }
-      } else {
-        googleSignInAccount.value = await _googleSignIn.signIn();
-        if (googleSignInAccount.value != null) {
-          await box.appUser
-              .saveAppUser(googleSignInAccount.value!.fromGoogleSignInAccount);
-        }
+      googleSignInAccount.value = kIsWeb
+          ? await _googleSignIn.signInSilently()
+          : await _googleSignIn.signIn();
+
+      /// This code block is checking if the `googleSignInAccount` variable is not null. If it is not
+      /// null, it saves the user's information to the app's local storage using the `saveAppUser`
+      /// method from the `box.appUserBox` object. The `fromGoogleSignInAccount` property is used to
+      /// convert the `GoogleSignInAccount` object to an `AppUser` object before saving it to the local
+      /// storage.
+      if (googleSignInAccount.value != null) {
+        await box.appUserBox
+            .saveAppUser(googleSignInAccount.value!.fromGoogleSignInAccount);
       }
+
       return googleSignInAccount.value;
     } catch (error) {
       Get.snackbar('Error', error.toString());
-      rethrow;
+      return null;
     }
   }
 
@@ -46,8 +55,8 @@ class AuthServices extends GetxService {
 
   Future<void> logout() async {
     try {
+      await box.appUserBox.deleteAppUser();
       await _googleSignIn.signOut();
-      await box.appUser.deleteAppUser();
     } catch (error) {
       print(error);
     }

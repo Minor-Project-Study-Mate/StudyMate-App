@@ -7,12 +7,12 @@ import '../../../services/box/models/app_user.dart';
 
 class TestPageController extends GetxController {
   final authServices = Get.find<AuthServices>();
-  final cacheService = Get.find<BoxService>();
+  final boxService = Get.find<BoxService>();
   final appUser = Rx<AppUser?>(null);
 
   @override
   void onInit() {
-    appUser.value = cacheService.appUser.appUser;
+    appUser.value = boxService.appUserBox.appUser;
     super.onInit();
   }
 
@@ -39,5 +39,5 @@ class TestPageController extends GetxController {
   }
 
   Future<void> toggleThemeMode(ThemeMode themeMode) async =>
-      await cacheService.theme.changeThemeMode(themeMode);
+      await boxService.themeBox.changeThemeMode(themeMode);
 }
