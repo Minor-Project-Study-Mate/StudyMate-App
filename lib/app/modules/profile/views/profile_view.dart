@@ -44,7 +44,7 @@ class ProfilePage extends GetView<ProfileController> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [

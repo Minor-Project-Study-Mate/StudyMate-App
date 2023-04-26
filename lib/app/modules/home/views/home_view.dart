@@ -29,7 +29,7 @@ class HomeView extends GetView<HomeController> {
                   top: 15,
                   left: 15,
                   right: 15,
-                  bottom: 30,
+                  bottom: 40,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,7 +85,7 @@ class HomeView extends GetView<HomeController> {
             ],
           ),
         ),
-        const SizedBox(height: 40.0),
+        const SizedBox(height: 50.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -171,7 +171,7 @@ class HomeView extends GetView<HomeController> {
           child: Icon(
             iconData,
             color: Colors.white,
-            size: 35.0,
+            size: 40.0,
           ),
         ),
         const SizedBox(height: 10.0),
