@@ -34,7 +34,7 @@ class AuthView extends GetView<AuthController> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Row(
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
@@ -105,7 +105,7 @@ class AuthView extends GetView<AuthController> {
                                         color: Colors.white, fontSize: 20),
                                   )),
                             ),
-                            const Column(
+                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
