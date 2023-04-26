@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:study_mate/app/global/widgets/card_box.dart';
+import 'package:study_mate/app/modules/auth/views/SignupPage.dart';
 
 import '../controllers/auth_controller.dart';
 
@@ -34,9 +35,9 @@ class AuthView extends GetView<AuthController> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Padding(
                       padding: EdgeInsets.only(top: 30),
                       child: Text(
@@ -105,9 +106,9 @@ class AuthView extends GetView<AuthController> {
                                         color: Colors.white, fontSize: 20),
                                   )),
                             ),
-                            const Column(
+                            Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Text(
                                   'Have an account?',
                                   style: TextStyle(
@@ -186,7 +187,7 @@ class AuthView extends GetView<AuthController> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, 'register');
+                                    Get.to(SignUpPage());
                                   },
                                   style: const ButtonStyle(),
                                   child: const Text(

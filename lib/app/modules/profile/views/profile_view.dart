@@ -43,11 +43,11 @@ class ProfilePage extends GetView<ProfileController> {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          child: const Padding(
-            padding: EdgeInsets.all(8.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Icon(
                   Icons.logout,
                   color: Colors.white,
