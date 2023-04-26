@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -18,6 +17,7 @@ class SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sign Up'),
+        backgroundColor: Colors.blue[800],
       ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
@@ -25,7 +25,10 @@ class SignUpPageState extends State<SignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20.0),
-            const Text('Name'),
+            const Text(
+              'Name',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 10.0),
             TextField(
               onChanged: (value) {
@@ -36,10 +39,14 @@ class SignUpPageState extends State<SignUpPage> {
               decoration: const InputDecoration(
                 hintText: 'Enter your name',
                 border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.person),
               ),
             ),
             const SizedBox(height: 20.0),
-            const Text('Email'),
+            const Text(
+              'Email',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 10.0),
             TextField(
               onChanged: (value) {
@@ -50,10 +57,14 @@ class SignUpPageState extends State<SignUpPage> {
               decoration: const InputDecoration(
                 hintText: 'Enter your email',
                 border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.email),
               ),
             ),
             const SizedBox(height: 20.0),
-            const Text('Password'),
+            const Text(
+              'Password',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 10.0),
             TextField(
               onChanged: (value) {
@@ -65,6 +76,26 @@ class SignUpPageState extends State<SignUpPage> {
               decoration: const InputDecoration(
                 hintText: 'Enter your password',
                 border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.lock),
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            const Text(
+              'Confirm Password',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10.0),
+            TextField(
+              onChanged: (value) {
+                setState(() {
+                  password = value;
+                });
+              },
+              obscureText: true,
+              decoration: const InputDecoration(
+                hintText: 'Re-enter your password',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.lock),
               ),
             ),
             const SizedBox(height: 20.0),
@@ -78,7 +109,7 @@ class SignUpPageState extends State<SignUpPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
+    ),
+);
+}
 }
