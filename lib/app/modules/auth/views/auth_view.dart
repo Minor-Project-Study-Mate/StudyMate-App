@@ -54,6 +54,7 @@ class AuthView extends GetView<AuthController> {
                 ),
                 const SizedBox(height: 20),
                 CardBox(
+                  elevation: 20,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
