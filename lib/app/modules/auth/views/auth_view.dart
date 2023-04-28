@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:study_mate/app/global/widgets/card_box.dart';
 import 'package:study_mate/app/modules/auth/views/SignupPage.dart';
 
@@ -16,15 +17,19 @@ class AuthView extends GetView<AuthController> {
         Container(
           width: double.infinity,
           decoration: const BoxDecoration(
-              color: Colors.blue,
-              borderRadius:
-                  BorderRadius.only(bottomRight: Radius.circular(50))),
+            gradient: LinearGradient(
+              colors: [Color(0xff3B3B98), Color(0xff0072B5)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.only(bottomRight: Radius.circular(50)),
+          ),
           child: Column(
             children: [Image.asset("assets/images/Intro.png")],
           ),
         ),
         Container(
-          color: Colors.blue,
+          color: const Color.fromARGB(255, 5, 80, 160),
           child: Container(
             width: double.infinity,
             decoration: const BoxDecoration(
@@ -37,16 +42,15 @@ class AuthView extends GetView<AuthController> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 30),
+                      padding: const EdgeInsets.only(top: 30),
                       child: Text(
                         'Welcome Back',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 23,
+                        style: GoogleFonts.lobster(
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
-                          letterSpacing: 0.5,
+                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -93,40 +97,64 @@ class AuthView extends GetView<AuthController> {
                             const SizedBox(height: 20),
                             SizedBox(
                               width: double.infinity,
-                              child: RawMaterialButton(
-                                  fillColor: Colors.blue,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      Color(0xff3B3B98),
+                                      Color(0xff0072B5)
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: RawMaterialButton(
+                                  fillColor: Colors.transparent,
                                   elevation: 0.0,
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 0.0),
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)),
+                                    borderRadius: BorderRadius.circular(9),
+                                  ),
                                   onPressed: () => controller.fakeSignIn(),
-                                  child: const Text(
+                                  child: Text(
                                     "Login",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20),
-                                  )),
+                                    style: GoogleFonts.arimo(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 Text(
                                   'Have an account?',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
+                                  style: GoogleFonts.zillaSlab(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
                                   ),
                                 ),
-                                SizedBox(height: 20.0),
+                                const SizedBox(height: 20.0),
                                 Text(
                                   '- OR -',
-                                  style: TextStyle(
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 17,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                SizedBox(height: 10.0),
+                                const SizedBox(height: 10.0),
                                 Text(
                                   'Sign in with',
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 17,
+                                    color: Colors.black,
+                                  ),
                                 )
                               ],
                             ),
@@ -188,28 +216,28 @@ class AuthView extends GetView<AuthController> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Get.to(SignUpPage());
+                                    Get.to(const SignUpPage());
                                   },
                                   style: const ButtonStyle(),
-                                  child: const Text(
+                                  child: Text(
                                     'Sign Up',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        decoration: TextDecoration.underline,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 18),
+                                    style: GoogleFonts.zillaSlab(
+                                      fontSize: 20,
+                                      decoration: TextDecoration.underline,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ),
                                 TextButton(
                                     onPressed: () {},
-                                    child: const Text(
+                                    child: Text(
                                       'Forgot Password',
-                                      style: TextStyle(
+                                      style: GoogleFonts.zillaSlab(
+                                        fontSize: 20,
                                         decoration: TextDecoration.underline,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black,
-                                        fontSize: 18,
                                       ),
                                     )),
                               ],
@@ -220,7 +248,6 @@ class AuthView extends GetView<AuthController> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
               ],
             ),
           ),

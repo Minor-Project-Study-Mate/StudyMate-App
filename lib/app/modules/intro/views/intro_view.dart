@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:study_mate/app/routes/app_pages.dart';
 
@@ -17,7 +17,12 @@ class IntroView extends GetView<IntroController> {
               child: Container(
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                    color: Colors.blue,
+                    gradient: LinearGradient(
+                      colors: [Color(0xff3B3B98), Color(0xff0072B5)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    // borderRadius: BorderRadius.circular(20),
                     borderRadius:
                         BorderRadius.only(bottomRight: Radius.circular(50))),
                 child: Column(
@@ -29,7 +34,7 @@ class IntroView extends GetView<IntroController> {
           Expanded(
               flex: 2,
               child: Container(
-                color: Colors.blue,
+                color: const Color.fromARGB(255, 5, 95, 169),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(
@@ -42,24 +47,25 @@ class IntroView extends GetView<IntroController> {
                     child: Column(
                       children: [
                         const Spacer(),
-                        const Text(
+                        Text(
                           "Welcome",
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                          style: GoogleFonts.lobster(
+                            textStyle: const TextStyle(
+                              fontSize: 55,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                         const Spacer(),
-                        const Text(
+                        Text(
                           "Hello KIITIANS !",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            wordSpacing: 2.5,
-                            fontWeight: FontWeight.bold,
-                            height: 1.5,
-                            fontSize: 16,
+                          style: GoogleFonts.sourceSerifPro(
+                            textStyle: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                         const Spacer(

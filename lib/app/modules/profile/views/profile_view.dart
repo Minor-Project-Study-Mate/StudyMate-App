@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:study_mate/app/modules/profile/controllers/profile_controller.dart';
 
 class ProfilePage extends GetView<ProfileController> {
@@ -74,10 +75,10 @@ class ProfilePage extends GetView<ProfileController> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Settings',
-              style: TextStyle(
-                fontSize: 24.0,
+              style: GoogleFonts.inter(
+                fontSize: 22.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -154,19 +155,6 @@ class ProfilePage extends GetView<ProfileController> {
               width: 100.0,
               height: 100.0,
               color: Colors.transparent,
-              // decoration: BoxDecoration(
-              //   shape: BoxShape.circle,
-              //   color: Colors.white70,
-              //   boxShadow: [
-              //     BoxShadow(
-              //       color: Colors.grey.withOpacity(0.5),
-              //       spreadRadius: 2,
-              //       blurRadius: 5,
-              //       offset: const Offset(0, 4),
-              //     ),
-              //   ],
-              //   border: Border.all(color: Colors.grey.shade300, width: 1.0),
-              // ),
               child: Stack(
                 children: [
                   Hero(
@@ -198,22 +186,18 @@ class ProfilePage extends GetView<ProfileController> {
               ),
             ),
             const SizedBox(height: 10),
-            Text(
-              controller.boxService.appUserBox.appUser?.displayName ?? "",
-              style: const TextStyle(
-                fontSize: 23.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            Text(
-              controller.boxService.appUserBox.appUser?.email ?? "",
-              style: const TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.w400,
-                color: Colors.white,
-              ),
-            ),
+            Text(controller.boxService.appUserBox.appUser?.displayName ?? "",
+                style: GoogleFonts.roboto(
+                  fontSize: 23.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                )),
+            Text(controller.boxService.appUserBox.appUser?.email ?? "",
+                style: GoogleFonts.robotoMono(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                )),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {

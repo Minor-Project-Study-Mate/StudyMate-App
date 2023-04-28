@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
@@ -16,7 +17,11 @@ class HomeView extends GetView<HomeController> {
       children: [
         Container(
           decoration: const BoxDecoration(
-            color: Colors.blue,
+            gradient: LinearGradient(
+              colors: [Color(0xff3B3B98), Color(0xff0072B5)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
@@ -36,8 +41,9 @@ class HomeView extends GetView<HomeController> {
                   children: [
                     Text(
                       "Hi ${controller.getFirstName}",
-                      style: const TextStyle(
+                      style: GoogleFonts.exo(
                         fontSize: 28.0,
+                        fontStyle: FontStyle.italic,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -51,8 +57,8 @@ class HomeView extends GetView<HomeController> {
                           child: CircleAvatar(
                             radius: 30.0,
                             backgroundImage: CachedNetworkImageProvider(
-                              controller
-                                      .boxService.appUserBox.appUser?.photoURL ??
+                              controller.boxService.appUserBox.appUser
+                                      ?.photoURL ??
                                   "",
                             ),
                           ),
@@ -103,18 +109,18 @@ class HomeView extends GetView<HomeController> {
             _buildCircularButton(Icons.star_border_outlined, "Favourites",
                 Colors.purple.shade300),
             _buildCircularButton(
-                Icons.message_outlined, "Chat", Colors.amber.shade400),
+                Icons.video_camera_front_rounded, "Lectures", Colors.amber.shade400),
           ],
         ),
         const SizedBox(height: 20.0),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(
             "Notice/Events",
-            style: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-            ),
+            style: GoogleFonts.openSans(
+                fontSize: 35.0,
+                color: Colors.black,
+                fontWeight: FontWeight.bold),
           ),
         ),
         const SizedBox(height: 10.0),
@@ -135,10 +141,10 @@ class HomeView extends GetView<HomeController> {
                   children: [
                     Text(
                       "Notice ${index + 1}",
-                      style: const TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: GoogleFonts.philosopher(
+                          fontSize: 20.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10.0),
                     Text(
@@ -177,8 +183,10 @@ class HomeView extends GetView<HomeController> {
         const SizedBox(height: 10.0),
         Text(
           label,
-          style: const TextStyle(fontSize: 16.0),
-        ),
+          // style: const TextStyle(fontSize: 16.0),
+          style: GoogleFonts.philosopher(
+              fontSize: 16.0, color: Colors.black, fontWeight: FontWeight.bold),
+        )
       ],
     );
   }
