@@ -1,7 +1,7 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:get/get.dart';
 
+import '../modules/Notice_page/bindings/notice_page_binding.dart';
+import '../modules/Notice_page/views/notice_page_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -13,6 +13,8 @@ import '../modules/profile/views/profile_view.dart';
 import '../modules/test_page/bindings/test_page_binding.dart';
 import '../modules/test_page/views/test_page_view.dart';
 import '../services/box/box_service.dart';
+
+// ignore_for_file: non_constant_identifier_names
 
 part 'app_routes.dart';
 
@@ -53,6 +55,11 @@ class AppPages {
       name: _Paths.TEST_PAGE,
       page: () => const TestPageView(),
       binding: TestPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTICE_PAGE,
+      page: () =>NoticePageView(),
+      binding: NoticePageBinding(),
     ),
   ];
 }
