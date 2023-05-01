@@ -4,10 +4,14 @@ import '../modules/Notice_page/bindings/notice_page_binding.dart';
 import '../modules/Notice_page/views/notice_page_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
+import '../modules/favourite/bindings/favourite_binding.dart';
+import '../modules/favourite/views/favourite_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro/bindings/intro_binding.dart';
 import '../modules/intro/views/intro_view.dart';
+import '../modules/my_batch/bindings/my_batch_binding.dart';
+import '../modules/my_batch/views/my_batch_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/test_page/bindings/test_page_binding.dart';
@@ -58,8 +62,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.NOTICE_PAGE,
-      page: () =>NoticePageView(),
+      page: () => NoticePageView(),
       binding: NoticePageBinding(),
+    ),
+    GetPage(
+      name: _Paths.FAVOURITE,
+      page: () => const FavouriteView(),
+      binding: FavouriteBinding(),
+    ),
+    GetPage(
+      name: _Paths.MY_BATCH,
+      page: () => const MyBatchView(),
+      binding: MyBatchBinding(),
     ),
   ];
 }

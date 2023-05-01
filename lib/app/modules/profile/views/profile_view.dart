@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:study_mate/app/modules/profile/controllers/profile_controller.dart';
 
+import '../../../routes/app_pages.dart';
+
 class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -91,8 +93,8 @@ class ProfilePage extends GetView<ProfileController> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  profileTile(
-                      const FaIcon(FontAwesomeIcons.users), "My Batch", () {}),
+                  profileTile(const FaIcon(FontAwesomeIcons.users), "My Batch",
+                      () => Get.toNamed(Routes.MY_BATCH)),
                   const Divider(),
                   profileTile(
                       const FaIcon(FontAwesomeIcons.palette),

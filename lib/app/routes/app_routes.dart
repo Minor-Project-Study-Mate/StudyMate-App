@@ -9,6 +9,8 @@ abstract class Routes {
   static const AUTH = _Paths.AUTH;
   static const TEST_PAGE = _Paths.TEST_PAGE;
   static const NOTICE_PAGE = _Paths.NOTICE_PAGE;
+  static const FAVOURITE = _Paths.FAVOURITE;
+  static const MY_BATCH = _Paths.MY_BATCH;
 }
 
 abstract class _Paths {
@@ -19,4 +21,6 @@ abstract class _Paths {
   static const AUTH = '/auth';
   static const TEST_PAGE = '/test-page';
   static const NOTICE_PAGE = '/notice-page';
+  static const FAVOURITE = '/favourite';
+  static const MY_BATCH = '/my-batch';
 }
