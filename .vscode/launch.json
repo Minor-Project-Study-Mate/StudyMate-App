@@ -8,7 +8,7 @@
             "name": "StudyMate-App",
             "request": "launch",
             "type": "dart",
-            // "args": ["-d", "web-server", "--web-port", "7357"]
+            "args": ["--release", "-d", "web-server", "--web-port", "7357"]
         },
         {
             "name": "StudyMate-App (profile mode)",

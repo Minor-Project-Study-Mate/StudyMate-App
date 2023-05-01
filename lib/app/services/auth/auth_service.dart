@@ -1,64 +1,99 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:study_mate/app/services/box/models/app_user.dart';
 
 import '../box/box_service.dart';
 
-class AuthServices extends GetxService {
-  late final GoogleSignIn _googleSignIn;
-  final googleSignInAccount = Rx<GoogleSignInAccount?>(null);
+class AuthService extends GetxService {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final Rx<User?> user = Rx<User?>(null);
+  BoxService get box => Get.find<BoxService>();
 
-  static BoxService get box => Get.find<BoxService>();
+  String? get displayName => user.value?.displayName;
+  String? get email => user.value?.email;
+  String? get photoURL => user.value?.photoURL;
 
   @override
   void onInit() {
-    _googleSignIn = GoogleSignIn();
-    googleSignInAccount.value = _googleSignIn.currentUser;
+    user.value = auth.currentUser;
     super.onInit();
   }
 
   Future<void> fakeLogin() async {
-    await box.appUserBox.saveAppUser(AppUser(
-      displayName: "User Name",
-      photoURL: 'https://avatars.githubusercontent.com/u/87150492?v=4',
-      email: "example@email.com",
-    ));
+    // await box.appUserBox.saveAppUser(AppUser(
+    //   displayName: "User Name",
+    //   photoURL: 'https://avatars.githubusercontent.com/u/87150492?v=4',
+    //   email: "example@email.com",
+    // ));
   }
 
-  Future<GoogleSignInAccount?> googleSignIn() async {
+  Future<void> emailPasswdSignUp(String email, String password) async {
     try {
-      googleSignInAccount.value = kIsWeb
+      final res = await auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      user.value = res.user;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        Get.snackbar('Error', "No user found for that email.");
+      } else if (e.code == 'wrong-password') {
+        Get.snackbar('Error', "Wrong password provided for that user.");
+      }
+    }
+  }
+
+  Future<User?> createUser(
+      String userName, String email, String password) async {
+    try {
+      final userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      if (userCredential.user != null) {
+        await userCredential.user!.updateDisplayName(userName);
+        user.value = userCredential.user;
+        return user.value;
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        Get.snackbar('Error', 'The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        Get.snackbar('Error', 'The account already exists for that email.');
+      }
+    } catch (e) {
+      Get.snackbar('Error', e.toString());
+      return null;
+    }
+  }
+
+  Future<User?> googleSignIn() async {
+    try {
+      final account = kIsWeb
           ? await _googleSignIn.signInSilently()
           : await _googleSignIn.signIn();
-
-      /// This code block is checking if the `googleSignInAccount` variable is not null. If it is not
-      /// null, it saves the user's information to the app's local storage using the `saveAppUser`
-      /// method from the `box.appUserBox` object. The `fromGoogleSignInAccount` property is used to
-      /// convert the `GoogleSignInAccount` object to an `AppUser` object before saving it to the local
-      /// storage.
-      if (googleSignInAccount.value != null) {
-        await box.appUserBox
-            .saveAppUser(googleSignInAccount.value!.fromGoogleSignInAccount);
-      }
-
-      return googleSignInAccount.value;
+      if (account == null) return null;
+      final authentication = await account.authentication;
+      final credential = GoogleAuthProvider.credential(
+          accessToken: authentication.accessToken,
+          idToken: authentication.idToken);
+      await auth.signInWithCredential(credential);
+      user.value = auth.currentUser;
+      return user.value;
     } catch (error) {
       Get.snackbar('Error', error.toString());
       return null;
     }
   }
 
-  Future<bool> printIsSignIn() async => await _googleSignIn.isSignedIn();
+  bool isAuthenticated() => user.value != null;
 
   String googleUserInfo() => _googleSignIn.currentUser?.displayName ?? '';
 
   Future<void> logout() async {
     try {
-      await box.appUserBox.deleteAppUser();
+      // await box.appUserBox.deleteAppUser();
       await _googleSignIn.signOut();
     } catch (error) {
-      print(error);
+      Get.snackbar('Error', error.toString());
     }
   }
 

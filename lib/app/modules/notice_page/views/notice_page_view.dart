@@ -5,16 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 class NoticePageView extends StatelessWidget {
   const NoticePageView({Key? key}) : super(key: key);
 
-  // ignore: non_constant_identifier_names
-  get Network => null;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-
             expandedHeight: 200.0,
             flexibleSpace: FlexibleSpaceBar(
               title: Text('TITLE',
@@ -25,7 +21,6 @@ class NoticePageView extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),),
-            
               background: Image.network(
                 'https://avatars.githubusercontent.com/u/87150492?v=4',
                 fit: BoxFit.cover,
@@ -103,5 +98,3 @@ class NoticePageView extends StatelessWidget {
     );
   }
 }
-
-class Network {}

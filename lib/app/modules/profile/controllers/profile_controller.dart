@@ -7,7 +7,7 @@ import '../../../services/box/box_service.dart';
 
 class ProfileController extends GetxController {
   final boxService = Get.find<BoxService>();
-  final authService = Get.find<AuthServices>();
+  final authService = Get.find<AuthService>();
 
   Future<void> toggleThemeMode(ThemeMode themeMode) async =>
       await boxService.themeBox.changeThemeMode(themeMode);
