@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:study_mate/app/modules/home/views/pages/fav.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
+import 'pages/resources.dart';
 
 const headerHight = 200.0;
 
@@ -28,7 +30,7 @@ class HomeView extends GetView<HomeController> {
         ]),
       );
 
-  Column noticeEventWidget(BuildContext context) => Column(
+  Widget noticeEventWidget(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
@@ -107,22 +109,32 @@ class HomeView extends GetView<HomeController> {
           spacing: 40,
           children: [
             _buildCircularButton(context,
+                onPressed: () => Get.to(() => ResourcesBody(controller)),
                 iconData: FontAwesomeIcons.bookOpen,
                 label: "Resources",
                 color: Colors.pink.shade300),
             _buildCircularButton(context,
+                onPressed: () {},
                 iconData: Icons.assignment,
                 label: "Courses",
                 color: Colors.green),
             _buildCircularButton(context,
-                iconData: Icons.favorite, label: "MeetUp", color: Colors.red),
+                onPressed: () {},
+                iconData: Icons.favorite,
+                label: "MeetUp",
+                color: Colors.red),
             _buildCircularButton(context,
-                iconData: Icons.event, label: "Timetable", color: Colors.blue),
+                onPressed: () {},
+                iconData: Icons.event,
+                label: "Timetable",
+                color: Colors.blue),
             _buildCircularButton(context,
+                onPressed: () => Get.to(() => const FavBody()),
                 iconData: Icons.star_border_outlined,
                 label: "Favourites",
                 color: Colors.purple.shade300),
             _buildCircularButton(context,
+                onPressed: () {},
                 iconData: Icons.video_camera_front_rounded,
                 label: "Lectures",
                 color: Colors.amber.shade400),
@@ -153,7 +165,8 @@ class HomeView extends GetView<HomeController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Hi ${controller.getFirstName}",
+                    "Hey Mate",
+                    // "Hi ${controller.getFirstName}",
                     style: GoogleFonts.exo(
                         fontSize: 28.0,
                         fontStyle: FontStyle.italic,
@@ -167,6 +180,8 @@ class HomeView extends GetView<HomeController> {
                       child: Hero(
                         tag: "profile",
                         child: CircleAvatar(
+                          // immage from assets in backgroundImage:
+                          // backgroundImage: AssetImage("assets/icons/logo.jpeg"),
                           backgroundImage: CachedNetworkImageProvider(
                               controller.authService.photoURL ?? "",
                               maxHeight: 80,
@@ -204,15 +219,14 @@ class HomeView extends GetView<HomeController> {
     required IconData iconData,
     required String label,
     required Color color,
+    VoidCallback? onPressed,
   }) =>
       Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
             ElevatedButton(
-              onPressed: () {
-                // TODO: Implement button functionality
-              },
+              onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(15),

@@ -63,24 +63,32 @@ class AuthService extends GetxService {
       Get.snackbar('Error', e.toString());
       return null;
     }
+    return null;
   }
 
   Future<User?> googleSignIn() async {
     try {
+      print(1);
       final account = kIsWeb
           ? await _googleSignIn.signInSilently()
           : await _googleSignIn.signIn();
+      print(2);
       if (account == null) return null;
+      print(3);
       final authentication = await account.authentication;
+      print(4);
       final credential = GoogleAuthProvider.credential(
           accessToken: authentication.accessToken,
           idToken: authentication.idToken);
+      print(5);
       await auth.signInWithCredential(credential);
+      print(6);
       user.value = auth.currentUser;
       return user.value;
     } catch (error) {
-      Get.snackbar('Error', error.toString());
-      return null;
+      // Get.snackbar('Error', error.toString());
+      // return null;
+      rethrow;
     }
   }
 

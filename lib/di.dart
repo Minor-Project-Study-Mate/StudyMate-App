@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:study_mate/app/services/auth/auth_service.dart';
+import 'package:study_mate/app/services/sheet/sheet_service.dart';
 
 import 'app/services/box/box_service.dart';
 import 'firebase_options.dart';
@@ -42,6 +43,8 @@ Future<void> init() async {
   // application to use the `BoxService` instance to store and retrieve data throughout the
   // application.
   await Get.put<BoxService>(BoxService()).init();
+
+  Get.put<SheetService>(SheetService());
 
   // `Get.put(AuthService())` is registering an instance of the `AuthService` class with the GetX
   // dependency injection system. This allows the application to access the `AuthService` instance
