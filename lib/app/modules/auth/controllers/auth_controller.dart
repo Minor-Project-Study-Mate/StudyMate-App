@@ -3,7 +3,7 @@ import 'package:study_mate/app/routes/app_pages.dart';
 import 'package:study_mate/app/services/auth/auth_service.dart';
 
 class AuthController extends GetxController {
-  final auth = Get.find<AuthServices>();
+  final auth = Get.find<AuthService>();
 
   Future<void> googleSignIn() async {
     final res = await auth.googleSignIn();

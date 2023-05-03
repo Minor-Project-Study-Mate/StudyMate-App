@@ -22,8 +22,14 @@ class StudyMate extends StatelessWidget {
         title: "Application",
         initialRoute: AppPages.INITIAL,
         themeMode: Get.find<BoxService>().themeBox.getTheme,
-        darkTheme: ThemeData(brightness: Brightness.dark, useMaterial3: true),
-        theme: ThemeData(brightness: Brightness.light, useMaterial3: true),
+        darkTheme: ThemeData(
+            primaryColor: const Color(0xff3B3B98),
+            brightness: Brightness.dark,
+            useMaterial3: true),
+        theme: ThemeData(
+            primaryColor: const Color(0xff3B3B98),
+            brightness: Brightness.light,
+            useMaterial3: true),
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
       );

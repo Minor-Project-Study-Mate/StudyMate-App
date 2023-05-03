@@ -3,24 +3,18 @@ import 'package:get/get.dart';
 import 'package:study_mate/app/services/auth/auth_service.dart';
 import 'package:study_mate/app/services/box/box_service.dart';
 
-import '../../../services/box/models/app_user.dart';
-
 class TestPageController extends GetxController {
-  final authServices = Get.find<AuthServices>();
+  final authService = Get.find<AuthService>();
   final boxService = Get.find<BoxService>();
-  final appUser = Rx<AppUser?>(null);
 
-  @override
-  void onInit() {
-    appUser.value = boxService.appUserBox.appUser;
-    super.onInit();
-  }
+  String get userName => authService.displayName ?? "No Name";
+  String get userEmail => authService.email ?? "No Email";
 
   Future<void> googleSignIn() async {
     try {
-      final res = await authServices.googleSignIn();
+      final res = await authService.googleSignIn();
       if (res != null) {
-        appUser.value = res.fromGoogleSignInAccount;
+        // appUser.value = res.fromGoogleSignInAccount;
       } else {
         Get.snackbar("Error 002", "Error on SignIn");
       }
@@ -29,10 +23,13 @@ class TestPageController extends GetxController {
     }
   }
 
+  void printUser() {
+    Get.snackbar("", (authService.user.value ?? "Null").toString());
+  }
+
   Future<void> logout() async {
     try {
-      await authServices.logout();
-      appUser.value = null;
+      await authService.logout();
     } catch (e) {
       print(e);
     }

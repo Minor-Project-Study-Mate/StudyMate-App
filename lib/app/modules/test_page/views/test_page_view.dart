@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../controllers/test_page_controller.dart';
@@ -64,21 +62,6 @@ class TestPageView extends GetView<TestPageController> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Obx(() => AnimatedSize(
-                        duration: const Duration(milliseconds: 300),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50.0),
-                          child: CachedNetworkImage(
-                            imageUrl: controller.appUser.value?.photoURL ?? "",
-                            placeholder: (context, url) =>
-                                const FaIcon(FontAwesomeIcons.userCircle),
-                            errorWidget: (context, url, error) {
-                              print(error);
-                              return const Icon(Icons.error);
-                            },
-                          ),
-                        ),
-                      )),
                   const SizedBox(width: 20),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
@@ -88,11 +71,11 @@ class TestPageView extends GetView<TestPageController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            controller.appUser.value?.displayName ?? "Null",
+                            controller.userName,
                             style: Get.theme.textTheme.headlineLarge,
                           ),
                           Text(
-                            controller.appUser.value?.email ?? "Null",
+                            controller.userEmail,
                             style: Get.theme.textTheme.labelLarge,
                           ),
                         ],
@@ -117,6 +100,11 @@ class TestPageView extends GetView<TestPageController> {
                           MaterialStateProperty.all(Colors.red[100]),
                     ),
                     child: const Text("Logout"),
+                  ),
+                  const SizedBox(width: 5),
+                  ElevatedButton(
+                    onPressed: () => controller.printUser(),
+                    child: const Text("Print User"),
                   ),
                 ],
               ),

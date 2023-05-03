@@ -17,6 +17,12 @@ dependencies:
   get_storage: ^2.1.1
   cached_network_image: ^3.2.3
   google_fonts: ^4.0.4
+  firebase_auth: ^4.4.2
+  csv: ^5.0.2
+  flutter_staggered_animations: ^1.1.1
+  url_launcher: ^6.1.10
+  image_network: ^2.5.1
+  flutter_custom_tabs: ^1.0.4
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -28,3 +34,4 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/data/
