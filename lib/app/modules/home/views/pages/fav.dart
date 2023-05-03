@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../services/sheet/model/resources_entities.dart';
 import '../../controllers/home_controller.dart';
+import '../widgets/fav_option_panel.dart';
 import '../widgets/hover_builder.dart';
 
 class FavBody extends StatelessWidget {
@@ -17,10 +18,17 @@ class FavBody extends StatelessWidget {
   Widget build(BuildContext context) => GetBuilder<HomeController>(
         builder: (controller) => Scaffold(
           appBar: AppBar(
-            title: Text(
-              "Favourites",
-              style: Theme.of(context).textTheme.headline5,
+            leading: IconButton(
+              onPressed: () => Get.back(),
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
             ),
+            title: Text("Favourites",
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      color: Colors.white,
+                    )),
             flexibleSpace: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -29,25 +37,46 @@ class FavBody extends StatelessWidget {
                 ),
               ),
             ),
+            actions: [
+              TextButton(
+                onPressed: () => controller.boxService.favBox.clearFavs(),
+                child: const Text(
+                  "Clear all",
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+            ],
           ),
-          body: Obx(
-            () {
-              final favs = controller.favController.getFiltedFavs();
-              return ListView.builder(
-                padding:
-                    GetPlatform.isWeb ? const EdgeInsets.only(right: 10) : null,
-                itemCount: favs.length,
-                itemBuilder: (context, index) => Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    child: GetPlatform.isWeb
-                        ? HoverBuilder(
-                            builder: (context, hover) => favTile(
-                                favs[index], controller, context, hover))
-                        : favTile(favs[index], controller, context, true)),
-              );
-            },
+          body: ListView(
+            children: [
+              const FavOptionPanel(),
+              Obx(
+                () {
+                  final favs = controller.favController.getFiltedFavs();
+                  return ListView.builder(
+                    padding: GetPlatform.isWeb
+                        ? const EdgeInsets.only(right: 10)
+                        : null,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: favs.length,
+                    itemBuilder: (context, index) => Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                        child: GetPlatform.isWeb
+                            ? HoverBuilder(
+                                builder: (context, hover) => favTile(
+                                    favs[index], controller, context, hover))
+                            : favTile(favs[index], controller, context, true)),
+                  );
+                },
+              ),
+            ],
           ),
         ),
       );

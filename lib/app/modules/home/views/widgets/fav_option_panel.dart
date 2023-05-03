@@ -32,17 +32,18 @@ class FavOptionPanel extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: controller.boxService.favBox.getFavs.isNotEmpty
                 ? Column(
+                    mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextButton(
-                        onPressed: () =>
-                            controller.boxService.favBox.clearFavs(),
-                        child: const Text(
-                          "Clear all favorites",
-                          style: TextStyle(fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
+                      // TextButton(
+                      //   onPressed: () =>
+                      //       controller.boxService.favBox.clearFavs(),
+                      //   child: const Text(
+                      //     "Clear all favorites",
+                      //     style: TextStyle(fontStyle: FontStyle.italic),
+                      //   ),
+                      // ),
+                      // const SizedBox(height: 10),
                       AnimatedSize(
                         duration: const Duration(milliseconds: 300),
                         child: SizedBox(
@@ -54,17 +55,34 @@ class FavOptionPanel extends StatelessWidget {
                                   final List<String> tags = snapshot.data ?? [];
                                   if (tags.isEmpty) return const SizedBox();
                                   return Obx(
-                                    () => Wrap(
-                                      spacing: 1,
-                                      children: List.generate(
-                                          tags.length,
-                                          (index) => sortingEntity(
-                                              controller,
-                                              tags[index],
-                                              controller.favController
-                                                  .selectedTags.value
-                                                  .contains(tags[index]))),
+                                    () => SizedBox(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 50,
+                                      child: ListView(
+                                        // shrinkWrap: true,
+
+                                        scrollDirection: Axis.horizontal,
+                                        children: List.generate(
+                                            tags.length,
+                                            (index) => sortingEntity(
+                                                controller,
+                                                tags[index],
+                                                controller.favController
+                                                    .selectedTags.value
+                                                    .contains(tags[index]))),
+                                      ),
                                     ),
+                                    // Wrap(
+                                    //   spacing: 1,
+                                    //   children: List.generate(
+                                    //       tags.length,
+                                    //       (index) => sortingEntity(
+                                    //           controller,
+                                    //           tags[index],
+                                    //           controller.favController
+                                    //               .selectedTags.value
+                                    //               .contains(tags[index]))),
+                                    // ),
                                   );
                                 } else {
                                   return const SizedBox();

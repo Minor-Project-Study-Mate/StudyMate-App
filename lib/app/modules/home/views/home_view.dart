@@ -183,9 +183,10 @@ class HomeView extends GetView<HomeController> {
                           // immage from assets in backgroundImage:
                           // backgroundImage: AssetImage("assets/icons/logo.jpeg"),
                           backgroundImage: CachedNetworkImageProvider(
-                              controller.authService.photoURL ?? "",
-                              maxHeight: 80,
-                              maxWidth: 80),
+                            controller.authService.photoURL ?? "",
+                            maxHeight: 80,
+                            maxWidth: 80,
+                          ),
                         ),
                       ),
                     ),
@@ -214,13 +215,11 @@ class HomeView extends GetView<HomeController> {
         ),
       );
 
-  Widget _buildCircularButton(
-    BuildContext context, {
-    required IconData iconData,
-    required String label,
-    required Color color,
-    VoidCallback? onPressed,
-  }) =>
+  Widget _buildCircularButton(BuildContext context,
+          {required IconData iconData,
+          required String label,
+          required Color color,
+          VoidCallback? onPressed}) =>
       Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
