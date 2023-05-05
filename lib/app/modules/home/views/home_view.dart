@@ -180,8 +180,6 @@ class HomeView extends GetView<HomeController> {
                       child: Hero(
                         tag: "profile",
                         child: CircleAvatar(
-                          // immage from assets in backgroundImage:
-                          // backgroundImage: AssetImage("assets/icons/logo.jpeg"),
                           backgroundImage: CachedNetworkImageProvider(
                             controller.authService.photoURL ?? "",
                             maxHeight: 80,

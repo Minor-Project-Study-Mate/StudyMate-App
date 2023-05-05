@@ -11,20 +11,18 @@ class MyBatchView extends GetView<MyBatchController> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text("My Batch"),
+          title: const Text("My Batch"),
           centerTitle: true,
-          leading: Hero(
-            tag: 'back',
-            child: IconButton(
-              icon: const FaIcon(FontAwesomeIcons.arrowLeft),
-              onPressed: () => Get.back(),
-            ),
+          leading: IconButton(
+            icon: const FaIcon(FontAwesomeIcons.arrowLeft),
+            onPressed: () => Get.back(),
           ),
         ),
         body: listWithEmail,
       );
 
-  Widget get listWithEmail => FutureBuilder<List<UserInfo>>(
+  Widget get listWithEmail => FutureBuilder<List<String>>(
+        future: controller.getUser(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -38,7 +36,7 @@ class MyBatchView extends GetView<MyBatchController> {
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 itemCount: users.length,
                 itemBuilder: (context, index) =>
-                    tileWithName(users, index, context),
+                    tileWithName(users[index], index, context),
               );
             }
           } else if (snapshot.hasError) {
@@ -48,35 +46,24 @@ class MyBatchView extends GetView<MyBatchController> {
         },
       );
 
-  Widget tileWithName(List<UserInfo> users, int index, BuildContext context) =>
-      Tooltip(
-        message: users[index].id,
+  Widget tileWithName(String name, int index, BuildContext context) => Tooltip(
+        message: name,
         child: Card(
-          // shape: shape,
-          elevation: controller.isMe(users[index].userName) ? 5 : 0,
+          elevation: controller.isMe(name) ? 5 : 0,
           child: ListTile(
             shape: shape,
-            tileColor: controller.isMe(users[index].userName)
+            tileColor: controller.isMe(name)
                 ? Color.alphaBlend(
                     Theme.of(context)
                         .colorScheme
                         .primary
                         .withAlpha(5 * (Get.isDarkMode ? 4 : 3)),
-                    Theme.of(context).cardColor,
-                  )
+                    Theme.of(context).cardColor)
                 : null,
             leading: Text((index + 1).toString()),
-            title: Text(users[index].userName),
-            trailing: controller.isMe(users[index].userName)
-                ? const Text("😋")
-                : null,
+            title: Text(name),
+            trailing: controller.isMe(name) ? const Text("😋") : null,
           ),
         ),
       );
-}
-
-class UserInfo {
-  get id => null;
-
-  get userName => null;
 }

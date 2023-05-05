@@ -17,40 +17,7 @@ class FavBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GetBuilder<HomeController>(
         builder: (controller) => Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-              onPressed: () => Get.back(),
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              ),
-            ),
-            title: Text("Favourites",
-                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      color: Colors.white,
-                    )),
-            flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xff0072B5), Color(0xff3B3B98)],
-                  stops: [0.5, 1.0],
-                ),
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => controller.boxService.favBox.clearFavs(),
-                child: const Text(
-                  "Clear all",
-                  style: TextStyle(
-                    fontStyle: FontStyle.italic,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-            ],
-          ),
+          appBar: appBar(context, controller),
           body: ListView(
             children: [
               const FavOptionPanel(),
@@ -101,4 +68,39 @@ class FavBody extends StatelessWidget {
               icon: const Icon(Icons.delete),
             ),
           ));
+
+  AppBar appBar(BuildContext context, HomeController controller) => AppBar(
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+        ),
+        title: Text("Favourites",
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Colors.white,
+                )),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff0072B5), Color(0xff3B3B98)],
+              stops: [0.5, 1.0],
+            ),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => controller.boxService.favBox.clearFavs(),
+            child: const Text(
+              "Clear all",
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+        ],
+      );
 }

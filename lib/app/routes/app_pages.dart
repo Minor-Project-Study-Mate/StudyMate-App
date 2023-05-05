@@ -63,7 +63,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.NOTICE_PAGE,
-      page: () => NoticePageView(),
+      page: () => const NoticePageView(),
       binding: NoticePageBinding(),
     ),
     GetPage(
