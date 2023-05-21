@@ -9,6 +9,7 @@ import '../controllers/auth_controller.dart';
 
 class AuthView extends GetView<AuthController> {
   const AuthView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +33,9 @@ class AuthView extends GetView<AuthController> {
           color: const Color.fromARGB(255, 5, 80, 160),
           child: Container(
             width: double.infinity,
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.background,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(50),
                 )),
             child: Column(
@@ -50,7 +51,7 @@ class AuthView extends GetView<AuthController> {
                         style: GoogleFonts.lobster(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Theme.of(context).colorScheme.onBackground,
                         ),
                       ),
                     ),
@@ -69,27 +70,23 @@ class AuthView extends GetView<AuthController> {
                         child: Column(
                           children: [
                             TextField(
-                              style: const TextStyle(color: Colors.black),
                               decoration: InputDecoration(
-                                  fillColor: Colors.grey.shade200,
                                   filled: true,
                                   hintText: " Enter your Email",
-                                  prefixIcon: const Icon(Icons.email,
-                                      color: Colors.black),
+                                  prefixIcon: const Icon(
+                                    Icons.email,
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
                                   )),
                             ),
                             const SizedBox(height: 20),
                             TextField(
-                              style: const TextStyle(),
                               obscureText: true,
                               decoration: InputDecoration(
-                                  fillColor: Colors.grey.shade200,
                                   filled: true,
                                   hintText: "Enter your Password",
-                                  prefixIcon: const Icon(Icons.lock,
-                                      color: Colors.black),
+                                  prefixIcon: const Icon(Icons.lock),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
                                   )),
@@ -137,7 +134,9 @@ class AuthView extends GetView<AuthController> {
                                   style: GoogleFonts.zillaSlab(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
                                   ),
                                 ),
                                 const SizedBox(height: 20.0),
@@ -145,7 +144,9 @@ class AuthView extends GetView<AuthController> {
                                   '- OR -',
                                   style: GoogleFonts.roboto(
                                     fontSize: 17,
-                                    color: Colors.black,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
                                   ),
                                 ),
                                 const SizedBox(height: 10.0),
@@ -153,7 +154,9 @@ class AuthView extends GetView<AuthController> {
                                   'Sign in with',
                                   style: GoogleFonts.roboto(
                                     fontSize: 17,
-                                    color: Colors.black,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
                                   ),
                                 )
                               ],
@@ -225,7 +228,9 @@ class AuthView extends GetView<AuthController> {
                                       fontSize: 20,
                                       decoration: TextDecoration.underline,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onBackground,
                                     ),
                                   ),
                                 ),
@@ -237,7 +242,9 @@ class AuthView extends GetView<AuthController> {
                                         fontSize: 20,
                                         decoration: TextDecoration.underline,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.black,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onBackground,
                                       ),
                                     )),
                               ],

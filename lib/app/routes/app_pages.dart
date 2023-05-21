@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../modules/Notice_page/bindings/notice_page_binding.dart';
-import '../modules/Notice_page/views/notice_page_view.dart';
+import '../modules/notice_page/bindings/notice_page_binding.dart';
+import '../modules/notice_page/views/notice_page_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
 import '../modules/favourite/bindings/favourite_binding.dart';
@@ -16,7 +16,7 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/test_page/bindings/test_page_binding.dart';
 import '../modules/test_page/views/test_page_view.dart';
-import '../services/box/box_service.dart';
+import '../services/auth/auth_service.dart';
 
 // ignore_for_file: non_constant_identifier_names
 
@@ -30,9 +30,10 @@ class AppPages {
   /// null or not. If it is null, then the initial route is set to `Routes.INTRO`, which is the route for
   /// the introduction screen. If it is not null, then the initial route is set to `Routes.HOME`, which is
   /// the route for the home screen.
-  static final INITIAL = Get.find<BoxService>().appUserBox.appUser == null
-      ? Routes.INTRO
-      : Routes.HOME;
+  static final INITIAL =
+      Get.find<AuthService>().user.value == null ? Routes.INTRO : Routes.HOME;
+
+  // static const INITIAL = Routes.TEST_PAGE;
 
   static final routes = [
     GetPage(
@@ -62,7 +63,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.NOTICE_PAGE,
-      page: () => NoticePageView(),
+      page: () => const NoticePageView(),
       binding: NoticePageBinding(),
     ),
     GetPage(

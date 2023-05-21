@@ -12,7 +12,6 @@ class ProfilePage extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        // appBar: appBar(s),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -46,11 +45,11 @@ class ProfilePage extends GetView<ProfileController> {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Icon(
                   Icons.logout,
                   color: Colors.white,
@@ -93,17 +92,18 @@ class ProfilePage extends GetView<ProfileController> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  profileTile(const FaIcon(FontAwesomeIcons.users), "My Batch",
-                      () => Get.toNamed(Routes.MY_BATCH)),
+                  profileTile(
+                    const FaIcon(FontAwesomeIcons.users),
+                    "My Batch",
+                    () => Get.toNamed(Routes.MY_BATCH),
+                  ),
                   const Divider(),
                   profileTile(
-                      const FaIcon(FontAwesomeIcons.palette),
-                      "Theme",
-                      () => controller.toggleThemeMode(
-                            context.isDarkMode
-                                ? ThemeMode.light
-                                : ThemeMode.dark,
-                          )),
+                    const FaIcon(FontAwesomeIcons.palette),
+                    "Theme",
+                    () => controller.toggleThemeMode(
+                        context.isDarkMode ? ThemeMode.light : ThemeMode.dark),
+                  ),
                   const Divider(),
                   profileTile(const FaIcon(FontAwesomeIcons.handHoldingHeart),
                       "Feedback", () {}),
@@ -145,11 +145,10 @@ class ProfilePage extends GetView<ProfileController> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: IconButton(
-                      onPressed: () => Get.back(),
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: Get.theme.colorScheme.onPrimary,
-                      )),
+                    onPressed: () => Get.back(),
+                    icon: const Icon(Icons.arrow_back_ios_new_rounded,
+                        color: Colors.white),
+                  ),
                 ),
               ],
             ),
@@ -157,71 +156,30 @@ class ProfilePage extends GetView<ProfileController> {
               width: 100.0,
               height: 100.0,
               color: Colors.transparent,
-              child: Stack(
-                children: [
-                  Hero(
-                    tag: 'profile',
-                    child: CircleAvatar(
-                      radius: 60.0,
-                      backgroundImage: CachedNetworkImageProvider(
-                        controller.boxService.appUserBox.appUser?.photoURL ??
-                            "",
-                      ),
-                    ),
+              child: Hero(
+                tag: 'profile',
+                child: CircleAvatar(
+                  radius: 60.0,
+                  backgroundImage: CachedNetworkImageProvider(
+                    controller.authService.photoURL ?? "",
                   ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.indigo,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.camera_alt_rounded,
-                        color: Colors.white,
-                        size: 30.0,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
             const SizedBox(height: 10),
-            Text(controller.boxService.appUserBox.appUser?.displayName ?? "",
+            Text(controller.authService.displayName ?? "",
                 style: GoogleFonts.roboto(
                   fontSize: 23.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 )),
-            Text(controller.boxService.appUserBox.appUser?.email ?? "",
+            Text(controller.authService.email ?? "",
                 style: GoogleFonts.robotoMono(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w400,
                   color: Colors.white,
                 )),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                //
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: const Text(
-                'Edit Profile',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
-                ),
-              ),
-            ),
           ],
         ),
       );

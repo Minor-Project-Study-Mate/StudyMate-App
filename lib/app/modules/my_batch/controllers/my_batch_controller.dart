@@ -1,26 +1,64 @@
 import 'package:get/get.dart';
+import 'package:study_mate/app/services/auth/auth_service.dart';
 
 class MyBatchController extends GetxController {
-  //TODO: Implement MyBatchController
+  static const studentsNames = [
+    "Alok",
+    "Aman",
+    "Ankit",
+    "Anshul",
+    "Anurag",
+    "Aryan",
+    "Ashish",
+    "Ayush",
+    "Bhavya",
+    "Bhuvan",
+    "Chirag",
+    "Deepak",
+    "Dhruv",
+    "Divyansh",
+    "Gaurav",
+    "Harsh",
+    "Himanshu",
+    "Kartik",
+    "Kunal",
+    "Lakshay",
+    "Manish",
+    "Mohit",
+    "Naman",
+    "Nikhil",
+    "Nishant",
+    "Nitin",
+    "Prakhar",
+    "Pranav",
+    "Prashant",
+    "Rahul",
+    "Rajat",
+    "Rajesh",
+    "Rishabh",
+    "Rohit",
+    "Sahil",
+    "Saksham",
+    "Sarthak",
+    "Shivam",
+    "Shubham",
+    "Siddharth",
+    "Sneha",
+    "Sourabh",
+    "Sudhanshu",
+    "Suryansh",
+    "Utkarsh",
+    "Vansh",
+    "Vikas",
+    "Vishal",
+    "Yash",
+    "Yogesh"
+  ];
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  AuthService get authService => Get.find<AuthService>();
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  Future<List<String>> getUser() async => studentsNames;
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
-
-  isMe(userName) {}
+  bool isMe(String userName) =>
+      (authService.displayName ?? "").contains(userName);
 }
-
