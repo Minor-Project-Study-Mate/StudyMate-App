@@ -1,7 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart' show ThemeMode;
 import 'package:get/get.dart';
 import 'package:study_mate/app/services/auth/auth_service.dart';
 import 'package:study_mate/app/services/box/box_service.dart';
+import 'package:study_mate/app/services/firebase/firebase_service.dart';
+
+import '../../../services/firebase/model/notice_modal.dart';
 
 class TestPageController extends GetxController {
   final authService = Get.find<AuthService>();
@@ -37,4 +41,25 @@ class TestPageController extends GetxController {
 
   Future<void> toggleThemeMode(ThemeMode themeMode) async =>
       await boxService.themeBox.changeThemeMode(themeMode);
+
+  getNoticeList() {
+    FirebaseService firebaseService = Get.find<FirebaseService>();
+    firebaseService.noticeEventDatasource.readEvent();
+  }
+
+  createEvent() {
+    final firebaseService = Get.find<FirebaseService>();
+    final event = Event(
+      title: "title 2",
+      description: "description 2",
+      date: "date 2",
+      time: "time 2",
+    );
+    firebaseService.noticeEventDatasource.createEvent(event);
+  }
+
+  readEvent() {
+    final firebaseService = Get.find<FirebaseService>();
+    firebaseService.noticeEventDatasource.readEvent();
+  }
 }

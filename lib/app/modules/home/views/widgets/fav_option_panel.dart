@@ -59,8 +59,6 @@ class FavOptionPanel extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width,
                                       height: 50,
                                       child: ListView(
-                                        // shrinkWrap: true,
-
                                         scrollDirection: Axis.horizontal,
                                         children: List.generate(
                                             tags.length,
@@ -72,17 +70,6 @@ class FavOptionPanel extends StatelessWidget {
                                                     .contains(tags[index]))),
                                       ),
                                     ),
-                                    // Wrap(
-                                    //   spacing: 1,
-                                    //   children: List.generate(
-                                    //       tags.length,
-                                    //       (index) => sortingEntity(
-                                    //           controller,
-                                    //           tags[index],
-                                    //           controller.favController
-                                    //               .selectedTags.value
-                                    //               .contains(tags[index]))),
-                                    // ),
                                   );
                                 } else {
                                   return const SizedBox();
