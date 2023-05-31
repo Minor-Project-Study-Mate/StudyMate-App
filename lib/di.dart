@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:study_mate/app/services/auth/auth_service.dart';
+import 'package:study_mate/app/services/firebase/firebase_service.dart';
 import 'package:study_mate/app/services/sheet/sheet_service.dart';
 
 import 'app/services/box/box_service.dart';
@@ -48,4 +49,6 @@ Future<void> init() async {
   // dependency injection system. This allows the application to access the `AuthService` instance
   // throughout the application by calling `Get.find<AuthService>()`.
   Get.put(AuthService());
+
+  Get.put(FirebaseService());
 }

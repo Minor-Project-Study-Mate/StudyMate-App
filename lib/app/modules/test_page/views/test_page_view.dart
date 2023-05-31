@@ -18,6 +18,39 @@ class TestPageView extends GetView<TestPageController> {
             authWidget(context),
             const SizedBox(height: 20),
             themeWidget(context),
+            const SizedBox(height: 20),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Firebase Test",
+                      style: Get.theme.textTheme.labelLarge,
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            controller.createEvent();
+                          },
+                          child: const Text("Add Event"),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            controller.readEvent();
+                          },
+                          child: const Text("Read Event"),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       );

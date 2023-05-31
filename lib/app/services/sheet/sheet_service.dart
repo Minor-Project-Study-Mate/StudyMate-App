@@ -50,16 +50,13 @@ class SheetService extends GetxService {
   final currentEntity = Rx<List<IndexEntity>>([]);
   final currentPath = Rx<String>(baseFolder);
 
-  // Read csv data from assets using csv package
   Future<List<List<String>>> readSheetDataTest() async {
     final input = await rootBundle.loadString('assets/data/index_web.csv');
     final List<List<dynamic>> csvTable =
         const CsvToListConverter(shouldParseNumbers: false, eol: '\n')
             .convert(input);
-    // remove first row
     csvTable.removeAt(0);
 
-    // convert List<List<dynamic>> to List<List<String>> consider null safety
     final List<List<String>> csvTableString = csvTable
         .map((row) => row.map((cell) => cell.toString()).toList())
         .toList();
