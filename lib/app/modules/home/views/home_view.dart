@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -157,7 +159,7 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           children: [
             SizedBox(
-                height: MediaQueryData.fromView(View.of(context)).padding.top),
+                 height: MediaQueryData.fromWindow(window).padding.top,),
             Container(
               padding: const EdgeInsets.only(
                   top: 15, left: 15, right: 15, bottom: 40),
