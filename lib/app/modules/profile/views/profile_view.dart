@@ -116,6 +116,9 @@ class ProfilePage extends GetView<ProfileController> {
                   const Divider(),
                   profileTile(
                       const FaIcon(FontAwesomeIcons.info), "About", () {}),
+                      const Divider(),
+                  profileTile(
+                      const FaIcon(FontAwesomeIcons.share), "Create notice", () {Get.toNamed(Routes.CREATE_NOTICE);}),
                 ],
               ),
             ),

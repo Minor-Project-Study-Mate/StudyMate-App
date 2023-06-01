@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../model/notice_modal.dart';
@@ -19,16 +18,11 @@ class NoticeEventDatasource {
 
     print(res[0].data().runtimeType);
 
-    for (int i = 0; i < res.length; i++) {
-
-      final Map<String, dynamic> data = res[i].data();
-
-      final Event event = Event.fromMap(data);
-
-      print(event.title);
-      print(event.description);
+    if (res.isNotEmpty) {
+      final List<Event> events =
+          res.map((e) => Event.fromMap(e.data())).toList();
+      return events;
     }
-
     return [];
   }
 

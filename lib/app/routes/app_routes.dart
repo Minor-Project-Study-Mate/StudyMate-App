@@ -11,6 +11,7 @@ abstract class Routes {
   static const NOTICE_PAGE = _Paths.NOTICE_PAGE;
   static const FAVOURITE = _Paths.FAVOURITE;
   static const MY_BATCH = _Paths.MY_BATCH;
+  static const CREATE_NOTICE = _Paths.CREATE_NOTICE;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const NOTICE_PAGE = '/notice-page';
   static const FAVOURITE = '/favourite';
   static const MY_BATCH = '/my-batch';
+  static const CREATE_NOTICE = '/create-notice';
 }
