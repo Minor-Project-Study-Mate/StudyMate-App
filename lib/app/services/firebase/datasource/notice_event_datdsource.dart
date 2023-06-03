@@ -4,6 +4,7 @@ import '../model/notice_modal.dart';
 
 class NoticeEventDatasource {
   final FirebaseFirestore firebase;
+  
   NoticeEventDatasource(this.firebase);
 
   Future<void> createEvent(Event event) async {
@@ -16,8 +17,6 @@ class NoticeEventDatasource {
 
     final List<QueryDocumentSnapshot<Map<String, dynamic>>> res = snapshot.docs;
 
-    print(res[0].data().runtimeType);
-
     if (res.isNotEmpty) {
       final List<Event> events =
           res.map((e) => Event.fromMap(e.data())).toList();
@@ -26,7 +25,11 @@ class NoticeEventDatasource {
     return [];
   }
 
-  updateEvent() {}
+  Future<void> updateEvent(String eventId, Event updatedEvent) async {
+    await firebase.collection('notice').doc(eventId).update(updatedEvent.toMap());
+  }
 
-  deleteEvent() {}
+  Future<void> deleteEvent(String eventId) async {
+    await firebase.collection('notice').doc(eventId).delete();
+}
 }

@@ -15,6 +15,8 @@ class Event {
     this.url,
   });
 
+  String? get id => null;
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'title': title,
