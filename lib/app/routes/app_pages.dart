@@ -18,6 +18,8 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/test_page/bindings/test_page_binding.dart';
 import '../modules/test_page/views/test_page_view.dart';
+import '../modules/video_lecture/bindings/video_lecture_binding.dart';
+import '../modules/video_lecture/views/video_lecture_view.dart';
 import '../services/auth/auth_service.dart';
 
 // ignore_for_file: non_constant_identifier_names
@@ -82,6 +84,11 @@ class AppPages {
       name: _Paths.CREATE_NOTICE,
       page: () => CreateNoticeView(),
       binding: CreateNoticeBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIDEO_LECTURE,
+      page: () => const VideoLectureView(),
+      binding: VideoLectureBinding(),
     ),
   ];
 }
