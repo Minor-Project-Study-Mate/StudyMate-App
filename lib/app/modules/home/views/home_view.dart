@@ -136,7 +136,7 @@ class HomeView extends GetView<HomeController> {
                 label: "Favourites",
                 color: Colors.purple.shade300),
             _buildCircularButton(context,
-                onPressed: () {},
+                onPressed: () {Get.toNamed(Routes.VIDEO_LECTURE);},
                 iconData: Icons.video_camera_front_rounded,
                 label: "Lectures",
                 color: Colors.amber.shade400),
