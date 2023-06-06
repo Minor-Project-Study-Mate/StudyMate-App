@@ -41,8 +41,8 @@ class ResourcesBody extends StatelessWidget {
                         return const Center(child: Text('No files found'));
                       } else {
                         final list = controller.resController.currentEntity;
-                        list.removeWhere(
-                            (element) => element is IndexFile && element.size == 0);
+                        list.removeWhere((element) =>
+                            element is IndexFile && element.size == 0);
                         return LayoutBuilder(
                           builder: (context, constraints) {
                             if (constraints.maxWidth > 600) {
@@ -60,7 +60,8 @@ class ResourcesBody extends StatelessWidget {
         ),
       );
 
-  AnimationLimiter resoursesListBuilder(List<IndexEntity> list, bool isDesktop) =>
+  AnimationLimiter resoursesListBuilder(
+          List<IndexEntity> list, bool isDesktop) =>
       AnimationLimiter(
         key: UniqueKey(),
         child: GetBuilder<HomeController>(
@@ -70,7 +71,8 @@ class ResourcesBody extends StatelessWidget {
                 : const EdgeInsets.only(top: 5, bottom: 5),
             physics: const BouncingScrollPhysics(),
             itemCount: list.length,
-            itemBuilder: (context, index) => AnimationConfiguration.staggeredList(
+            itemBuilder: (context, index) =>
+                AnimationConfiguration.staggeredList(
               duration: const Duration(milliseconds: 300),
               position: index,
               child: SlideAnimation(
@@ -150,10 +152,12 @@ class ResourcesBody extends StatelessWidget {
                   opacity: isHovering ? 1 : 0,
                   curve: Curves.easeIn,
                   duration: const Duration(milliseconds: 500),
-                  child: isHovering ? glowingFavIcon(e, isFav) : const SizedBox(),
+                  child:
+                      isHovering ? glowingFavIcon(e, isFav) : const SizedBox(),
                 ),
         if (e is IndexFile)
-          Text(controller.resController.kiloBytesToString((e as IndexFile).size)),
+          Text(controller.resController
+              .kiloBytesToString((e as IndexFile).size)),
       ],
     );
   }
@@ -188,7 +192,8 @@ class ResourcesBody extends StatelessWidget {
       if (fileName0.endsWith('.pdf')) {
         return FaIcon(FontAwesomeIcons.filePdf, color: Colors.red[400]);
       } else if (fileName0.endsWith('.pptx') || fileName0.endsWith('.ppt')) {
-        return FaIcon(FontAwesomeIcons.filePowerpoint, color: Colors.yellow[400]);
+        return FaIcon(FontAwesomeIcons.filePowerpoint,
+            color: Colors.yellow[400]);
       } else if (fileName0.endsWith('.docx') || fileName0.endsWith('.doc')) {
         return const FaIcon(FontAwesomeIcons.fileWord, color: Colors.blue);
       } else if (fileName0.endsWith('.xlsx') || fileName0.endsWith('.xls')) {
@@ -210,4 +215,3 @@ class ResourcesBody extends StatelessWidget {
     }
   }
 }
-

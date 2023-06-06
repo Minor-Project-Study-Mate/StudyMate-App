@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
+import '../modules/course/bindings/course_binding.dart';
+import '../modules/course/views/course_view.dart';
 import '../modules/create_notice/bindings/create_notice_binding.dart';
 import '../modules/create_notice/views/create_notice_view.dart';
 import '../modules/favourite/bindings/favourite_binding.dart';
@@ -84,6 +86,11 @@ class AppPages {
       name: _Paths.CREATE_NOTICE,
       page: () => CreateNoticeView(),
       binding: CreateNoticeBinding(),
+    ),
+    GetPage(
+      name: _Paths.COURSE,
+      page: () => CourseView(),
+      binding: CourseBinding(),
     ),
     GetPage(
       name: _Paths.VIDEO_LECTURE,
