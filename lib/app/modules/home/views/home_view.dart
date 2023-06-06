@@ -116,7 +116,7 @@ class HomeView extends GetView<HomeController> {
                 label: "Resources",
                 color: Colors.pink.shade300),
             _buildCircularButton(context,
-                onPressed: () {},
+                onPressed: () => Get.toNamed(Routes.COURSE),
                 iconData: Icons.assignment,
                 label: "Courses",
                 color: Colors.green),
@@ -159,7 +159,8 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           children: [
             SizedBox(
-                 height: MediaQueryData.fromWindow(window).padding.top,),
+              height: MediaQueryData.fromWindow(window).padding.top,
+            ),
             Container(
               padding: const EdgeInsets.only(
                   top: 15, left: 15, right: 15, bottom: 40),

@@ -12,6 +12,7 @@ abstract class Routes {
   static const FAVOURITE = _Paths.FAVOURITE;
   static const MY_BATCH = _Paths.MY_BATCH;
   static const CREATE_NOTICE = _Paths.CREATE_NOTICE;
+  static const COURSE = _Paths.COURSE;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const FAVOURITE = '/favourite';
   static const MY_BATCH = '/my-batch';
   static const CREATE_NOTICE = '/create-notice';
+  static const COURSE = '/course';
 }
