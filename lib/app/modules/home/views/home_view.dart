@@ -10,6 +10,7 @@ import 'package:study_mate/app/modules/home/views/pages/fav.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 import 'pages/resources.dart';
+import 'widgets/event_list.dart';
 
 const headerHight = 200.0;
 
@@ -25,83 +26,16 @@ class HomeView extends GetView<HomeController> {
               const SizedBox(height: 20.0),
               appFeatures(context),
               const SizedBox(height: 20.0),
-              noticeEventWidget(context),
+              const EventList(),
             ],
           ),
           bodyHeader(context),
         ]),
       );
 
-  Widget noticeEventWidget(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              "Notice/Events",
-              style: GoogleFonts.openSans(
-                  fontSize: 35.0,
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          const SizedBox(height: 10.0),
-          LayoutBuilder(
-              builder: (context, constraints) => GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 10,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: constraints.maxWidth > 1000
-                          ? Get.width * 2 / (Get.height)
-                          : constraints.maxWidth > 600
-                              ? Get.width * 3 / (Get.height)
-                              : Get.width * 6 / (Get.height),
-                      crossAxisCount: constraints.maxWidth > 1000
-                          ? 3
-                          : constraints.maxWidth > 600
-                              ? 2
-                              : 1,
-                      crossAxisSpacing: 15,
-                      mainAxisSpacing: 15,
-                    ),
-                    itemBuilder: (context, index) => noticeItem(context, index),
-                  )),
-        ],
-      );
+  // Widget noticeEventWidget(BuildContext context) => 
 
-  Widget noticeItem(BuildContext context, int index) => GestureDetector(
-        onTap: () => Get.toNamed(Routes.NOTICE_PAGE),
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          padding: const EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
-            color: context.isDarkMode
-                ? Colors.grey.shade900
-                : Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Notice ${index + 1}",
-                style: GoogleFonts.philosopher(
-                    fontSize: 20.0,
-                    color: Theme.of(context).colorScheme.onBackground,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10.0),
-              Text(
-                "This is the content of Notice ${index + 1}",
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.onBackground,
-                    fontSize: 16.0),
-              ),
-            ],
-          ),
-        ),
-      );
+
 
   Widget appFeatures(BuildContext context) => AnimatedSize(
         duration: const Duration(milliseconds: 100),

@@ -13,7 +13,7 @@ class NoticeEventDatasource {
             event.toMap(),
           );
 
-  Future<List<Event>> readEvent() async {
+  Future<List<Event>> getEventList() async {
     final QuerySnapshot<Map<String, dynamic>> snapshot =
         await firebase.collection('notice').get();
 

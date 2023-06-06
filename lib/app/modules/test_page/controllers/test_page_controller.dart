@@ -43,8 +43,8 @@ class TestPageController extends GetxController {
       await boxService.themeBox.changeThemeMode(themeMode);
 
   getNoticeList() {
-    FirebaseService firebaseService = Get.find<FirebaseService>();
-    firebaseService.noticeEventDatasource.readEvent();
+    // FirebaseService firebaseService = Get.find<FirebaseService>();
+    // firebaseService.noticeEventDatasource.readEvent();
   }
 
   createEvent() {
@@ -59,7 +59,7 @@ class TestPageController extends GetxController {
   }
 
   readEvent() {
-    final firebaseService = Get.find<FirebaseService>();
-    firebaseService.noticeEventDatasource.readEvent();
+    // final firebaseService = Get.find<FirebaseService>();
+    // firebaseService.noticeEventDatasource.readEvent();
   }
 }
