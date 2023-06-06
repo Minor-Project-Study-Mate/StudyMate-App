@@ -12,8 +12,8 @@ import '../modules/intro/bindings/intro_binding.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/my_batch/bindings/my_batch_binding.dart';
 import '../modules/my_batch/views/my_batch_view.dart';
-import '../modules/notice_page/bindings/notice_page_binding.dart';
-import '../modules/notice_page/views/notice_page_view.dart';
+import '../modules/event_page/bindings/event_page_binding.dart';
+import '../modules/event_page/views/event_page_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/test_page/bindings/test_page_binding.dart';
@@ -67,8 +67,8 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.NOTICE_PAGE,
-      page: () => const NoticePageView(),
-      binding: NoticePageBinding(),
+      page: () => const EventPageView(),
+      binding: EventPageBinding(),
     ),
     GetPage(
       name: _Paths.FAVOURITE,

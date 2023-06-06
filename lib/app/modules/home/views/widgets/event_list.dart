@@ -69,7 +69,7 @@ class EventList extends StatelessWidget {
   );
 
   Widget noticeItem(BuildContext context, Event event) => GestureDetector(
-        onTap: () => Get.toNamed(Routes.NOTICE_PAGE),
+        onTap: () => Get.toNamed(Routes.NOTICE_PAGE, arguments: event),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           padding: const EdgeInsets.all(16.0),
