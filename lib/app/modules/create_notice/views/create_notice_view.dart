@@ -3,38 +3,16 @@ import 'package:get/get.dart';
 import '../controllers/create_notice_controller.dart';
 
 class CreateNoticeView extends GetView<CreateNoticeController> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _dateController = TextEditingController();
-  DateTime? selectedDate;
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime(2100),
-    );
-
-    if (pickedDate != null && pickedDate != selectedDate) {
-      // Date selected
-      selectedDate = pickedDate;
-      // Update the value of the form field
-      _dateController.text = selectedDate.toString();
-      _formKey.currentState!.validate();
-    }
-  }
+  const CreateNoticeView({Key? key}) : super(key: key);
 
   @override
-  void dispose() {
-    _dateController.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return Center(
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Create Notice'),
+          centerTitle: true,
+        ),
+        body: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
             child: ConstrainedBox(
               constraints: BoxConstraints(
                 maxWidth: constraints.maxWidth <= 600 ? double.infinity : 600,
@@ -46,71 +24,72 @@ class CreateNoticeView extends GetView<CreateNoticeController> {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Form(
-                        key: _formKey,
+                        key: controller.formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             TextFormField(
-                              decoration: InputDecoration(labelText: 'Title'),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter a title';
-                                }
-                                return null;
-                              },
+                              controller: controller.titleController,
+                              decoration:
+                                  const InputDecoration(labelText: 'Title'),
+                              validator: controller.titleFieldValidation,
                             ),
-                            SizedBox(height: 16.0),
+                            const SizedBox(height: 16.0),
                             TextFormField(
-                              decoration: InputDecoration(labelText: 'Description'),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter a description';
-                                }
-                                return null;
-                              },
+                              controller: controller.descriptionController,
+                              decoration: const InputDecoration(
+                                  labelText: 'Description'),
+                              validator: controller.descriptionFieldValidation,
                             ),
-                            SizedBox(height: 16.0),
+                            const SizedBox(height: 16.0),
+                            AnimatedSize(
+                              duration: const Duration(milliseconds: 300),
+                              child: Obx(() => controller.imageURL.value != null
+                                  ? Image.network(
+                                      controller.imageURL.value ?? '',
+                                      height: 200.0,
+                                      width: double.infinity,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : const SizedBox()),
+                            ),
                             TextFormField(
-                              decoration: InputDecoration(labelText: 'URL'),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter a URL';
-                                }
-                                return null;
-                              },
+                              controller: controller.urlController,
+                              decoration:
+                                  const InputDecoration(labelText: 'URL'),
+                              validator: controller.urlFieldValidation,
+                              onChanged: controller.onImageUrlChanged,
                             ),
-                            SizedBox(height: 16.0),
+                            const SizedBox(height: 16.0),
                             TextFormField(
                               readOnly: true,
-                              decoration: InputDecoration(
+                              controller: controller.dateText,
+                              decoration: const InputDecoration(
                                 labelText: 'Date',
                                 suffixIcon: Icon(Icons.calendar_today),
                               ),
-                              onTap: () => _selectDate(context),
-                              validator: (value) {
-                                if (selectedDate == null) {
-                                  return 'Please select a date';
-                                }
-                                return null;
-                              },
-                              controller: _dateController,
+                              onTap: () => controller.selectDateTime(),
+                              validator: controller.dateFieldValidation,
                             ),
-                            SizedBox(height: 24.0),
+                            const SizedBox(height: 24.0),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.blue, // Set the button color to blue
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0)),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 16.0)),
+                              onPressed: controller.submit,
+                              child: AnimatedSize(
+                                duration: const Duration(milliseconds: 300),
+                                child: Obx(
+                                  () => controller.submitting.value
+                                      ? const SizedBox(
+                                          height: 14,
+                                          width: 14,
+                                          child: CircularProgressIndicator())
+                                      : const Text('Submit'),
                                 ),
-                                padding: EdgeInsets.symmetric(vertical: 16.0),
                               ),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  // Form is valid, process the data
-                                  // You can access form values using _formKey.currentState!.value
-                                }
-                              },
-                              child: Text('Submit'),
                             ),
                           ],
                         ),
@@ -120,9 +99,7 @@ class CreateNoticeView extends GetView<CreateNoticeController> {
                 ),
               ),
             ),
-          );
-        },
-      ),
-    );
-  }
+          ),
+        ),
+      );
 }

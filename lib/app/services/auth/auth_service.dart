@@ -81,7 +81,11 @@ class AuthService extends GetxService {
           accessToken: authentication.accessToken,
           idToken: authentication.idToken);
       print(5);
-      await auth.signInWithCredential(credential);
+      await auth.signInWithCredential(credential).then((value) => 
+      print(value)).onError((error, stackTrace) {
+        print("Error");
+        print(error);});
+        print("########################");
       print(6);
       user.value = auth.currentUser;
       return user.value;

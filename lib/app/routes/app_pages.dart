@@ -34,10 +34,10 @@ class AppPages {
   /// null or not. If it is null, then the initial route is set to `Routes.INTRO`, which is the route for
   /// the introduction screen. If it is not null, then the initial route is set to `Routes.HOME`, which is
   /// the route for the home screen.
-  // static final INITIAL =
-  //     Get.find<AuthService>().user.value == null ? Routes.INTRO : Routes.HOME;
+  static final INITIAL =
+      Get.find<AuthService>().user.value == null ? Routes.INTRO : Routes.HOME;
 
-  static const INITIAL = Routes.INTRO;
+  // static const INITIAL = Routes.INTRO;
 
   static final routes = [
     GetPage(

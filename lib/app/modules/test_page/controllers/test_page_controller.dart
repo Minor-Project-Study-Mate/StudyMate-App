@@ -49,13 +49,13 @@ class TestPageController extends GetxController {
 
   createEvent() {
     final firebaseService = Get.find<FirebaseService>();
-    final event = Event(
-      title: "title 2",
-      description: "description 2",
-      date: "date 2",
-      time: "time 2",
-    );
-    firebaseService.noticeEventDatasource.createEvent(event);
+    // final event = Event(
+    //   title: "title 2",
+    //   description: "description 2",
+    //   date: "date 2",
+    //   time: "time 2",
+    // );
+    // firebaseService.noticeEventDatasource.createEvent(event);
   }
 
   readEvent() {

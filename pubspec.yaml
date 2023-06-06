@@ -12,19 +12,17 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.4.0
   firebase_core: ^2.10.0
-  google_sign_in: ^6.1.0
-  # dwds: ^19.0.0
+  google_sign_in: ^6.1.2
   get_storage: ^2.1.1
   cached_network_image: ^3.2.3
-  google_fonts: ^4.0.4
-  firebase_auth: ^4.4.2
+  google_fonts: ^4.0.1
+  firebase_auth: ^4.6.1
   csv: ^5.0.2
   flutter_staggered_animations: ^1.1.1
   url_launcher: ^6.1.10
   image_network: ^2.5.1
   flutter_custom_tabs: ^1.0.4
-  dcdg: ^4.1.0
-  cloud_firestore: ^4.7.1
+  cloud_firestore: ^4.8.0
 
 dev_dependencies: 
   flutter_lints: ^2.0.0

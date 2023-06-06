@@ -19,7 +19,7 @@ Future<void> init() async {
   // initializes Firebase with the default options for that platform. This is necessary because
   // Firebase has different initialization options for different platforms, and this code ensures that
   // the correct options are used for the current platform.
-  if (GetPlatform.isAndroid || GetPlatform.isWeb) {
+  if (GetPlatform.isWeb || GetPlatform.isAndroid) {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
   }
