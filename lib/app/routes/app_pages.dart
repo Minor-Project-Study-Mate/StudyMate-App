@@ -1,11 +1,15 @@
 import 'package:get/get.dart';
 
+import '../modules/about_page/bindings/about_page_binding.dart';
+import '../modules/about_page/views/about_page_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
 import '../modules/course/bindings/course_binding.dart';
 import '../modules/course/views/course_view.dart';
 import '../modules/create_notice/bindings/create_notice_binding.dart';
 import '../modules/create_notice/views/create_notice_view.dart';
+import '../modules/event_page/bindings/event_page_binding.dart';
+import '../modules/event_page/views/event_page_view.dart';
 import '../modules/favourite/bindings/favourite_binding.dart';
 import '../modules/favourite/views/favourite_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -14,8 +18,6 @@ import '../modules/intro/bindings/intro_binding.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/my_batch/bindings/my_batch_binding.dart';
 import '../modules/my_batch/views/my_batch_view.dart';
-import '../modules/event_page/bindings/event_page_binding.dart';
-import '../modules/event_page/views/event_page_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/test_page/bindings/test_page_binding.dart';
@@ -96,6 +98,11 @@ class AppPages {
       name: _Paths.VIDEO_LECTURE,
       page: () => const VideoLectureView(),
       binding: VideoLectureBinding(),
+    ),
+    GetPage(
+      name: _Paths.ABOUT_PAGE,
+      page: () => const AboutPageView(),
+      binding: AboutPageBinding(),
     ),
   ];
 }

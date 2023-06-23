@@ -14,6 +14,7 @@ abstract class Routes {
   static const CREATE_NOTICE = _Paths.CREATE_NOTICE;
   static const COURSE = _Paths.COURSE;
   static const VIDEO_LECTURE = _Paths.VIDEO_LECTURE;
+  static const ABOUT_PAGE = _Paths.ABOUT_PAGE;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const CREATE_NOTICE = '/create-notice';
   static const COURSE = '/course';
   static const VIDEO_LECTURE = '/video-lecture';
+  static const ABOUT_PAGE = '/about-page';
 }
