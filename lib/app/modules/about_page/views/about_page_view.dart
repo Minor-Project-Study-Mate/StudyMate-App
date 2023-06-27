@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -44,9 +43,11 @@ class AboutPageView extends GetView<AboutPageController> {
               buildPersonCard(
                 name: 'Nitin Kumar',
                 imageAsset: 'assets/images/nitin.jpg',
-                instagramLink: 'https://instagram.com/nitinkumargd?igshid=ZDdkNTZiNTM',
+                instagramLink:
+                    'https://instagram.com/nitinkumargd?igshid=ZDdkNTZiNTM',
                 githubLink: 'https://github.com/Nitin-45',
-                linkedinLink: 'https://www.linkedin.com/in/nitin-kumar-4a07681b8/',
+                linkedinLink:
+                    'https://www.linkedin.com/in/nitin-kumar-4a07681b8/',
                 contactText: 'Mobile-9523578653',
               ),
               const SizedBox(height: 16.0),

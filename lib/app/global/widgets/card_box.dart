@@ -6,7 +6,8 @@ const trigger = 700.0;
 class CardBox extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry? padding;
-  const CardBox({Key? key, required this.child, this.padding, required double elevation})
+  const CardBox(
+      {Key? key, required this.child, this.padding, required double elevation})
       : super(key: key);
 
   @override

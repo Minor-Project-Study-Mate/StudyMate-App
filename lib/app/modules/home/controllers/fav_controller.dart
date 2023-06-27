@@ -48,12 +48,12 @@ class FavController {
 
   List<DateWrapper> getFiltedFavs() {
     final list = (selectedTags.value.isEmpty)
-      ? controller.boxService.favBox.getFavs
-      : controller.boxService.favBox.getFavs
-          .where((element) => selectedTags.value
-              .every((tag) => element.file.path.contains(tag)))
-          .toList();
-      list.sort((a, b) => b.date.compareTo(a.date));
+        ? controller.boxService.favBox.getFavs
+        : controller.boxService.favBox.getFavs
+            .where((element) => selectedTags.value
+                .every((tag) => element.file.path.contains(tag)))
+            .toList();
+    list.sort((a, b) => b.date.compareTo(a.date));
     return list;
   }
 

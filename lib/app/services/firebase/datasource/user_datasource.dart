@@ -8,9 +8,8 @@ class UserDatasources {
   UserDatasources(this.firebase);
 
   createUser(AppUser user) {
-    // email -> signup 
+    // email -> signup
     // google -> if dosent exesis in firebase create user
-    
   }
 
   AppUser? updateUser(AppUser user) {
@@ -21,6 +20,5 @@ class UserDatasources {
     return [];
   }
 
-  AppUser?  getUser() {
-  }
+  AppUser? getUser() {}
 }

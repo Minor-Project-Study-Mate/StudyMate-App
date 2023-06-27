@@ -41,19 +41,20 @@ class Cource {
 
   String toJson() => json.encode(toMap());
 
-  factory Cource.fromJson(String source) => Cource.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Cource.fromJson(String source) =>
+      Cource.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'Cource(title: $title, url: $url, thumbnailUrl: $thumbnailUrl)';
+  String toString() =>
+      'Cource(title: $title, url: $url, thumbnailUrl: $thumbnailUrl)';
 
   @override
   bool operator ==(covariant Cource other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.title == title &&
-      other.url == url &&
-      other.thumbnailUrl == thumbnailUrl;
+
+    return other.title == title &&
+        other.url == url &&
+        other.thumbnailUrl == thumbnailUrl;
   }
 
   @override

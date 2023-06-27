@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 class AppUser {
   final String email;
   final String name;
@@ -53,13 +52,16 @@ class AppUser {
       stream: map['stream'] != null ? map['stream'] as String : null,
       branch: map['branch'] != null ? map['branch'] as String : null,
       semester: map['semester'] != null ? map['semester'] as int : null,
-      socialUrl: map['socialUrl'] != null ? UserSocialUrl.fromMap(map['socialUrl'] as Map<String,dynamic>) : null,
+      socialUrl: map['socialUrl'] != null
+          ? UserSocialUrl.fromMap(map['socialUrl'] as Map<String, dynamic>)
+          : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory AppUser.fromJson(String source) => AppUser.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory AppUser.fromJson(String source) =>
+      AppUser.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -69,24 +71,23 @@ class AppUser {
   @override
   bool operator ==(covariant AppUser other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.email == email &&
-      other.name == name &&
-      other.stream == stream &&
-      other.branch == branch &&
-      other.semester == semester &&
-      other.socialUrl == socialUrl;
+
+    return other.email == email &&
+        other.name == name &&
+        other.stream == stream &&
+        other.branch == branch &&
+        other.semester == semester &&
+        other.socialUrl == socialUrl;
   }
 
   @override
   int get hashCode {
     return email.hashCode ^
-      name.hashCode ^
-      stream.hashCode ^
-      branch.hashCode ^
-      semester.hashCode ^
-      socialUrl.hashCode;
+        name.hashCode ^
+        stream.hashCode ^
+        branch.hashCode ^
+        semester.hashCode ^
+        socialUrl.hashCode;
   }
 }
 
@@ -142,7 +143,8 @@ class UserSocialUrl {
 
   String toJson() => json.encode(toMap());
 
-  factory UserSocialUrl.fromJson(String source) => UserSocialUrl.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory UserSocialUrl.fromJson(String source) =>
+      UserSocialUrl.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -152,21 +154,20 @@ class UserSocialUrl {
   @override
   bool operator ==(covariant UserSocialUrl other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.github == github &&
-      other.linkedin == linkedin &&
-      other.twitter == twitter &&
-      other.instagram == instagram &&
-      other.facebook == facebook;
+
+    return other.github == github &&
+        other.linkedin == linkedin &&
+        other.twitter == twitter &&
+        other.instagram == instagram &&
+        other.facebook == facebook;
   }
 
   @override
   int get hashCode {
     return github.hashCode ^
-      linkedin.hashCode ^
-      twitter.hashCode ^
-      instagram.hashCode ^
-      facebook.hashCode;
+        linkedin.hashCode ^
+        twitter.hashCode ^
+        instagram.hashCode ^
+        facebook.hashCode;
   }
 }

@@ -34,4 +34,3 @@ class StudyMate extends StatelessWidget {
         debugShowCheckedModeBanner: false,
       );
 }
- 

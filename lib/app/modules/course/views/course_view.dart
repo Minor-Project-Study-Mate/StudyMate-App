@@ -289,9 +289,7 @@ class CourseView extends GetView<CourseController> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         ElevatedButton(
-                                          onPressed: () {
-                                          
-                                          },
+                                          onPressed: () {},
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor:
                                                 Theme.of(context).primaryColor,
@@ -310,9 +308,7 @@ class CourseView extends GetView<CourseController> {
                                           ),
                                         ),
                                         IconButton(
-                                          onPressed: () {
-                                            
-                                          },
+                                          onPressed: () {},
                                           icon: Icon(
                                             Icons.favorite_border,
                                             color:

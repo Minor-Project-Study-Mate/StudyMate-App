@@ -33,9 +33,7 @@ class HomeView extends GetView<HomeController> {
         ]),
       );
 
-  // Widget noticeEventWidget(BuildContext context) => 
-
-
+  // Widget noticeEventWidget(BuildContext context) =>
 
   Widget appFeatures(BuildContext context) => AnimatedSize(
         duration: const Duration(milliseconds: 100),
@@ -69,8 +67,9 @@ class HomeView extends GetView<HomeController> {
                 iconData: Icons.star_border_outlined,
                 label: "Favourites",
                 color: Colors.purple.shade300),
-            _buildCircularButton(context,
-                onPressed: () {Get.toNamed(Routes.VIDEO_LECTURE);},
+            _buildCircularButton(context, onPressed: () {
+              Get.toNamed(Routes.VIDEO_LECTURE);
+            },
                 iconData: Icons.video_camera_front_rounded,
                 label: "Lectures",
                 color: Colors.amber.shade400),

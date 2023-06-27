@@ -45,12 +45,12 @@ class ProfilePage extends GetView<ProfileController> {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                 Icon(
+              children: [
+                Icon(
                   Icons.logout,
                   color: Colors.white,
                   size: 31.0,
@@ -114,11 +114,15 @@ class ProfilePage extends GetView<ProfileController> {
                   profileTile(
                       const FaIcon(FontAwesomeIcons.share), "Share", () {}),
                   const Divider(),
+                  profileTile(const FaIcon(FontAwesomeIcons.info), "About", () {
+                    Get.toNamed(Routes.ABOUT_PAGE);
+                  }),
+                  const Divider(),
                   profileTile(
-                      const FaIcon(FontAwesomeIcons.info), "About", () {Get.toNamed(Routes.ABOUT_PAGE);}),
-                      const Divider(),
-                  profileTile(
-                      const FaIcon(FontAwesomeIcons.share), "Create notice", () {Get.toNamed(Routes.CREATE_NOTICE);}),
+                      const FaIcon(FontAwesomeIcons.share), "Create notice",
+                      () {
+                    Get.toNamed(Routes.CREATE_NOTICE);
+                  }),
                 ],
               ),
             ),

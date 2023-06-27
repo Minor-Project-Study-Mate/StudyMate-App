@@ -6,146 +6,155 @@ class VideoLectureView extends GetView<VideoLectureController> {
   const VideoLectureView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('VideoLecture'),
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.back();
-          },
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('VideoLecture'),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Get.back();
+            },
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Text(
-              'DSA',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(
-              height: 150,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  String title;
-                  String imageUrl;
-
-                  if (index == 0) {
-                    title = 'Gate Smasher';
-                    imageUrl = 'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  } else if (index == 1) {
-                    title = 'Coding Wizard';
-                    imageUrl = 'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  } else {
-                    title = 'Algorithm Master';
-                    imageUrl = 'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  }
-
-                  return buildListWidget(title, imageUrl);
-                },
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Text(
+                'DSA',
+                style: TextStyle(fontSize: 20),
               ),
-            ),
-            const Text(
-              'OS',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(
-              height: 150,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  String title;
-                  String imageUrl;
+              SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    String title;
+                    String imageUrl;
 
-                  if (index == 0) {
-                    title = 'Gate Smasher';
-                    imageUrl = 'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    if (index == 0) {
+                      title = 'Gate Smasher';
+                      imageUrl =
+                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else if (index == 1) {
+                      title = 'Coding Wizard';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else {
+                      title = 'Algorithm Master';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    }
 
-                  } else if (index == 1) {
-                    title = 'Love Babbar';
-                    imageUrl = 'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  } else {
-                    title = 'Me';
-                    imageUrl = 'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  }
-
-                  return buildListWidget(title, imageUrl);
-                },
+                    return buildListWidget(title, imageUrl);
+                  },
+                ),
               ),
-            ),
-            const Text(
-              'DBMS',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(
-              height: 150,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  String title;
-                  String imageUrl;
-
-                  if (index == 0) {
-                    title = 'Database Design';
-                    imageUrl = 'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  } else if (index == 1) {
-                    title = 'SQL Mastery';
-                    imageUrl = 'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  } else {
-                    title = 'Data Modeling';
-                    imageUrl = 'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  }
-
-                  return buildListWidget(title, imageUrl);
-                },
+              const Text(
+                'OS',
+                style: TextStyle(fontSize: 20),
               ),
-            ),
-            const Text(
-              'CD',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(
-              height: 150,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  String title;
-                  String imageUrl;
+              SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    String title;
+                    String imageUrl;
 
-                  if (index == 0) {
-                    title = 'Digital Logic';
-                    imageUrl = 'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  } else if (index == 1) {
-                    title = 'Gate Smasher';
-                    imageUrl = 'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  } else {
-                    title = 'Microprocessors';
-                    imageUrl = 'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                  }
+                    if (index == 0) {
+                      title = 'Gate Smasher';
+                      imageUrl =
+                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else if (index == 1) {
+                      title = 'Love Babbar';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else {
+                      title = 'Me';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    }
 
-                  return buildListWidget(title, imageUrl);
-                },
+                    return buildListWidget(title, imageUrl);
+                  },
+                ),
               ),
-            ),
-          ],
+              const Text(
+                'DBMS',
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    String title;
+                    String imageUrl;
+
+                    if (index == 0) {
+                      title = 'Database Design';
+                      imageUrl =
+                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else if (index == 1) {
+                      title = 'SQL Mastery';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else {
+                      title = 'Data Modeling';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    }
+
+                    return buildListWidget(title, imageUrl);
+                  },
+                ),
+              ),
+              const Text(
+                'CD',
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    String title;
+                    String imageUrl;
+
+                    if (index == 0) {
+                      title = 'Digital Logic';
+                      imageUrl =
+                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else if (index == 1) {
+                      title = 'Gate Smasher';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    } else {
+                      title = 'Microprocessors';
+                      imageUrl =
+                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                    }
+
+                    return buildListWidget(title, imageUrl);
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 
   Widget buildListWidget(String title, String imageUrl) {
     return Container(
       width: 150,
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -158,10 +167,10 @@ class VideoLectureView extends GetView<VideoLectureController> {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             title,
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
         ],
       ),

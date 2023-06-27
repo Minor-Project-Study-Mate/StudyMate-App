@@ -36,7 +36,8 @@ class TagUtils {
     //   }
     // }
     // return count;
-    return paths.fold(0, (count, value) => count + (value.contains(tag) ? 1 : 0));
+    return paths.fold(
+        0, (count, value) => count + (value.contains(tag) ? 1 : 0));
   }
 
   bool isPresentInAllLists(List<List<String>> paths, String tag) {

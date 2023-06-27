@@ -6,13 +6,11 @@ class Event {
   final String description;
   final DateTime dateTime;
   final String? url;
-  const Event({
-    required this.title,
-    required this.description,
-    required this.dateTime,
-    this.url
-  });
-
+  const Event(
+      {required this.title,
+      required this.description,
+      required this.dateTime,
+      this.url});
 
   Event copyWith({
     String? title,
@@ -48,7 +46,8 @@ class Event {
 
   String toJson() => json.encode(toMap());
 
-  factory Event.fromJson(String source) => Event.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Event.fromJson(String source) =>
+      Event.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -58,19 +57,18 @@ class Event {
   @override
   bool operator ==(covariant Event other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.title == title &&
-      other.description == description &&
-      other.dateTime == dateTime &&
-      other.url == url;
+
+    return other.title == title &&
+        other.description == description &&
+        other.dateTime == dateTime &&
+        other.url == url;
   }
 
   @override
   int get hashCode {
     return title.hashCode ^
-      description.hashCode ^
-      dateTime.hashCode ^
-      url.hashCode;
+        description.hashCode ^
+        dateTime.hashCode ^
+        url.hashCode;
   }
 }

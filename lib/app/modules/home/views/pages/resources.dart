@@ -114,12 +114,10 @@ class ResourcesBody extends StatelessWidget {
             image: DecorationImage(
               image: AssetImage('assets/images/backg.png'),
               fit: BoxFit.cover,
-             
-                colorFilter: Get.isDarkMode
+              colorFilter: Get.isDarkMode
                   ? ColorFilter.mode(
                       Colors.black.withOpacity(0.5), BlendMode.darken)
-         :null,
-                  
+                  : null,
             ),
           ),
           child: Row(
