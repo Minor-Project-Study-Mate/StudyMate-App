@@ -3,38 +3,34 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../model/notice_modal.dart';
 
 class NoticeEventDatasource {
-  final FirebaseFirestore firebase;
-  NoticeEventDatasource(this.firebase);
+  final FirebaseFirestore _firebase = FirebaseFirestore.instance;
 
+  // Create Event
   Future<DocumentReference<Map<String, dynamic>>> createEvent(
     Event event,
   ) async =>
-      await firebase.collection('notice').add(
+      await _firebase.collection('notice').add(
             event.toMap(),
           );
 
+  // Get Event
   Future<List<Event>> getEventList() async {
-    final QuerySnapshot<Map<String, dynamic>> snapshot =
-        await firebase.collection('notice').get();
+    final snapshot = await _firebase.collection('notice').get();
 
-    final List<QueryDocumentSnapshot<Map<String, dynamic>>> res = snapshot.docs;
-
-    if (res.isNotEmpty) {
-      final List<Event> events =
-          res.map((e) => Event.fromMap(e.data())).toList();
-      return events;
-    }
-    return [];
+    if (snapshot.docs.isEmpty) return [];
+    final List<Event> events =
+        snapshot.docs.map((e) => Event.fromMap(e.data())).toList();
+    return events;
   }
 
-  Future<void> updateEvent(String eventId, Event updatedEvent) async {
-    await firebase
-        .collection('notice')
-        .doc(eventId)
-        .update(updatedEvent.toMap());
-  }
+  // Update Event
+  Future<void> updateEvent(String eventId, Event updatedEvent) async =>
+      await _firebase
+          .collection('notice')
+          .doc(eventId)
+          .update(updatedEvent.toMap());
 
-  Future<void> deleteEvent(String eventId) async {
-    await firebase.collection('notice').doc(eventId).delete();
-  }
+  // Delete Event
+  Future<void> deleteEvent(String eventId) async =>
+      await _firebase.collection('notice').doc(eventId).delete();
 }

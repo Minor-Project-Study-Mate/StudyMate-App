@@ -1,24 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import '../model/app_user_model.dart';
 
 class UserDatasources {
-  final FirebaseFirestore firebase;
-  UserDatasources(this.firebase);
+  final FirebaseFirestore firebase = FirebaseFirestore.instance;
 
-  createUser(AppUser user) {
-    // email -> signup
-    // google -> if dosent exesis in firebase create user
+  Future<void> createUser(AppUser user) async {
+    await firebase.collection('users').add(user.toMap());
   }
 
-  AppUser? updateUser(AppUser user) {
-    // branch
+  Future<List<AppUser>> getUserList() async {
+    final res = await firebase.collection('users').get();
+    if (res.docs.isEmpty) return [];
+    return res.docs.map((e) => AppUser.fromMap(e.data())).toList();
   }
 
-  List<AppUser> getUserList() {
-    return [];
+  Future<bool> usreExist(AppUser user) async {
+    final res = await firebase
+        .collection('users')
+        .limit(1)
+        .where('email', isEqualTo: user.email)
+        .get();
+    return (res.docs.isEmpty) ? false : true;
   }
 
-  AppUser? getUser() {}
+  Future<AppUser?> getMe(String email) async {
+    final res = await firebase
+        .collection('users')
+        .limit(1)
+        .where('email', isEqualTo: email)
+        .get();
+    if (res.docs.isEmpty) return null;
+    return AppUser.fromMap(res.docs.first.data());
+  }
 }

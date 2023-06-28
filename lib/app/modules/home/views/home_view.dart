@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart' as chrometab;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,28 @@ const headerHight = 200.0;
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
+
+  Future<void> prevWeb(BuildContext context, String url) async {
+    try {
+      await chrometab.launch(
+        url,
+        customTabsOption: chrometab.CustomTabsOption(
+          toolbarColor: Theme.of(context).primaryColor,
+          enableDefaultShare: true,
+          enableUrlBarHiding: true,
+          showPageTitle: true,
+          extraCustomTabs: const <String>[
+            // ref. https://play.google.com/store/apps/details?id=org.mozilla.firefox
+            'org.mozilla.firefox',
+            // ref. https://play.google.com/store/apps/details?id=com.microsoft.emmx
+            'com.microsoft.emmx',
+          ],
+        ),
+      );
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -58,9 +81,10 @@ class HomeView extends GetView<HomeController> {
                 label: "MeetUp",
                 color: Colors.red),
             _buildCircularButton(context,
-                onPressed: () {},
+                onPressed: () =>
+                    prevWeb(context, "https://kiitportal.kiituniversity.net/"),
                 iconData: Icons.event,
-                label: "Timetable",
+                label: "SAP",
                 color: Colors.blue),
             _buildCircularButton(context,
                 onPressed: () => Get.to(() => const FavBody()),
