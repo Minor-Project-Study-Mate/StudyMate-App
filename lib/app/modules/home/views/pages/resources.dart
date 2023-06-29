@@ -13,9 +13,8 @@ class ResourcesBody extends StatelessWidget {
   const ResourcesBody(this.controller, {Key? key}) : super(key: key);
   final HomeController controller;
 
-  Future<void> openDoc(BuildContext context, IndexFile file) async {
-    await launchUrl(Uri.parse(file.id));
-  }
+  Future<void> openDoc(BuildContext context, IndexFile file) async =>
+      await launchUrl(Uri.parse(file.id));
 
   @override
   Widget build(BuildContext context) => WillPopScope(
@@ -39,20 +38,19 @@ class ResourcesBody extends StatelessWidget {
                     builder: (context, snapshot) {
                       if ((controller.resController.currentEntity.isEmpty)) {
                         return const Center(child: Text('No files found'));
-                      } else {
-                        final list = controller.resController.currentEntity;
-                        list.removeWhere((element) =>
-                            element is IndexFile && element.size == 0);
-                        return LayoutBuilder(
-                          builder: (context, constraints) {
-                            if (constraints.maxWidth > 600) {
-                              return resoursesListBuilder(list, true);
-                            } else {
-                              return resoursesListBuilder(list, false);
-                            }
-                          },
-                        );
                       }
+                      final list = controller.resController.currentEntity;
+                      list.removeWhere((element) =>
+                          element is IndexFile && element.size == 0);
+                      return LayoutBuilder(
+                        builder: (context, constraints) {
+                          if (constraints.maxWidth > 600) {
+                            return resoursesListBuilder(list, true);
+                          } else {
+                            return resoursesListBuilder(list, false);
+                          }
+                        },
+                      );
                     },
                   )
                 : const Center(child: CircularProgressIndicator()),
@@ -112,7 +110,7 @@ class ResourcesBody extends StatelessWidget {
               ),
             ],
             image: DecorationImage(
-              image: AssetImage('assets/images/backg.png'),
+              image: const AssetImage('assets/images/backg.png'),
               fit: BoxFit.cover,
               colorFilter: Get.isDarkMode
                   ? ColorFilter.mode(
@@ -154,8 +152,7 @@ class ResourcesBody extends StatelessWidget {
                       isHovering ? glowingFavIcon(e, isFav) : const SizedBox(),
                 ),
         if (e is IndexFile)
-          Text(controller.resController
-              .kiloBytesToString((e as IndexFile).size)),
+          Text(controller.resController.kiloBytesToString((e).size)),
       ],
     );
   }

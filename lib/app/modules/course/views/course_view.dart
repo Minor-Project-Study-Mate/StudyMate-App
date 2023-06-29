@@ -35,10 +35,7 @@ class CourseView extends GetView<CourseController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: const Text("Courses"),
-        backgroundColor: Colors.blue,
-      ),
+      appBar: appBar(context),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,5 +157,27 @@ class CourseView extends GetView<CourseController> {
             onTap: () => prevWeb(context, cource.url),
           ),
         ],
+      );
+
+  AppBar appBar(BuildContext context) => AppBar(
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+        ),
+        title: Text("Cources",
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Colors.white,
+                )),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff0072B5), Color(0xff3B3B98)],
+              stops: [0.5, 1.0],
+            ),
+          ),
+        ),
       );
 }

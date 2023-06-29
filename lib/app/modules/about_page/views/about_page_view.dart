@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -11,7 +13,7 @@ class AboutPageView extends GetView<AboutPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Team Members',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -19,7 +21,7 @@ class AboutPageView extends GetView<AboutPageController> {
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -27,7 +29,7 @@ class AboutPageView extends GetView<AboutPageController> {
       ),
       body: Center(
         child: Container(
-          constraints: BoxConstraints(maxWidth: 600),
+          constraints: const BoxConstraints(maxWidth: 600),
           child: ListView(
             padding: const EdgeInsets.all(16.0),
             children: [
@@ -116,11 +118,11 @@ class AboutPageView extends GetView<AboutPageController> {
       onPressed: () {
         _launchURL(link);
       },
-      child: Text(text),
       style: ElevatedButton.styleFrom(
         primary: Colors.blue,
         textStyle: const TextStyle(color: Colors.white),
       ),
+      child: Text(text),
     );
   }
 

@@ -10,8 +10,6 @@ import '../modules/create_notice/bindings/create_notice_binding.dart';
 import '../modules/create_notice/views/create_notice_view.dart';
 import '../modules/event_page/bindings/event_page_binding.dart';
 import '../modules/event_page/views/event_page_view.dart';
-import '../modules/favourite/bindings/favourite_binding.dart';
-import '../modules/favourite/views/favourite_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro/bindings/intro_binding.dart';
@@ -75,23 +73,18 @@ class AppPages {
       binding: EventPageBinding(),
     ),
     GetPage(
-      name: _Paths.FAVOURITE,
-      page: () => const FavouriteView(),
-      binding: FavouriteBinding(),
-    ),
-    GetPage(
       name: _Paths.MY_BATCH,
       page: () => const MyBatchView(),
       binding: MyBatchBinding(),
     ),
     GetPage(
       name: _Paths.CREATE_NOTICE,
-      page: () => CreateNoticeView(),
+      page: () => const CreateNoticeView(),
       binding: CreateNoticeBinding(),
     ),
     GetPage(
       name: _Paths.COURSE,
-      page: () => CourseView(),
+      page: () => const CourseView(),
       binding: CourseBinding(),
     ),
     GetPage(

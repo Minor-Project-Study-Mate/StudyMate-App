@@ -126,7 +126,6 @@ class HomeView extends GetView<HomeController> {
                 children: [
                   Text(
                     "Hey Mate",
-                    // "Hi ${controller.getFirstName}",
                     style: GoogleFonts.exo(
                         fontSize: 28.0,
                         fontStyle: FontStyle.italic,

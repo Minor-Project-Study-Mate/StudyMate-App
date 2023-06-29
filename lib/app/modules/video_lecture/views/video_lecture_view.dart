@@ -1,149 +1,99 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../services/firebase/model/lecture_model.dart';
 import '../controllers/video_lecture_controller.dart';
 
 class VideoLectureView extends GetView<VideoLectureController> {
   const VideoLectureView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text('VideoLecture'),
-          centerTitle: true,
-          backgroundColor: Colors.blue,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Get.back();
-            },
-          ),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: appBar(context),
+      body: FutureBuilder<List<Subject>>(
+          future: controller.getDemoLecture(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final subjectList = snapshot.data ?? [];
+
+              return ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: subjectList.length, // Replace with your own data
+                itemBuilder: (BuildContext context, int index) =>
+                    subjectWidget(subjectList[index], index),
+              );
+            } else if (!snapshot.hasData) {
+              return const LinearProgressIndicator();
+            } else {
+              return const Center(child: Text('No data found'));
+            }
+          }),
+    );
+  }
+
+  Widget subjectWidget(Subject subject, int chapterIndex) => InkWell(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                subject.name,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 150, // Replace with your own height
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount:
+                    subject.playlists.length, // Replace with your own data
+                itemBuilder: (BuildContext context, int index) {
+                  return playlistWidget(subject.playlists[index]);
+                },
+              ),
+            ),
+          ],
         ),
-        body: SingleChildScrollView(
+      );
+
+  Widget playlistWidget(Playlist playlist) => InkWell(
+        borderRadius: BorderRadius.circular(4),
+        onTap: () => controller.launchURL(playlist.url),
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'DSA',
-                style: TextStyle(fontSize: 20),
+              Card(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: SizedBox(
+                      width: 150,
+                      height: 84,
+                      child: CachedNetworkImage(
+                        imageUrl: playlist.thumbnailUrl ?? '',
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => Container(
+                          color: Colors.grey,
+                        ),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
+                      ),
+                    )),
               ),
-              SizedBox(
-                height: 150,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    String title;
-                    String imageUrl;
-
-                    if (index == 0) {
-                      title = 'Gate Smasher';
-                      imageUrl =
-                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else if (index == 1) {
-                      title = 'Coding Wizard';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else {
-                      title = 'Algorithm Master';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    }
-
-                    return buildListWidget(title, imageUrl);
-                  },
-                ),
-              ),
-              const Text(
-                'OS',
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(
-                height: 150,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    String title;
-                    String imageUrl;
-
-                    if (index == 0) {
-                      title = 'Gate Smasher';
-                      imageUrl =
-                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else if (index == 1) {
-                      title = 'Love Babbar';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else {
-                      title = 'Me';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    }
-
-                    return buildListWidget(title, imageUrl);
-                  },
-                ),
-              ),
-              const Text(
-                'DBMS',
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(
-                height: 150,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    String title;
-                    String imageUrl;
-
-                    if (index == 0) {
-                      title = 'Database Design';
-                      imageUrl =
-                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else if (index == 1) {
-                      title = 'SQL Mastery';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else {
-                      title = 'Data Modeling';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    }
-
-                    return buildListWidget(title, imageUrl);
-                  },
-                ),
-              ),
-              const Text(
-                'CD',
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(
-                height: 150,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    String title;
-                    String imageUrl;
-
-                    if (index == 0) {
-                      title = 'Digital Logic';
-                      imageUrl =
-                          'https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else if (index == 1) {
-                      title = 'Gate Smasher';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2899097/pexels-photo-2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    } else {
-                      title = 'Microprocessors';
-                      imageUrl =
-                          'https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-                    }
-
-                    return buildListWidget(title, imageUrl);
-                  },
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(
+                  playlist.title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],
@@ -151,29 +101,25 @@ class VideoLectureView extends GetView<VideoLectureController> {
         ),
       );
 
-  Widget buildListWidget(String title, String imageUrl) {
-    return Container(
-      width: 150,
-      margin: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: Image.network(
-              imageUrl,
-              width: 150,
-              height: 100,
-              fit: BoxFit.cover,
+  AppBar appBar(BuildContext context) => AppBar(
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+        ),
+        title: Text("Video Lecture",
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Colors.white,
+                )),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff0072B5), Color(0xff3B3B98)],
+              stops: [0.5, 1.0],
             ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 16),
-          ),
-        ],
-      ),
-    );
-  }
+        ),
+      );
 }
