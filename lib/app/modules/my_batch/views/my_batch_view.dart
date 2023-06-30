@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import '../../../services/firebase/model/app_user_model.dart';
 import '../controllers/my_batch_controller.dart';
 
 final shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(10));
@@ -21,8 +22,8 @@ class MyBatchView extends GetView<MyBatchController> {
         body: listWithEmail,
       );
 
-  Widget get listWithEmail => FutureBuilder<List<String>>(
-        future: controller.getUser(),
+  Widget get listWithEmail => FutureBuilder<List<AppUser>>(
+        future: controller.getAppUserList(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -46,13 +47,13 @@ class MyBatchView extends GetView<MyBatchController> {
         },
       );
 
-  Widget tileWithName(String name, int index, BuildContext context) => Tooltip(
-        message: name,
+  Widget tileWithName(AppUser user, int index, BuildContext context) => Tooltip(
+        message: user.email,
         child: Card(
-          elevation: controller.isMe(name) ? 5 : 0,
+          elevation: controller.isMe(user.email) ? 5 : 0,
           child: ListTile(
             shape: shape,
-            tileColor: controller.isMe(name)
+            tileColor: controller.isMe(user.email)
                 ? Color.alphaBlend(
                     Theme.of(context)
                         .colorScheme
@@ -61,8 +62,8 @@ class MyBatchView extends GetView<MyBatchController> {
                     Theme.of(context).cardColor)
                 : null,
             leading: Text((index + 1).toString()),
-            title: Text(name),
-            trailing: controller.isMe(name) ? const Text("😋") : null,
+            title: Text(user.name),
+            trailing: controller.isMe(user.email) ? const Text("😋") : null,
           ),
         ),
       );

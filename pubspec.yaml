@@ -24,8 +24,11 @@ dependencies:
   flutter_custom_tabs: ^1.0.4
   cloud_firestore: ^4.8.0
   design_grid: ^1.1.0
+  flutter_svg: ^2.0.7
 
 dev_dependencies: 
+  flutter_native_splash: ^2.3.1
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^2.0.0
   flutter_test: 
     sdk: flutter
@@ -36,3 +39,30 @@ flutter:
   assets:
     - assets/images/
     - assets/data/
+    - assets/svg/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/icons/logo.png"
+  min_sdk_android: 21 
+  web:
+    generate: true
+    image_path: "assets/icons/logo.png"
+    background_color: "#ffffff"
+    theme_color: "#191919"
+
+# flutter_native_splash:
+  # color: "#ffffff"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/icons/logo.png
+  color_dark: "#191919"
+  # android_12:
+  #   image: assets/icons/logo.png
+  #   icon_background_color: "#ffffff"
+  #   image_dark: assets/icons/logo.png
+  #   icon_background_color_dark: "#191919"
+
+  web: true

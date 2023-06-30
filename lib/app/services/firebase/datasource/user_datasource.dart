@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 
 import '../model/app_user_model.dart';
 
 class UserDatasources {
   final FirebaseFirestore firebase = FirebaseFirestore.instance;
+
+  final user = Rx<AppUser?>(null);
 
   Future<void> createUser(AppUser user) async {
     await firebase.collection('users').add(user.toMap());
@@ -15,11 +18,11 @@ class UserDatasources {
     return res.docs.map((e) => AppUser.fromMap(e.data())).toList();
   }
 
-  Future<bool> usreExist(AppUser user) async {
+  Future<bool> userExist(String email) async {
     final res = await firebase
         .collection('users')
         .limit(1)
-        .where('email', isEqualTo: user.email)
+        .where('email', isEqualTo: email)
         .get();
     return (res.docs.isEmpty) ? false : true;
   }

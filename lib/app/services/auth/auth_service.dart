@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../box/box_service.dart';
+import '../firebase/model/app_user_model.dart';
 
 class AuthService extends GetxService {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -47,6 +48,8 @@ class AuthService extends GetxService {
       if (userCredential.user != null) {
         await userCredential.user!.updateDisplayName(userName);
         user.value = userCredential.user;
+        await box.appUser
+            .updateAppUser(AppUser.fromFirebase(userCredential.user));
         return user.value;
       }
     } on FirebaseAuthException catch (e) {
@@ -97,6 +100,7 @@ class AuthService extends GetxService {
   Future<void> logout() async {
     try {
       await _googleSignIn.signOut();
+      await box.appUser.deleteAppUser();
       await auth.signOut();
     } catch (error) {
       Get.snackbar('Error', error.toString());

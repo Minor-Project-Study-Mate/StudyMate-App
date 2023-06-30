@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:study_mate/app/routes/app_pages.dart';
@@ -26,8 +27,22 @@ class IntroView extends GetView<IntroController> {
                     borderRadius:
                         BorderRadius.only(bottomRight: Radius.circular(50))),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(child: Image.asset("assets/images/Intro.png"))
+                    Hero(
+                      tag: "app_logo",
+                      child: SvgPicture.asset(
+                        'assets/svg/logo.svg',
+                        height: 300,
+                      ),
+                    ),
+                    Text(
+                      "Study Mate",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineLarge!
+                          .copyWith(color: Colors.white70),
+                    )
                   ],
                 ),
               )),

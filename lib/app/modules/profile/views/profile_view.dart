@@ -117,12 +117,17 @@ class ProfilePage extends GetView<ProfileController> {
                   profileTile(const FaIcon(FontAwesomeIcons.info), "About", () {
                     Get.toNamed(Routes.ABOUT_PAGE);
                   }),
-                  const Divider(),
-                  profileTile(
-                      const FaIcon(FontAwesomeIcons.share), "Create notice",
-                      () {
-                    Get.toNamed(Routes.CREATE_NOTICE);
-                  }),
+                  if (controller.isAdmin())
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Divider(),
+                        profileTile(
+                            const FaIcon(FontAwesomeIcons.share),
+                            "Create notice",
+                            () => Get.toNamed(Routes.CREATE_NOTICE)),
+                      ],
+                    ),
                 ],
               ),
             ),

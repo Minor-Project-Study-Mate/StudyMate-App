@@ -34,26 +34,32 @@ class Subject {
   factory Subject.fromMap(Map<String, dynamic> map) {
     return Subject(
       name: map['name'] as String,
-      description: map['description'] != null ? map['description'] as String : null,
-      playlists: List<Playlist>.from((map['playlists']).map<Playlist>((x) => Playlist.fromMap(x as Map<String,dynamic>),),),
+      description:
+          map['description'] != null ? map['description'] as String : null,
+      playlists: List<Playlist>.from(
+        (map['playlists']).map<Playlist>(
+          (x) => Playlist.fromMap(x as Map<String, dynamic>),
+        ),
+      ),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Subject.fromJson(String source) => Subject.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Subject.fromJson(String source) =>
+      Subject.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'Subject(name: $name, description: $description, playlists: $playlists)';
+  String toString() =>
+      'Subject(name: $name, description: $description, playlists: $playlists)';
 
   @override
   bool operator ==(covariant Subject other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.name == name &&
-      other.description == description &&
-      listEquals(other.playlists, playlists);
+
+    return other.name == name &&
+        other.description == description &&
+        listEquals(other.playlists, playlists);
   }
 
   @override
@@ -98,15 +104,18 @@ class Playlist {
   factory Playlist.fromMap(Map<String, dynamic> map) {
     return Playlist(
       title: map['title'] as String,
-      description: map['description'] != null ? map['description'] as String : null,
+      description:
+          map['description'] != null ? map['description'] as String : null,
       url: map['url'] as String,
-      thumbnailUrl: map['thumbnailUrl'] != null ? map['thumbnailUrl'] as String : null,
+      thumbnailUrl:
+          map['thumbnailUrl'] != null ? map['thumbnailUrl'] as String : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Playlist.fromJson(String source) => Playlist.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Playlist.fromJson(String source) =>
+      Playlist.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -116,19 +125,18 @@ class Playlist {
   @override
   bool operator ==(covariant Playlist other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.title == title &&
-      other.description == description &&
-      other.url == url &&
-      other.thumbnailUrl == thumbnailUrl;
+
+    return other.title == title &&
+        other.description == description &&
+        other.url == url &&
+        other.thumbnailUrl == thumbnailUrl;
   }
 
   @override
   int get hashCode {
     return title.hashCode ^
-      description.hashCode ^
-      url.hashCode ^
-      thumbnailUrl.hashCode;
+        description.hashCode ^
+        url.hashCode ^
+        thumbnailUrl.hashCode;
   }
 }

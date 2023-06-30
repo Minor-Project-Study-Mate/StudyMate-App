@@ -124,7 +124,6 @@ const dummyData = [
 ];
 
 class VideoLectureController extends GetxController {
-
   Future<List<Subject>> getDemoLecture() async {
     // emulate network delay
     await Future.delayed(const Duration(seconds: 1));

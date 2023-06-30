@@ -1,12 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:study_mate/app/services/box/box_service.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../services/auth/auth_service.dart';
+import '../../../services/firebase/firebase_service.dart';
+import '../../../services/firebase/model/app_user_model.dart';
 
 class SignUpController extends GetxController {
   final _authService = Get.find<AuthService>();
+  final firebaseService = Get.find<FirebaseService>();
 
   final formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
@@ -54,6 +58,7 @@ class SignUpController extends GetxController {
           passwordController.text,
         );
         if (res != null) {
+          await _updateAppUser(res);
           Get.offAllNamed(Routes.HOME);
         }
       } on FirebaseAuthException catch (e) {
@@ -64,6 +69,11 @@ class SignUpController extends GetxController {
         );
       }
     }
+  }
+
+  Future<void> _updateAppUser(User user) async {
+    final res = await firebaseService.userDatasources.getMe(user.email!);
+    await Get.find<BoxService>().appUser.updateAppUser(res);
   }
 
   @override

@@ -10,6 +10,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Initialization and Depedencies Injection
   await di.init();
+
   // Run Application
   runApp(const StudyMate());
 }

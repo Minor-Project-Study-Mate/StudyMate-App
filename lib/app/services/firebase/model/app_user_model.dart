@@ -1,4 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+
+import 'package:firebase_auth/firebase_auth.dart' show User;
 
 class AppUser {
   final String email;
@@ -6,13 +9,15 @@ class AppUser {
   final String? stream;
   final String? branch;
   final int? semester;
+  final String? role;
   final UserSocialUrl? socialUrl;
-  AppUser({
+  const AppUser({
     required this.email,
     required this.name,
     this.stream,
     this.branch,
     this.semester,
+    this.role,
     this.socialUrl,
   });
 
@@ -22,6 +27,7 @@ class AppUser {
     String? stream,
     String? branch,
     int? semester,
+    String? role,
     UserSocialUrl? socialUrl,
   }) {
     return AppUser(
@@ -30,6 +36,7 @@ class AppUser {
       stream: stream ?? this.stream,
       branch: branch ?? this.branch,
       semester: semester ?? this.semester,
+      role: role ?? this.role,
       socialUrl: socialUrl ?? this.socialUrl,
     );
   }
@@ -41,6 +48,7 @@ class AppUser {
       'stream': stream,
       'branch': branch,
       'semester': semester,
+      'role': role,
       'socialUrl': socialUrl?.toMap(),
     };
   }
@@ -52,11 +60,17 @@ class AppUser {
       stream: map['stream'] != null ? map['stream'] as String : null,
       branch: map['branch'] != null ? map['branch'] as String : null,
       semester: map['semester'] != null ? map['semester'] as int : null,
+      role: map['role'] != null ? map['role'] as String : null,
       socialUrl: map['socialUrl'] != null
           ? UserSocialUrl.fromMap(map['socialUrl'] as Map<String, dynamic>)
           : null,
     );
   }
+
+  factory AppUser.fromFirebase(User? user) => AppUser(
+        email: user?.email ?? "",
+        name: user?.displayName ?? "",
+      );
 
   String toJson() => json.encode(toMap());
 
@@ -65,7 +79,7 @@ class AppUser {
 
   @override
   String toString() {
-    return 'AppUser(email: $email, name: $name, stream: $stream, branch: $branch, semester: $semester, socialUrl: $socialUrl)';
+    return 'AppUser(email: $email, name: $name, stream: $stream, branch: $branch, semester: $semester, role: $role, socialUrl: $socialUrl)';
   }
 
   @override
@@ -77,6 +91,7 @@ class AppUser {
         other.stream == stream &&
         other.branch == branch &&
         other.semester == semester &&
+        other.role == role &&
         other.socialUrl == socialUrl;
   }
 
@@ -87,6 +102,7 @@ class AppUser {
         stream.hashCode ^
         branch.hashCode ^
         semester.hashCode ^
+        role.hashCode ^
         socialUrl.hashCode;
   }
 }

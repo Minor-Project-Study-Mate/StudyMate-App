@@ -16,4 +16,6 @@ class ProfileController extends GetxController {
     await authService.logout();
     Get.offAllNamed(Routes.INTRO);
   }
+
+  bool isAdmin() => boxService.appUser.appUser.value?.role == 'admin';
 }
