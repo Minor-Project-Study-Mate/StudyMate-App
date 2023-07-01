@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../services/firebase/model/lecture_model.dart';
 import '../controllers/video_lecture_controller.dart';
 

@@ -124,6 +124,13 @@ const dummyData = [
 ];
 
 class VideoLectureController extends GetxController {
+
+  
+  /// The function `getDemoLecture` returns a Future that resolves to a list of Subject objects after
+  /// emulating a network delay and mapping dummy data.
+  /// 
+  /// Returns:
+  ///   a Future object that resolves to a List of Subject objects.
   Future<List<Subject>> getDemoLecture() async {
     // emulate network delay
     await Future.delayed(const Duration(seconds: 1));
@@ -132,6 +139,10 @@ class VideoLectureController extends GetxController {
     return dummyData.map((e) => Subject.fromMap(e)).toList();
   }
 
+  /// The function `getLectures` retrieves a list of subjects asynchronously from a Firebase service.
+  /// 
+  /// Returns:
+  ///   a `Future` object that resolves to a `List` of `Subject` objects.
   Future<List<Subject>> getLectures() async {
     final firebaseService = Get.find<FirebaseService>();
     return await firebaseService.lectureDatasourcese.getLectures();

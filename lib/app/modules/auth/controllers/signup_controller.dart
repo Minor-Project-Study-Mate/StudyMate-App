@@ -6,7 +6,6 @@ import 'package:study_mate/app/services/box/box_service.dart';
 import '../../../routes/app_pages.dart';
 import '../../../services/auth/auth_service.dart';
 import '../../../services/firebase/firebase_service.dart';
-import '../../../services/firebase/model/app_user_model.dart';
 
 class SignUpController extends GetxController {
   final _authService = Get.find<AuthService>();

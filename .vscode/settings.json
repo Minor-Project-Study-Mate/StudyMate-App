@@ -4,5 +4,6 @@
     "editor.tokenColorCustomizations": {
         "comments": "",
         "textMateRules": []
-    }
+    },
+    "svg.preview.background": "editor"
 }

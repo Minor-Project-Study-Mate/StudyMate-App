@@ -56,8 +56,6 @@ class HomeView extends GetView<HomeController> {
         ]),
       );
 
-  // Widget noticeEventWidget(BuildContext context) =>
-
   Widget appFeatures(BuildContext context) => AnimatedSize(
         duration: const Duration(milliseconds: 100),
         curve: Curves.easeInOut,
@@ -76,9 +74,13 @@ class HomeView extends GetView<HomeController> {
                 label: "Courses",
                 color: Colors.green),
             _buildCircularButton(context,
-                onPressed: () {},
-                iconData: Icons.favorite,
-                label: "MeetUp",
+                onPressed: () =>
+                    prevWeb(context, "https://classroom.google.com/"),
+                icon: const FaIcon(
+                  FontAwesomeIcons.chalkboardUser,
+                  color: Colors.white,
+                ),
+                label: "Classroom",
                 color: Colors.red),
             _buildCircularButton(context,
                 onPressed: () =>
@@ -91,9 +93,8 @@ class HomeView extends GetView<HomeController> {
                 iconData: Icons.star_border_outlined,
                 label: "Favourites",
                 color: Colors.purple.shade300),
-            _buildCircularButton(context, onPressed: () {
-              Get.toNamed(Routes.VIDEO_LECTURE);
-            },
+            _buildCircularButton(context,
+                onPressed: () => Get.toNamed(Routes.VIDEO_LECTURE),
                 iconData: Icons.video_camera_front_rounded,
                 label: "Lectures",
                 color: Colors.amber.shade400),
@@ -173,9 +174,10 @@ class HomeView extends GetView<HomeController> {
       );
 
   Widget _buildCircularButton(BuildContext context,
-          {required IconData iconData,
+          {IconData? iconData,
           required String label,
           required Color color,
+          Widget? icon,
           VoidCallback? onPressed}) =>
       Padding(
         padding: const EdgeInsets.all(12.0),
@@ -189,11 +191,13 @@ class HomeView extends GetView<HomeController> {
                 backgroundColor: color,
                 elevation: 5,
               ),
-              child: Icon(
-                iconData,
-                color: Colors.white,
-                size: 40.0,
-              ),
+              child: iconData == null
+                  ? icon
+                  : Icon(
+                      iconData,
+                      color: Colors.white,
+                      size: 40.0,
+                    ),
             ),
             const SizedBox(height: 10.0),
             Text(

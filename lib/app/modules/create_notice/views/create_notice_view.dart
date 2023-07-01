@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../controllers/create_notice_controller.dart';
 
 class CreateNoticeView extends GetView<CreateNoticeController> {

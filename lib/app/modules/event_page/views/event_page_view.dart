@@ -1,11 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
+import '../../../services/firebase/model/notice_modal.dart';
 import '../controllers/event_page_controller.dart';
 
 class EventPageView extends GetView<EventPageController> {
   const EventPageView({Key? key}) : super(key: key);
+
+  Event get event => Get.arguments as Event;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -14,21 +19,19 @@ class EventPageView extends GetView<EventPageController> {
             SliverAppBar(
               expandedHeight: 200.0,
               flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  'TITLE',
-                  style: GoogleFonts.goldman(
-                    textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
+                  title: Text(
+                    event.title,
+                    style: GoogleFonts.goldman(
+                      textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                background: Image.network(
-                  'https://avatars.githubusercontent.com/u/87150492?v=4',
-                  fit: BoxFit.cover,
-                ),
-              ),
+                  background: event.thumbnailUrl == null
+                      ? null
+                      : CachedNetworkImage(imageUrl: event.thumbnailUrl!)),
             ),
             SliverFillRemaining(
               child: Container(
@@ -54,7 +57,7 @@ class EventPageView extends GetView<EventPageController> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Text(
-                        'The name Nitin is derived from the Sanskrit language, which is an ancient language of India. The word "Nitin" is a combination of two Sanskrit words: "ni" and "tina". "Ni" means "without" or "not", while "tina" means "polluted" or "dirty". Therefore, the word "Nitin" means "not polluted" or clean, pure.',
+                        event.description,
                         style: GoogleFonts.roboto(
                           textStyle: const TextStyle(
                             fontSize: 18.0,
@@ -62,34 +65,33 @@ class EventPageView extends GetView<EventPageController> {
                         ),
                       ),
                     ),
-                    const Text(
-                      'Date: 30th April 2023',
-                      style: TextStyle(
+                    Text(
+                      'Date: ${DateFormat('d MMMM y').format(event.dateTime)}',
+                      style: const TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
-                      'Time: 9:14 pm',
-                      style: TextStyle(
+                    Text(
+                      'Time: ${DateFormat('h:mm a').format(event.dateTime)}',
+                      style: const TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 16.0),
-                    InkWell(
-                      onTap: () {
-                        // Perform action when URL is tapped
-                      },
-                      child: const Text(
-                        'www.nitin.com',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                    if (event.url != null)
+                      InkWell(
+                        onTap: () {},
+                        child: Text(
+                          event.url!,
+                          style: const TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),

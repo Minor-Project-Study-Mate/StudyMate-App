@@ -1,27 +1,31 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class Event {
   final String title;
   final String description;
   final DateTime dateTime;
+  final String? thumbnailUrl;
   final String? url;
-  const Event(
-      {required this.title,
-      required this.description,
-      required this.dateTime,
-      this.url});
+  Event({
+    required this.title,
+    required this.description,
+    required this.dateTime,
+    this.thumbnailUrl,
+    this.url,
+  });
 
   Event copyWith({
     String? title,
     String? description,
     DateTime? dateTime,
+    String? thumbnailUrl,
     String? url,
   }) {
     return Event(
       title: title ?? this.title,
       description: description ?? this.description,
       dateTime: dateTime ?? this.dateTime,
+      thumbnailUrl: thumbnailUrl ?? this.thumbnailUrl,
       url: url ?? this.url,
     );
   }
@@ -31,6 +35,7 @@ class Event {
       'title': title,
       'description': description,
       'dateTime': dateTime.millisecondsSinceEpoch,
+      'thumbnailUrl': thumbnailUrl,
       'url': url,
     };
   }
@@ -40,6 +45,8 @@ class Event {
       title: map['title'] as String,
       description: map['description'] as String,
       dateTime: DateTime.fromMillisecondsSinceEpoch(map['dateTime'] as int),
+      thumbnailUrl:
+          map['thumbnailUrl'] != null ? map['thumbnailUrl'] as String : null,
       url: map['url'] != null ? map['url'] as String : null,
     );
   }
@@ -51,7 +58,7 @@ class Event {
 
   @override
   String toString() {
-    return 'Event(title: $title, description: $description, dateTime: $dateTime, url: $url)';
+    return 'Event(title: $title, description: $description, dateTime: $dateTime, thumbnailUrl: $thumbnailUrl, url: $url)';
   }
 
   @override
@@ -61,6 +68,7 @@ class Event {
     return other.title == title &&
         other.description == description &&
         other.dateTime == dateTime &&
+        other.thumbnailUrl == thumbnailUrl &&
         other.url == url;
   }
 
@@ -69,6 +77,7 @@ class Event {
     return title.hashCode ^
         description.hashCode ^
         dateTime.hashCode ^
+        thumbnailUrl.hashCode ^
         url.hashCode;
   }
 }

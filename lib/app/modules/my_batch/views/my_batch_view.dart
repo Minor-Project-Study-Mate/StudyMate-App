@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+
 import '../../../services/firebase/model/app_user_model.dart';
 import '../controllers/my_batch_controller.dart';
 
