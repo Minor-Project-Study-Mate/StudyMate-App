@@ -112,51 +112,59 @@ class CourseView extends GetView<CourseController> {
     );
   }
 
-  Widget gridItem(BuildContext context, Cource cource) => Stack(
-        children: [
-          Card(
-            shape: RoundedRectangleBorder(
+  Widget gridItem(BuildContext context, Cource course) => Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        elevation: 5,
+        child: Stack(
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.circular(10),
+              child: CachedNetworkImage(
+                imageUrl: course.thumbnailUrl,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
             ),
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 40,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: cource.thumbnailUrl,
-                      fit: BoxFit.cover,
-                    ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
+                  color: Colors.black.withOpacity(0.7),
+                ),
+                child: Text(
+                  course.title,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
                   ),
                 ),
-                Positioned(
-                  bottom: 5,
-                  left: 5,
-                  child: Text(cource.title,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                      textAlign: TextAlign.center,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 20,
-                              )),
-                )
-              ],
+              ),
             ),
-          ),
-          InkWell(
-            borderRadius: BorderRadius.circular(10),
-            onTap: () => prevWeb(context, cource.url),
-          ),
-        ],
+            Positioned.fill(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  onTap: () => prevWeb(context, course.url),
+                ),
+              ),
+            ),
+          ],
+        ),
       );
 
   AppBar appBar(BuildContext context) => AppBar(

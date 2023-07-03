@@ -11,19 +11,48 @@ const dummyData = [
     "description": "Data Structures and Algorithms",
     "playlists": [
       {
-        "title": "Gate Smasher",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Gate Smashers",
+        "url":
+            "https://www.youtube.com/playlist?list=PLxCzCOWd7aiEwaANNt3OqJPVIxwp2ebiT",
+        "description": "Gate Smasher",
+        "thumbnailUrl": "https://i.ytimg.com/vi/3cU__spdMIw/maxresdefault.jpg"
+      },
+      {
+        "title": "CodeWithHarry",
+        "url":
+            "https://www.youtube.com/playlist?list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi",
+        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      },
+      {
+        "title": "Abdul Bari",
+        "url":
+            "https://www.youtube.com/playlist?list=PLfqBHhcvlW7-SOGCl7TJxZ4426qBCmCpc",
         "description": "Gate Smasher",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      }
+    ]
+  },
+  {
+    "name": "DAA",
+    "description": "Data Analysis and Algorithms",
+    "playlists": [
+      {
+        "title": "Gate Smashers",
+        "url":
+            "https://www.youtube.com/playlist?list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa",
+        "description": "Gate Smasher",
+        "thumbnailUrl": "https://i.ytimg.com/vi/3cU__spdMIw/maxresdefault.jpg"
       },
       {
-        "title": "Coding Wizard",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Education 4u",
+        "url":
+            "https://www.youtube.com/playlist?list=PLrjkTql3jnm8wGQyNhgdmm2gkoa8CXCml",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Algo Expert",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Abdul Bari",
+        "url":
+            "https://www.youtube.com/playlist?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O",
         "description": "Gate Smasher",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
@@ -34,20 +63,23 @@ const dummyData = [
     "description": "Database Management System",
     "playlists": [
       {
-        "title": "Gate Smasher",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
-        "description": "Gate Smasher",
+        "title": "Gate Smashers",
+        "url":
+            "https://www.youtube.com/playlist?list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y",
+        "description": "Gate Smashers",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Coding Wizard",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Jenny's Lectures",
+        "url":
+            "https://www.youtube.com/playlist?list=PLdo5W4Nhv31b33kF46f9aFjoJPOkdlsRc",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Algo Expert",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
-        "description": "Gate Smasher",
+        "title": "Knowledge Gate",
+        "url":
+            "https://www.youtube.com/playlist?list=PLmXKhU9FNesR1rSES7oLdJaNFgmuj0SYV",
+        "description": "Knowledge Gate",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
@@ -57,20 +89,23 @@ const dummyData = [
     "description": "Operating System",
     "playlists": [
       {
-        "title": "Gate Smasher",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
-        "description": "Gate Smasher",
+        "title": "Gate Smashers",
+        "url":
+            "https://www.youtube.com/playlist?list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p",
+        "description": "Gate Smashers",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Coding Wizard",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Jenny's Lectures",
+        "url":
+            "https://www.youtube.com/playlist?list=PLdo5W4Nhv31a5ucW_S1K3-x6ztBRD-PNa",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Algo Expert",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
-        "description": "Gate Smasher",
+        "title": "5 Minutes Engineering",
+        "url":
+            "https://www.youtube.com/playlist?list=PLYwpaL_SFmcD0LLrv7CXxSiO2gNJsoxpi",
+        "description": "5 Minutes Engineering",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
@@ -80,20 +115,22 @@ const dummyData = [
     "description": "Computer Networks",
     "playlists": [
       {
-        "title": "Gate Smasher",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
-        "description": "Gate Smasher",
+        "title": "Gate Smashers",
+        "url":
+            "https://www.youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_",
+        "description": "Gate Smashers",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Coding Wizard",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Jyotiprakash Mishra CS",
+        "url":
+            "https://www.youtube.com/playlist?list=PL_SV5hQjReiWVPV8QdmD2G-x3Om1rATVV",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Algo Expert",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
-        "description": "Gate Smasher",
+        "title": "5 Minutes Engineering",
+        "url":
+            "https://www.youtube.com/playlist?list=PLYwpaL_SFmcAXkWn2IR-l_WXOrr0n851a",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
@@ -103,32 +140,53 @@ const dummyData = [
     "description": "Computer Organization and Architecture",
     "playlists": [
       {
-        "title": "Gate Smasher",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
-        "description": "Gate Smasher",
+        "title": "Gate Smashers",
+        "url":
+            "https://www.youtube.com/playlist?list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX",
+        "description": "Gate Smashers",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Coding Wizard",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Education 4u",
+        "url":
+            "https://www.youtube.com/playlist?list=PLrjkTql3jnm8AcFgkc5TE_yQgeHEuKYrG",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
-        "title": "Algo Expert",
-        "url": "https://www.youtube.com/watch?v=1ZGJzvkcLsA",
+        "title": "Easy Engineering Classest",
+        "url":
+            "https://www.youtube.com/playlist?list=PLV8vIYTIdSnar4uzz-4TIlgyFJ2m18NE3",
+        "description": "Easy Engineering Classes",
+        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      }
+    ]
+  },
+  {
+    "name": "OOP",
+    "description": "Object Oriented Programming",
+    "playlists": [
+      {
+        "title": "Education 4u",
+        "url":
+            "https://www.youtube.com/playlist?list=PLrjkTql3jnm-Voi7giH4JITCi6cuZSN42",
+        "description": "Education 4u",
+        "thumbnailUrl": "https://i.ytimg.com/vi/3cU__spdMIw/maxresdefault.jpg"
+      },
+      {
+        "title": "Kunal Kushwaha",
+        "url":
+            "https://www.youtube.com/playlist?list=PL9gnSGHSqcno1G3XjUbwzXHL8_EttOuKk",
         "description": "Gate Smasher",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
-  }
+  },
 ];
 
 class VideoLectureController extends GetxController {
-
-  
   /// The function `getDemoLecture` returns a Future that resolves to a list of Subject objects after
   /// emulating a network delay and mapping dummy data.
-  /// 
+  ///
   /// Returns:
   ///   a Future object that resolves to a List of Subject objects.
   Future<List<Subject>> getDemoLecture() async {
@@ -140,7 +198,7 @@ class VideoLectureController extends GetxController {
   }
 
   /// The function `getLectures` retrieves a list of subjects asynchronously from a Firebase service.
-  /// 
+  ///
   /// Returns:
   ///   a `Future` object that resolves to a `List` of `Subject` objects.
   Future<List<Subject>> getLectures() async {
