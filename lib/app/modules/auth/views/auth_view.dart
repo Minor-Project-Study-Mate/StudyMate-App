@@ -215,30 +215,7 @@ class AuthView extends GetView<AuthController> {
                                         ),
                                       ),
                                     ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        // code for Facebook login
-                                      },
-                                      child: Container(
-                                        height: 40.0,
-                                        width: 40.0,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black26,
-                                              offset: Offset(0, 2),
-                                              blurRadius: 6.0,
-                                            ),
-                                          ],
-                                        ),
-                                        child: Image.asset(
-                                          "assets/images/Facebook.png",
-                                          height: 20,
-                                        ),
-                                      ),
-                                    ),
+                                    
                                   ],
                                 ),
                                 const SizedBox(height: 30.0),
