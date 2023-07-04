@@ -1,3 +1,5 @@
+
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -76,15 +78,20 @@ class VideoLectureView extends GetView<VideoLectureController> {
                     child: SizedBox(
                       width: 150,
                       height: 84,
-                      child: CachedNetworkImage(
-                        imageUrl: playlist.thumbnailUrl ?? '',
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Container(
-                          color: Colors.grey,
-                        ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                      ),
+                      child: FutureBuilder(
+                          future: controller.getPlaylistThumbnail(playlist.url),
+                          builder: (context, snap) {
+                            if (snap.hasData) {
+                              return CachedNetworkImage(
+                                imageUrl: snap.data.toString(),
+                                fit: BoxFit.cover,
+                              );
+                            } else if (!snap.hasData) {
+                              return const LinearProgressIndicator();
+                            } else {
+                              return const Icon(Icons.error);
+                            }
+             }),
                     )),
               ),
               Padding(
@@ -124,3 +131,4 @@ class VideoLectureView extends GetView<VideoLectureController> {
         ),
       );
 }
+

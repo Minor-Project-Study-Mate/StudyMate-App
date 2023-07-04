@@ -1,9 +1,13 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:convert';
+
 import 'package:get/get.dart';
 import 'package:study_mate/app/services/firebase/firebase_service.dart';
 import 'package:study_mate/app/services/firebase/model/lecture_model.dart';
+import 'package:study_mate/credential.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
 
 const dummyData = [
   {
@@ -15,7 +19,7 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLxCzCOWd7aiEwaANNt3OqJPVIxwp2ebiT",
         "description": "Gate Smasher",
-        "thumbnailUrl": "https://i.ytimg.com/vi/3cU__spdMIw/maxresdefault.jpg"
+        "thumbnailUrl": "https://img.youtube.com/vi/Pn9SXXVqDQU/sddefault.jpg"
       },
       {
         "title": "CodeWithHarry",
@@ -178,6 +182,13 @@ const dummyData = [
             "https://www.youtube.com/playlist?list=PL9gnSGHSqcno1G3XjUbwzXHL8_EttOuKk",
         "description": "Gate Smasher",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      },
+      {
+        "title": "College Wallah",
+        "url":
+            "https://www.youtube.com/watch?v=9roJTTghZJI&ab_channel=CollegeWallah",
+        "description": "Gate Smasher",
+        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
   },
@@ -191,7 +202,7 @@ class VideoLectureController extends GetxController {
   ///   a Future object that resolves to a List of Subject objects.
   Future<List<Subject>> getDemoLecture() async {
     // emulate network delay
-    await Future.delayed(const Duration(seconds: 1));
+    //await Future.delayed(const Duration(seconds: 1));
 
     // return dummy data
     return dummyData.map((e) => Subject.fromMap(e)).toList();
@@ -209,4 +220,13 @@ class VideoLectureController extends GetxController {
   Future<void> launchURL(String url) async => (await canLaunch(url))
       ? await launch(url)
       : Get.snackbar("Error", "Could not launch $url");
+
+  Future<String> getPlaylistThumbnail(String playlistLink) async {
+    final playlistId = playlistLink.split('list=')[1];
+    final apiUrl =
+        'https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=$playlistId&key=$API_KEY';
+    final response = await http.get(Uri.parse(apiUrl));
+    final data = jsonDecode(response.body);
+    return data['items'][0]['snippet']['thumbnails']['high']['url'];
+  }
 }

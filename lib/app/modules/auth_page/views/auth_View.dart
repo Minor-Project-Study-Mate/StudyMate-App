@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:study_mate/app/global/widgets/card_box.dart';
-import 'package:study_mate/app/modules/auth/views/signup_view.dart';
+import 'package:study_mate/app/modules/auth_page/views/signup_view.dart';
 
 import '../controllers/auth_controller.dart';
 import 'forget_password_view.dart';
