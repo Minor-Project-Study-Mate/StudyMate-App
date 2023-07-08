@@ -76,10 +76,7 @@ class HomeView extends GetView<HomeController> {
             _buildCircularButton(context,
                 onPressed: () =>
                     prevWeb(context, "https://classroom.google.com/"),
-                icon: const FaIcon(
-                  FontAwesomeIcons.chalkboardUser,
-                  color: Colors.white,
-                ),
+                iconData: FontAwesomeIcons.chalkboardUser,
                 label: "Classroom",
                 color: Colors.red),
             _buildCircularButton(context,
@@ -117,7 +114,7 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQueryData.fromWindow(window).padding.top,
+              height: MediaQueryData.fromView(window).padding.top,
             ),
             Container(
               padding: const EdgeInsets.only(

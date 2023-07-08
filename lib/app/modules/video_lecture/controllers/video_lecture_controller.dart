@@ -221,12 +221,23 @@ class VideoLectureController extends GetxController {
       ? await launch(url)
       : Get.snackbar("Error", "Could not launch $url");
 
-  Future<String> getPlaylistThumbnail(String playlistLink) async {
-    final playlistId = playlistLink.split('list=')[1];
-    final apiUrl =
-        'https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=$playlistId&key=$API_KEY';
-    final response = await http.get(Uri.parse(apiUrl));
-    final data = jsonDecode(response.body);
-    return data['items'][0]['snippet']['thumbnails']['high']['url'];
+  Future<String> getPlaylistThumbnail(String url) async {
+    if (url.contains('list')) {
+      final playlistId = url.split('list=')[1];
+      final apiUrl =
+          'https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=$playlistId&key=$API_KEY';
+      final response = await http.get(Uri.parse(apiUrl));
+      final data = jsonDecode(response.body);
+      return data['items'][0]['snippet']['thumbnails']['high']['url'];
+    } else if (url.contains('watch')) {
+      final videoId = url.split('v=')[1];
+      final apiUrl =
+          'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=$videoId&key=$API_KEY';
+      final response = await http.get(Uri.parse(apiUrl));
+      final data = jsonDecode(response.body);
+      return data['items'][0]['snippet']['thumbnails']['high']['url'];
+    } else {
+      return "";
+    }
   }
 }

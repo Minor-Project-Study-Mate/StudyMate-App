@@ -318,7 +318,7 @@ class ProfilePage extends GetView<ProfileController> {
                 children: [
                   profileTile(
                     const FaIcon(FontAwesomeIcons.users),
-                    "My Batch",
+                    "App Users",
                     () => Get.toNamed(Routes.MY_BATCH),
                   ),
                   const Divider(),
