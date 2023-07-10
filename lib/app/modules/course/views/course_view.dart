@@ -32,85 +32,83 @@ class CourseView extends GetView<CourseController> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: appBar(context),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Choose Your",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Theme.of(context).colorScheme.onBackground,
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        appBar: appBar(context),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Choose Your",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Theme.of(context).colorScheme.onBackground,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "Desired Course",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontWeight: FontWeight.w500,
+                        Text(
+                          "Desired Course",
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 15),
-            FutureBuilder<List<Cource>>(
-                future: controller.getDummyCource(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else if (snapshot.hasData) {
-                    final folders = snapshot.data!;
-                    if (folders.isEmpty) {
+              const SizedBox(height: 15),
+              FutureBuilder<List<Cource>>(
+                  future: controller.getDummyCource(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.hasData) {
+                      final folders = snapshot.data!;
+                      if (folders.isEmpty) {
+                        return const Center(
+                          child: Text("No Data"),
+                        );
+                      }
+                      return GridView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 12.0,
+                          mainAxisSpacing: 12.0,
+                          mainAxisExtent: 310,
+                        ),
+                        itemCount: folders.length,
+                        itemBuilder: (_, index) {
+                          return gridItem(context, folders[index]);
+                        },
+                      );
+                    } else {
                       return const Center(
                         child: Text("No Data"),
                       );
                     }
-                    return GridView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 12.0,
-                        mainAxisSpacing: 12.0,
-                        mainAxisExtent: 310,
-                      ),
-                      itemCount: folders.length,
-                      itemBuilder: (_, index) {
-                        return gridItem(context, folders[index]);
-                      },
-                    );
-                  } else {
-                    return const Center(
-                      child: Text("No Data"),
-                    );
-                  }
-                }),
-          ],
+                  }),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 
   Widget gridItem(BuildContext context, Cource course) => Card(
         shape: RoundedRectangleBorder(

@@ -1,5 +1,3 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,29 +9,27 @@ class VideoLectureView extends GetView<VideoLectureController> {
   const VideoLectureView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar(context),
-      body: FutureBuilder<List<Subject>>(
-          future: controller.getDemoLecture(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              final subjectList = snapshot.data ?? [];
+  Widget build(BuildContext context) => Scaffold(
+        appBar: appBar(context),
+        body: FutureBuilder<List<Subject>>(
+            future: controller.getDemoLecture(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final subjectList = snapshot.data ?? [];
 
-              return ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: subjectList.length, // Replace with your own data
-                itemBuilder: (BuildContext context, int index) =>
-                    subjectWidget(subjectList[index], index),
-              );
-            } else if (!snapshot.hasData) {
-              return const LinearProgressIndicator();
-            } else {
-              return const Center(child: Text('No data found'));
-            }
-          }),
-    );
-  }
+                return ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: subjectList.length, // Replace with your own data
+                  itemBuilder: (BuildContext context, int index) =>
+                      subjectWidget(subjectList[index], index),
+                );
+              } else if (!snapshot.hasData) {
+                return const LinearProgressIndicator();
+              } else {
+                return const Center(child: Text('No data found'));
+              }
+            }),
+      );
 
   Widget subjectWidget(Subject subject, int chapterIndex) => InkWell(
         child: Column(
@@ -55,9 +51,8 @@ class VideoLectureView extends GetView<VideoLectureController> {
                 scrollDirection: Axis.horizontal,
                 itemCount:
                     subject.playlists.length, // Replace with your own data
-                itemBuilder: (BuildContext context, int index) {
-                  return playlistWidget(subject.playlists[index]);
-                },
+                itemBuilder: (BuildContext context, int index) =>
+                    playlistWidget(subject.playlists[index]),
               ),
             ),
           ],
@@ -91,7 +86,7 @@ class VideoLectureView extends GetView<VideoLectureController> {
                             } else {
                               return const Icon(Icons.error);
                             }
-             }),
+                          }),
                     )),
               ),
               Padding(
@@ -131,4 +126,3 @@ class VideoLectureView extends GetView<VideoLectureController> {
         ),
       );
 }
-
