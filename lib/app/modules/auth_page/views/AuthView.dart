@@ -30,7 +30,7 @@ class AuthView extends GetView<AuthController> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 250,
+                    height: 200,
                     child: Hero(
                       tag: "app_logo",
                       child: SvgPicture.asset(
@@ -221,7 +221,7 @@ class AuthView extends GetView<AuthController> {
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(height: 30.0),
+                                  const SizedBox(height: 20.0),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,

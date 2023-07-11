@@ -28,9 +28,9 @@ class AboutPageView extends GetView<AboutPageController> {
         ),
         body: Center(
           child: Container(
-            constraints: const BoxConstraints(maxWidth: 600),
+            constraints: const BoxConstraints(maxWidth: 700),
             child: ListView(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(7.0),
               children: [
                 buildPersonCard(
                   name: 'Alok Kumar',
@@ -78,7 +78,7 @@ class AboutPageView extends GetView<AboutPageController> {
       Card(
         elevation: 2.0,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(7.0),
           child: Column(
             children: [
               CircleAvatar(
