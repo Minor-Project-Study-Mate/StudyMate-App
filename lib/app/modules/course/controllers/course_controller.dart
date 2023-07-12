@@ -25,6 +25,20 @@ const dummyImagesUrls = [
   "https://s3.collegedisha.com/collegedisha/courses/image/HTML_Course.webp",
   "https://miro.medium.com/v2/resize:fit:750/0*GpOUO1n2m49hMkbh.jpg",
   "https://2.bp.blogspot.com/-peQpWmIWRcI/XNZ1UfQ8RlI/AAAAAAAAN9k/TZZb3Fhb-pAoqyZ0SZjzPegRPnqOdgfhACEwYBhgL/w1200-h630-p-k-no-nu/Git%2BStarted%2Bwith%2BGithub%2Bby%2BJason%2BTaylor.png",
+  "https://blog.logrocket.com/wp-content/uploads/2021/02/machine-learning-libraries-javascript.png",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1200px-PHP-logo.svg.png",
+  "https://crispy-pics.s3.amazonaws.com/uploads/ckeditor/pictures/307/content_Mechanics_of_the_IELTS_Exam.png",
+  "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_aws.jpg",
+  "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230318230239/Python-Data-Science-Tutorial.jpg",
+  "https://s.udemycdn.com/meta/default-meta-image-v2.png",
+  "https://www.mindinventory.com/blog/wp-content/uploads/2022/10/flutter-3.png",
+  "https://dailyillini.com/wp-content/uploads/2018/02/Networking-01.png",
+  "https://www.oceanpointins.com/wp-content/uploads/2020/02/canstockphoto26807912.jpg",
+  "https://www.analyticsinsight.net/wp-content/uploads/2021/08/7-Benefits-of-Data-Science.jpg",
+  "https://www.theinsaneapp.com/wp-content/uploads/2022/01/large-7-1.png",
+  "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190529171221/Learning-Data-Structures-and-Algorithms-is-Important1.png",
+  "https://illustratorhow.com/wp-content/uploads/adobe-illustrator-class-course4-800x400.png",
+  "https://fireship.io/courses/vscode-tricks/img/featured.png",
 ];
 
 class CourseController extends GetxController {
@@ -125,6 +139,64 @@ class CourseController extends GetxController {
           title: "Git",
           url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
           thumbnailUrl: dummyImagesUrls[21]),
+      Cource(
+          title: "Javascript",
+          url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
+          thumbnailUrl: dummyImagesUrls[22]),
+      Cource(
+          title: "PHP",
+          url: "https://mega.nz/folder/iyBHzbwS#PCGcMrOD0ljUYsROZKfJPw",
+          thumbnailUrl: dummyImagesUrls[23]),
+      Cource(
+          title: "IELTS",
+          url:
+              "https://mega.nz/folder/G9gxXQ6a#F0By_xyreF8gsueS3CsJYg/folder/L1IgkT4C",
+          thumbnailUrl: dummyImagesUrls[24]),
+      Cource(
+          title: "AWS",
+          url: "https://mega.nz/folder/G2hwVIQZ#Lo5BHE0FK7iMY4ad9NkXBQ",
+          thumbnailUrl: dummyImagesUrls[25]),
+      Cource(
+          title: "PYTHON DATA SCIENCE",
+          url: "https://mega.nz/folder/iyBHzbwS#PCGcMrOD0ljUYsROZKfJPw",
+          thumbnailUrl: dummyImagesUrls[26]),
+      Cource(
+          title: "UDEMY",
+          url: "https://mega.nz/folder/kzJ31I5S#Z8SeXHQ2G39e3HFSmLgONg",
+          thumbnailUrl: dummyImagesUrls[27]),
+      Cource(
+          title: "Flutter",
+          url: "https://mega.nz/folder/3WhSkBjJ#YSDBnDegckd9-xSQ04W0qA",
+          thumbnailUrl: dummyImagesUrls[28]),
+      Cource(
+          title: "NETWORKING",
+          url: "https://mega.nz/folder/TnxyiAxR#RqbMk2V9b9CTdmkIhaD17g",
+          thumbnailUrl: dummyImagesUrls[29]),
+      Cource(
+          title: "HACKING",
+          url: "https://mega.nz/folder/b25RwLwI#pH-1i0Nwnmp6wQpM8f5klQ",
+          thumbnailUrl: dummyImagesUrls[30]),
+      Cource(
+          title: "DATA SCIENCE",
+          url: "https://mega.nz/folder/SuZmFapL#sqFxVC8j8f41fdBicW3M1A",
+          thumbnailUrl: dummyImagesUrls[31]),
+      Cource(
+          title: "JUMBO ML",
+          url: "https://mega.nz/folder/L3ojVJ5D#my8NmtblmlS1bdmWsisvIw",
+          thumbnailUrl: dummyImagesUrls[32]),
+      Cource(
+          title: "Data structure Algo",
+          url: "https://mega.nz/folder/D7QCna5C#HQxJuF-gJSIxK6rH72L9DQ",
+          thumbnailUrl: dummyImagesUrls[33]),
+      Cource(
+          title: "ADOBE ILLUSTRATOR",
+          url:
+              "https://drive.google.com/drive/folders/1YuD5yWIlI4rxaLaS932qdBgs4wMRAOYj?u",
+          thumbnailUrl: dummyImagesUrls[34]),
+      Cource(
+          title: "VS CODE TRICKS",
+          url: "https://mega.nz/folder/n6ZC2LxA#2BZ9J2sGEvK78cXQE9T6BQ",
+          thumbnailUrl: dummyImagesUrls[35]),
     ];
   }
 }

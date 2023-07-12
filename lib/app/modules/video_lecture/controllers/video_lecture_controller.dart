@@ -20,20 +20,35 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLxCzCOWd7aiEwaANNt3OqJPVIxwp2ebiT",
         "description": "Gate Smasher",
-        "thumbnailUrl": "https://img.youtube.com/vi/Pn9SXXVqDQU/sddefault.jpg"
+      },
+      {
+        "title": "Jenny Lecture",
+        "url":
+            "https://youtube.com/playlist?list=PLdo5W4Nhv31bbKJzrsKfMpo_grxuLl8LU",
+        "description": "Jenny Lecture",
+      },
+      {
+        "title": "Code Help",
+        "url":
+            "https://youtube.com/playlist?list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA",
+        "description": "Code Help",
+      },
+      {
+        "title": "Apna College",
+        "url":
+            "https://youtube.com/playlist?list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ",
+        "description": "Apna College",
       },
       {
         "title": "CodeWithHarry",
         "url":
             "https://www.youtube.com/playlist?list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
         "title": "Abdul Bari",
         "url":
             "https://www.youtube.com/playlist?list=PLfqBHhcvlW7-SOGCl7TJxZ4426qBCmCpc",
         "description": "Gate Smasher",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
   },
@@ -46,20 +61,32 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa",
         "description": "Gate Smasher",
-        "thumbnailUrl": "https://i.ytimg.com/vi/3cU__spdMIw/maxresdefault.jpg"
       },
       {
         "title": "Education 4u",
         "url":
             "https://www.youtube.com/playlist?list=PLrjkTql3jnm8wGQyNhgdmm2gkoa8CXCml",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      },
+      {
+        "title": "University Academy",
+        "url":
+            "https://youtube.com/playlist?list=PL-JvKqQx2Atd--1Gs3WB8nmWOWRbEM7WW",
+      },
+      {
+        "title": "GRS",
+        "url":
+            "https://youtube.com/playlist?list=PLtg1mdkLERgnS8XNGU4irXk7dRuji61ZX",
+      },
+      {
+        "title": "GateHub",
+        "url":
+            "https://youtube.com/playlist?list=PL1QH9gyQXfgs7foRxIbIH8wmJyDh5QzAm",
       },
       {
         "title": "Abdul Bari",
         "url":
             "https://www.youtube.com/playlist?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O",
         "description": "Gate Smasher",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
   },
@@ -72,20 +99,32 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y",
         "description": "Gate Smashers",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
         "title": "Jenny's Lectures",
         "url":
             "https://www.youtube.com/playlist?list=PLdo5W4Nhv31b33kF46f9aFjoJPOkdlsRc",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      },
+      {
+        "title": "Code help",
+        "url":
+            "https://youtube.com/playlist?list=PLDzeHZWIZsTpukecmA2p5rhHM14bl2dHU",
+      },
+      {
+        "title": "Unacademy",
+        "url":
+            "https://youtube.com/playlist?list=PLG9aCp4uE-s0bu-I8fgDXXhVLO4qVROGy",
+      },
+      {
+        "title": "Amit Khurana",
+        "url":
+            "https://youtube.com/playlist?list=PLC36xJgs4dxGcz7nZaxGxxmbJrcgDXhFk",
       },
       {
         "title": "Knowledge Gate",
         "url":
             "https://www.youtube.com/playlist?list=PLmXKhU9FNesR1rSES7oLdJaNFgmuj0SYV",
         "description": "Knowledge Gate",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
   },
@@ -98,20 +137,32 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p",
         "description": "Gate Smashers",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
         "title": "Jenny's Lectures",
         "url":
             "https://www.youtube.com/playlist?list=PLdo5W4Nhv31a5ucW_S1K3-x6ztBRD-PNa",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      },
+      {
+        "title": "Unacademy",
+        "url":
+            "https://youtube.com/playlist?list=PLG9aCp4uE-s17rFjWM8KchGlffXgOzzVP",
+      },
+      {
+        "title": "Code Help",
+        "url":
+            "https://youtube.com/playlist?list=PLDzeHZWIZsTr3nwuTegHLa2qlI81QweYG",
+      },
+      {
+        "title": "Neso Academy",
+        "url":
+            "https://youtube.com/playlist?list=PLBlnK6fEyqRiVhbXDGLXDk_OQAeuVcp2O",
       },
       {
         "title": "5 Minutes Engineering",
         "url":
             "https://www.youtube.com/playlist?list=PLYwpaL_SFmcD0LLrv7CXxSiO2gNJsoxpi",
         "description": "5 Minutes Engineering",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
   },
@@ -124,19 +175,21 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_",
         "description": "Gate Smashers",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      },
+      {
+        "title": "Neso Academy",
+        "url":
+            "https://youtube.com/playlist?list=PLBlnK6fEyqRgMCUAG0XRw78UA8qnv6jEx",
       },
       {
         "title": "Jyotiprakash Mishra CS",
         "url":
             "https://www.youtube.com/playlist?list=PL_SV5hQjReiWVPV8QdmD2G-x3Om1rATVV",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
         "title": "5 Minutes Engineering",
         "url":
             "https://www.youtube.com/playlist?list=PLYwpaL_SFmcAXkWn2IR-l_WXOrr0n851a",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
   },
@@ -149,20 +202,17 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX",
         "description": "Gate Smashers",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
         "title": "Education 4u",
         "url":
             "https://www.youtube.com/playlist?list=PLrjkTql3jnm8AcFgkc5TE_yQgeHEuKYrG",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
         "title": "Easy Engineering Classest",
         "url":
             "https://www.youtube.com/playlist?list=PLV8vIYTIdSnar4uzz-4TIlgyFJ2m18NE3",
         "description": "Easy Engineering Classes",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
     ]
   },
@@ -175,21 +225,57 @@ const dummyData = [
         "url":
             "https://www.youtube.com/playlist?list=PLrjkTql3jnm-Voi7giH4JITCi6cuZSN42",
         "description": "Education 4u",
-        "thumbnailUrl": "https://i.ytimg.com/vi/3cU__spdMIw/maxresdefault.jpg"
       },
       {
         "title": "Kunal Kushwaha",
         "url":
             "https://www.youtube.com/playlist?list=PL9gnSGHSqcno1G3XjUbwzXHL8_EttOuKk",
         "description": "Gate Smasher",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       },
       {
         "title": "College Wallah",
         "url":
             "https://www.youtube.com/watch?v=bL-o2xBENY0&list=PLxgZQoSe9cg0df_GxVjz3DD_Gck5tMXAd",
         "description": "Gate Smasher",
-        "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
+      }
+    ]
+  },
+  {
+    "name": "HPC",
+    "description": "High Performance and Compuing",
+    "playlists": [
+      {
+        "title": "Nitjsr",
+        "url":
+            "https://youtube.com/playlist?list=PLKbHXY2AAg7Vn2_om3WhIG_pohRJRTSok",
+        "description": "Nitjsr",
+      },
+      {
+        "title": "Nptel",
+        "url": "https://youtube.com/playlist?list=PL2F82ECDF8BB71B0C",
+        "description": "Nptel",
+      },
+      {
+        "title": "Shannu Kuttan",
+        "url":
+            "https://youtube.com/playlist?list=PL3R9-um41Jsz4as9nqgVB6YRR90rs0wE6",
+        "description": "Shannu Kuttan",
+      }
+    ]
+  },
+  {
+    "name": "CD",
+    "description": "Compiler and Design",
+    "playlists": [
+      {
+        "title": "Gate Smasher",
+        "url":
+            "https://youtube.com/playlist?list=PLxCzCOWd7aiEKtKSIHYusizkESC42diyc",
+      },
+      {
+        "title": "Lalit Vashishtha",
+        "url":
+            "https://youtube.com/playlist?list=PLLvKknWU7N4zpJWLqk7DXK26JwTB-gFmZ",
       }
     ]
   },

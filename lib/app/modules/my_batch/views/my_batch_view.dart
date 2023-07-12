@@ -13,7 +13,7 @@ class MyBatchView extends GetView<MyBatchController> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text("My Batch"),
+          title: const Text("App Users"),
           centerTitle: true,
           leading: IconButton(
             icon: const FaIcon(FontAwesomeIcons.arrowLeft),
