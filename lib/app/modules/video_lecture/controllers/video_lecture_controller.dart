@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:study_mate/app/services/firebase/firebase_service.dart';
 import 'package:study_mate/app/services/firebase/model/lecture_model.dart';
 import 'package:study_mate/credential.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
@@ -186,7 +187,7 @@ const dummyData = [
       {
         "title": "College Wallah",
         "url":
-            "https://www.youtube.com/watch?v=9roJTTghZJI&ab_channel=CollegeWallah",
+            "https://www.youtube.com/watch?v=bL-o2xBENY0&list=PLxgZQoSe9cg0df_GxVjz3DD_Gck5tMXAd",
         "description": "Gate Smasher",
         "thumbnailUrl": "https://i.ytimg.com/vi/1ZGJzvkcLsA/maxresdefault.jpg"
       }
