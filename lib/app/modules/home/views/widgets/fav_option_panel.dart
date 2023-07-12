@@ -35,15 +35,6 @@ class FavOptionPanel extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // TextButton(
-                      //   onPressed: () =>
-                      //       controller.boxService.favBox.clearFavs(),
-                      //   child: const Text(
-                      //     "Clear all favorites",
-                      //     style: TextStyle(fontStyle: FontStyle.italic),
-                      //   ),
-                      // ),
-                      // const SizedBox(height: 10),
                       AnimatedSize(
                         duration: const Duration(milliseconds: 300),
                         child: SizedBox(

@@ -55,27 +55,25 @@ class CourseView extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Courses"),
-      ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: List.generate(folders.length, (index) {
-          return Card(
-            child: Center(
-              child: Text(
-                folders[index],
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontSize: 20,
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text("Courses"),
+        ),
+        body: GridView.count(
+          crossAxisCount: 2,
+          children: List.generate(folders.length, (index) {
+            return Card(
+              child: Center(
+                child: Text(
+                  folders[index],
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    fontSize: 20,
+                  ),
                 ),
               ),
-            ),
-          );
-        }),
-      ),
-    );
-  }
+            );
+          }),
+        ),
+      );
 }
