@@ -7,25 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:496320293166:android:b718f8a9c0228ae1e432bf",
+        "mobilesdk_app_id": "1:496320293166:android:abc9eb265af9376de432bf",
         "android_client_info": {
-          "package_name": "com.example.study_mate"
+          "package_name": "com.application.studymate"
         }
       },
       "oauth_client": [
         {
-          "client_id": "496320293166-l96he5nreqn3r75stmo62r1kihfqjt30.apps.googleusercontent.com",
+          "client_id": "496320293166-nclo68bmm1tr8du8mnmrmsm7nv37gk5i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.study_mate",
-            "certificate_hash": "6a2623290fb5e0d2672e6e01fa39de06a4badb0d"
-          }
-        },
-        {
-          "client_id": "496320293166-rc54f8815h1mn6kguldbmor8d1j8pd9o.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.study_mate",
+            "package_name": "com.application.studymate",
             "certificate_hash": "6403069f7c7e401134152db8e581ab9a68a86fe5"
           }
         }

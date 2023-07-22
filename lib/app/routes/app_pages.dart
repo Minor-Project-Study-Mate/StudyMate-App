@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../modules/about_page/bindings/about_page_binding.dart';
 import '../modules/about_page/views/about_page_view.dart';
 import '../modules/auth_page/bindings/auth_binding.dart';
-import '../modules/auth_page/views/authView.dart';
+import '../modules/auth_page/views/AuthView.dart';
 import '../modules/course/bindings/course_binding.dart';
 import '../modules/course/views/course_view.dart';
 import '../modules/create_notice/bindings/create_notice_binding.dart';

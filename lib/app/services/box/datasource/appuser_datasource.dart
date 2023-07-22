@@ -14,7 +14,6 @@ class AppUserDatasource {
   Future<AppUser?> getAppUser() async {
     final res = await box.read('user');
     if (res == null) return null;
-    print(res);
     return AppUser.fromJson(res);
   }
 

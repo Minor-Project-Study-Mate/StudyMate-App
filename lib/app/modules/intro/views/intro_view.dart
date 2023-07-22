@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:study_mate/app/routes/app_pages.dart';
 
-import '../controllers/intro_controller.dart';
-
 class IntroView extends StatelessWidget {
   const IntroView({Key? key}) : super(key: key);
 
@@ -178,7 +176,6 @@ class IntroView extends StatelessWidget {
                     ],
                   ),
                 )),
-
             Expanded(
               flex: 2,
               child: Container(

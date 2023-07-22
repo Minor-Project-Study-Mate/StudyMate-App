@@ -61,7 +61,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBJg-IXxa7FKiv1wO0jSYHyih3QeknzFU0',
-    appId: '1:496320293166:android:b718f8a9c0228ae1e432bf',
+    appId: '1:496320293166:android:b7fa5c884cc52001e432bf',
     messagingSenderId: '496320293166',
     projectId: 'studymate-web',
     storageBucket: 'studymate-web.appspot.com',

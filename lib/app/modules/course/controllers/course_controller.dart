@@ -55,148 +55,148 @@ class CourseController extends GetxController {
           title: "Angular",
           url: "https://mega.nz/folder/OnhSRRoY#Iz2nVpFa7T6zQ-GmWMVLrA",
           thumbnailUrl: dummyImagesUrls[0]),
-      Cource(
-          title: "React",
-          url: "https://mega.nz/folder/muJlGTpZ#WJyUpZIC37fNINbmTj4TPA",
-          thumbnailUrl: dummyImagesUrls[1]),
-      Cource(
-          title: "React Native",
-          url: "https://mega.nz/folder/mmxyAIBC#AlFt0ixKtlSvbFWfjBJF2w",
-          thumbnailUrl: dummyImagesUrls[2]),
-      Cource(
-          title: "Redux",
-          url: "https://mega.nz/folder/X7QgwCxJ#__Qpws9d4NNKBN4ROl8DJA",
-          thumbnailUrl: dummyImagesUrls[3]),
-      Cource(
-          title: "Xamirin forms",
-          url: "https://mega.nz/folder/bjoHHRzK#pyqBBWbOSFYr_DD1OTEYgA",
-          thumbnailUrl: dummyImagesUrls[4]),
-      Cource(
-          title: "Node js",
-          url: "https://mega.nz/folder/ry4THLRJ#PljPGZvsw66WlkBRSDR1qg",
-          thumbnailUrl: dummyImagesUrls[5]),
-      Cource(
-          title: "Asp net",
-          url: "https://mega.nz/folder/yi5wzCLZ#PNE2COk7OGWF17-cWuIgXA",
-          thumbnailUrl: dummyImagesUrls[6]),
-      Cource(
-          title: "Networking",
-          url: "https://mega.nz/folder/TnxyiAxR#RqbMk2V9b9CTdmkIhaD17g",
-          thumbnailUrl: dummyImagesUrls[7]),
-      Cource(
-          title: "Hacking and Pentesting",
-          url: "https://mega.nz/folder/b25RwLwI#pH-1i0Nwnmp6wQpM8f5klQ",
-          thumbnailUrl: dummyImagesUrls[8]),
-      Cource(
-          title: "Leading certification courses",
-          url: "https://mega.nz/folder/mjITXAga#e3M-4cHrsVKjJi7FXFQckA",
-          thumbnailUrl: dummyImagesUrls[9]),
-      Cource(
-          title: "AWS solution engineer course",
-          url: "https://mega.nz/folder/SqhhxSYL#5wgAJFB9vuauNEB-D0k-Iw",
-          thumbnailUrl: dummyImagesUrls[10]),
-      Cource(
-          title: "DS Algo",
-          url: "https://mega.nz/folder/D7QCna5C#HQxJuF-gJSIxK6rH72L9DQ",
-          thumbnailUrl: dummyImagesUrls[11]),
-      Cource(
-          title: "Machine Learning",
-          url: "https://mega.nz/folder/L3ojVJ5D#my8NmtblmlS1bdmWsisvIw",
-          thumbnailUrl: dummyImagesUrls[12]),
-      Cource(
-          title: "Data Science",
-          url: "https://mega.nz/folder/SuZmFapL#sqFxVC8j8f41fdBicW3M1A",
-          thumbnailUrl: dummyImagesUrls[13]),
-      Cource(
-          title: "IOT",
-          url: "https://mega.nz/folder/3qRSHIgJ#MSKp5n7gq88A3ZHMNaPKdg",
-          thumbnailUrl: dummyImagesUrls[14]),
-      Cource(
-          title: "Microsoft Courses",
-          url: "https://mega.nz/folder/qrACxaqA#G2Ar0JTpcFxJ2fQx91XCDw",
-          thumbnailUrl: dummyImagesUrls[15]),
-      Cource(
-          title: "SQL",
-          url: "https://mega.nz/folder/KzgxwSBR#YpSvELhzrCkV4LNjVKAVkQ",
-          thumbnailUrl: dummyImagesUrls[16]),
-      Cource(
-          title: "Java",
-          url: "https://mega.nz/folder/X3Y2VKhZ#cdAytobsmG5ym9eZ4HsfWQ",
-          thumbnailUrl: dummyImagesUrls[17]),
-      Cource(
-          title: "Python",
-          url: "https://mega.nz/folder/3vxWQYpJ#Rdn7ZcDMK-mogUkJT7A-Hg",
-          thumbnailUrl: dummyImagesUrls[18]),
-      Cource(
-          title: "HTML",
-          url: "https://mega.nz/folder/rrQyULbD#JaeLmzEh9Gly26G-PKVpCQ",
-          thumbnailUrl: dummyImagesUrls[19]),
-      Cource(
-          title: "CSS",
-          url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
-          thumbnailUrl: dummyImagesUrls[20]),
-      Cource(
-          title: "Git",
-          url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
-          thumbnailUrl: dummyImagesUrls[21]),
-      Cource(
-          title: "Javascript",
-          url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
-          thumbnailUrl: dummyImagesUrls[22]),
-      Cource(
-          title: "PHP",
-          url: "https://mega.nz/folder/iyBHzbwS#PCGcMrOD0ljUYsROZKfJPw",
-          thumbnailUrl: dummyImagesUrls[23]),
-      Cource(
-          title: "IELTS",
-          url:
-              "https://mega.nz/folder/G9gxXQ6a#F0By_xyreF8gsueS3CsJYg/folder/L1IgkT4C",
-          thumbnailUrl: dummyImagesUrls[24]),
-      Cource(
-          title: "AWS",
-          url: "https://mega.nz/folder/G2hwVIQZ#Lo5BHE0FK7iMY4ad9NkXBQ",
-          thumbnailUrl: dummyImagesUrls[25]),
-      Cource(
-          title: "PYTHON DATA SCIENCE",
-          url: "https://mega.nz/folder/iyBHzbwS#PCGcMrOD0ljUYsROZKfJPw",
-          thumbnailUrl: dummyImagesUrls[26]),
-      Cource(
-          title: "UDEMY",
-          url: "https://mega.nz/folder/kzJ31I5S#Z8SeXHQ2G39e3HFSmLgONg",
-          thumbnailUrl: dummyImagesUrls[27]),
-      Cource(
-          title: "Flutter",
-          url: "https://mega.nz/folder/3WhSkBjJ#YSDBnDegckd9-xSQ04W0qA",
-          thumbnailUrl: dummyImagesUrls[28]),
-      Cource(
-          title: "NETWORKING",
-          url: "https://mega.nz/folder/TnxyiAxR#RqbMk2V9b9CTdmkIhaD17g",
-          thumbnailUrl: dummyImagesUrls[29]),
-      Cource(
-          title: "HACKING",
-          url: "https://mega.nz/folder/b25RwLwI#pH-1i0Nwnmp6wQpM8f5klQ",
-          thumbnailUrl: dummyImagesUrls[30]),
-      Cource(
-          title: "DATA SCIENCE",
-          url: "https://mega.nz/folder/SuZmFapL#sqFxVC8j8f41fdBicW3M1A",
-          thumbnailUrl: dummyImagesUrls[31]),
-      Cource(
-          title: "JUMBO ML",
-          url: "https://mega.nz/folder/L3ojVJ5D#my8NmtblmlS1bdmWsisvIw",
-          thumbnailUrl: dummyImagesUrls[32]),
-      Cource(
-          title: "Data structure Algo",
-          url: "https://mega.nz/folder/D7QCna5C#HQxJuF-gJSIxK6rH72L9DQ",
-          thumbnailUrl: dummyImagesUrls[33]),
-      Cource(
-          title: "ADOBE ILLUSTRATOR",
-          url:
-              "https://drive.google.com/drive/folders/1YuD5yWIlI4rxaLaS932qdBgs4wMRAOYj?u",
-          thumbnailUrl: dummyImagesUrls[34]),
-      Cource(
-          title: "VS CODE TRICKS",
-          url: "https://mega.nz/folder/n6ZC2LxA#2BZ9J2sGEvK78cXQE9T6BQ",
-          thumbnailUrl: dummyImagesUrls[35]),
+      // Cource(
+      //     title: "React",
+      //     url: "https://mega.nz/folder/muJlGTpZ#WJyUpZIC37fNINbmTj4TPA",
+      //     thumbnailUrl: dummyImagesUrls[1]),
+      // Cource(
+      //     title: "React Native",
+      //     url: "https://mega.nz/folder/mmxyAIBC#AlFt0ixKtlSvbFWfjBJF2w",
+      //     thumbnailUrl: dummyImagesUrls[2]),
+      // Cource(
+      //     title: "Redux",
+      //     url: "https://mega.nz/folder/X7QgwCxJ#__Qpws9d4NNKBN4ROl8DJA",
+      //     thumbnailUrl: dummyImagesUrls[3]),
+      // Cource(
+      //     title: "Xamirin forms",
+      //     url: "https://mega.nz/folder/bjoHHRzK#pyqBBWbOSFYr_DD1OTEYgA",
+      //     thumbnailUrl: dummyImagesUrls[4]),
+      // Cource(
+      //     title: "Node js",
+      //     url: "https://mega.nz/folder/ry4THLRJ#PljPGZvsw66WlkBRSDR1qg",
+      //     thumbnailUrl: dummyImagesUrls[5]),
+      // Cource(
+      //     title: "Asp net",
+      //     url: "https://mega.nz/folder/yi5wzCLZ#PNE2COk7OGWF17-cWuIgXA",
+      //     thumbnailUrl: dummyImagesUrls[6]),
+      // Cource(
+      //     title: "Networking",
+      //     url: "https://mega.nz/folder/TnxyiAxR#RqbMk2V9b9CTdmkIhaD17g",
+      //     thumbnailUrl: dummyImagesUrls[7]),
+      // Cource(
+      //     title: "Hacking and Pentesting",
+      //     url: "https://mega.nz/folder/b25RwLwI#pH-1i0Nwnmp6wQpM8f5klQ",
+      //     thumbnailUrl: dummyImagesUrls[8]),
+      // Cource(
+      //     title: "Leading certification courses",
+      //     url: "https://mega.nz/folder/mjITXAga#e3M-4cHrsVKjJi7FXFQckA",
+      //     thumbnailUrl: dummyImagesUrls[9]),
+      // Cource(
+      //     title: "AWS solution engineer course",
+      //     url: "https://mega.nz/folder/SqhhxSYL#5wgAJFB9vuauNEB-D0k-Iw",
+      //     thumbnailUrl: dummyImagesUrls[10]),
+      // Cource(
+      //     title: "DS Algo",
+      //     url: "https://mega.nz/folder/D7QCna5C#HQxJuF-gJSIxK6rH72L9DQ",
+      //     thumbnailUrl: dummyImagesUrls[11]),
+      // Cource(
+      //     title: "Machine Learning",
+      //     url: "https://mega.nz/folder/L3ojVJ5D#my8NmtblmlS1bdmWsisvIw",
+      //     thumbnailUrl: dummyImagesUrls[12]),
+      // Cource(
+      //     title: "Data Science",
+      //     url: "https://mega.nz/folder/SuZmFapL#sqFxVC8j8f41fdBicW3M1A",
+      //     thumbnailUrl: dummyImagesUrls[13]),
+      // Cource(
+      //     title: "IOT",
+      //     url: "https://mega.nz/folder/3qRSHIgJ#MSKp5n7gq88A3ZHMNaPKdg",
+      //     thumbnailUrl: dummyImagesUrls[14]),
+      // Cource(
+      //     title: "Microsoft Courses",
+      //     url: "https://mega.nz/folder/qrACxaqA#G2Ar0JTpcFxJ2fQx91XCDw",
+      //     thumbnailUrl: dummyImagesUrls[15]),
+      // Cource(
+      //     title: "SQL",
+      //     url: "https://mega.nz/folder/KzgxwSBR#YpSvELhzrCkV4LNjVKAVkQ",
+      //     thumbnailUrl: dummyImagesUrls[16]),
+      // Cource(
+      //     title: "Java",
+      //     url: "https://mega.nz/folder/X3Y2VKhZ#cdAytobsmG5ym9eZ4HsfWQ",
+      //     thumbnailUrl: dummyImagesUrls[17]),
+      // Cource(
+      //     title: "Python",
+      //     url: "https://mega.nz/folder/3vxWQYpJ#Rdn7ZcDMK-mogUkJT7A-Hg",
+      //     thumbnailUrl: dummyImagesUrls[18]),
+      // Cource(
+      //     title: "HTML",
+      //     url: "https://mega.nz/folder/rrQyULbD#JaeLmzEh9Gly26G-PKVpCQ",
+      //     thumbnailUrl: dummyImagesUrls[19]),
+      // Cource(
+      //     title: "CSS",
+      //     url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
+      //     thumbnailUrl: dummyImagesUrls[20]),
+      // Cource(
+      //     title: "Git",
+      //     url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
+      //     thumbnailUrl: dummyImagesUrls[21]),
+      // Cource(
+      //     title: "Javascript",
+      //     url: "https://mega.nz/folder/Ly4m2aya#PIZ2wElsr3SnkeNSJNsddw",
+      //     thumbnailUrl: dummyImagesUrls[22]),
+      // Cource(
+      //     title: "PHP",
+      //     url: "https://mega.nz/folder/iyBHzbwS#PCGcMrOD0ljUYsROZKfJPw",
+      //     thumbnailUrl: dummyImagesUrls[23]),
+      // Cource(
+      //     title: "IELTS",
+      //     url:
+      //         "https://mega.nz/folder/G9gxXQ6a#F0By_xyreF8gsueS3CsJYg/folder/L1IgkT4C",
+      //     thumbnailUrl: dummyImagesUrls[24]),
+      // Cource(
+      //     title: "AWS",
+      //     url: "https://mega.nz/folder/G2hwVIQZ#Lo5BHE0FK7iMY4ad9NkXBQ",
+      //     thumbnailUrl: dummyImagesUrls[25]),
+      // Cource(
+      //     title: "PYTHON DATA SCIENCE",
+      //     url: "https://mega.nz/folder/iyBHzbwS#PCGcMrOD0ljUYsROZKfJPw",
+      //     thumbnailUrl: dummyImagesUrls[26]),
+      // Cource(
+      //     title: "UDEMY",
+      //     url: "https://mega.nz/folder/kzJ31I5S#Z8SeXHQ2G39e3HFSmLgONg",
+      //     thumbnailUrl: dummyImagesUrls[27]),
+      // Cource(
+      //     title: "Flutter",
+      //     url: "https://mega.nz/folder/3WhSkBjJ#YSDBnDegckd9-xSQ04W0qA",
+      //     thumbnailUrl: dummyImagesUrls[28]),
+      // Cource(
+      //     title: "NETWORKING",
+      //     url: "https://mega.nz/folder/TnxyiAxR#RqbMk2V9b9CTdmkIhaD17g",
+      //     thumbnailUrl: dummyImagesUrls[29]),
+      // Cource(
+      //     title: "HACKING",
+      //     url: "https://mega.nz/folder/b25RwLwI#pH-1i0Nwnmp6wQpM8f5klQ",
+      //     thumbnailUrl: dummyImagesUrls[30]),
+      // Cource(
+      //     title: "DATA SCIENCE",
+      //     url: "https://mega.nz/folder/SuZmFapL#sqFxVC8j8f41fdBicW3M1A",
+      //     thumbnailUrl: dummyImagesUrls[31]),
+      // Cource(
+      //     title: "JUMBO ML",
+      //     url: "https://mega.nz/folder/L3ojVJ5D#my8NmtblmlS1bdmWsisvIw",
+      //     thumbnailUrl: dummyImagesUrls[32]),
+      // Cource(
+      //     title: "Data structure Algo",
+      //     url: "https://mega.nz/folder/D7QCna5C#HQxJuF-gJSIxK6rH72L9DQ",
+      //     thumbnailUrl: dummyImagesUrls[33]),
+      // Cource(
+      //     title: "ADOBE ILLUSTRATOR",
+      //     url:
+      //         "https://drive.google.com/drive/folders/1YuD5yWIlI4rxaLaS932qdBgs4wMRAOYj?u",
+      //     thumbnailUrl: dummyImagesUrls[34]),
+      // Cource(
+      //     title: "VS CODE TRICKS",
+      //     url: "https://mega.nz/folder/n6ZC2LxA#2BZ9J2sGEvK78cXQE9T6BQ",
+      //     thumbnailUrl: dummyImagesUrls[35]),
     ];
   }
 }
